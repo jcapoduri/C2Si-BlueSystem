@@ -1,0 +1,5 @@
+[x] funcion que chequee dado un archivo, si el md5 da o no
+[x] funcion que tome un mapeo y calcule cual archivo requiere actualizacion
+[x] comunicarse con php por post
+[ ] php que se le envie un json con los archivos a actualizar y devuelca un gzip
+[-] descomprimir el gzip actualizado (sacar version vieja)

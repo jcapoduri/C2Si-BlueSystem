@@ -1,0 +1,37 @@
+ToDo: (en orden)
+[x] carga de libro al inicio de un solo select
+[x] main
+    [x] botones con nombre de usuario
+    [x] botones de listado
+    [x] iconografia
+    [x] rescribir botones
+[ ] panel de usuario
+    [ ] configuraciones
+    [x] root puede patear gente
+    [-] busqueda de trabajos
+[ ] trabajos
+    [X] carga de trabajo
+    [x] repeticion de los trabajos
+    [-] impresion
+    [ ] crear job a partir de uno
+[x] logueo de usuarios al sistema
+[x] deslogueos de usuarios al sistema
+[-] menu de usuario comun
+[-] carga de trabajos
+[-] visualizar un trabajo
+[-] listados
+[-] impresiones
+[x] arreglar valores de los negocios
+[ ] logs
+    [ ] log de entrada al sistema
+    [ ] log sobre modificaciones a un libro
+    [-] log general
+[-] carga de anillados per business
+    [x] abm
+    [x] modificacion de los libros
+[ ] impresiones
+    [-] redefinir impresiones
+    [-] imprimir
+    [ ] imprimir listados
+Beta Publico:
+[ ]

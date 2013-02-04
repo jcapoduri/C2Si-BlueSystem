@@ -1,0 +1,45 @@
+<RCC>
+    <qresource prefix="/icons">
+        <file>../../graphics/applications-internet-5.png</file>
+        <file>../../graphics/applications-system-4.png</file>
+        <file>../../graphics/camara.png</file>
+        <file>../../graphics/cantidad de platos.png</file>
+        <file>../../graphics/casitaazul.png</file>
+        <file>../../graphics/carrito.png</file>
+        <file>../../graphics/casita.png</file>
+        <file>../../graphics/copa.png</file>
+        <file>../../graphics/document-save-2.png</file>
+        <file>../../graphics/edit-add-2.png</file>
+        <file>../../graphics/edit-delete-4.png</file>
+        <file>../../graphics/estrellita.png</file>
+        <file>../../graphics/facebook.png</file>
+        <file>../../graphics/flecha.png</file>
+        <file>../../graphics/globito mensaje.png</file>
+        <file>../../graphics/im-user.png</file>
+        <file>../../graphics/insert-image-3.png</file>
+        <file>../../graphics/list-add-4.png</file>
+        <file>../../graphics/list-remove-4.png</file>
+        <file>../../graphics/lupa.png</file>
+        <file>../../graphics/mail-mark-important-2.png</file>
+        <file>../../graphics/mail-mark-unread-2.png</file>
+        <file>../../graphics/mail-mark-unread-new.png</file>
+        <file>../../graphics/mail-message-new-3.png</file>
+        <file>../../graphics/manito ok.png</file>
+        <file>../../graphics/plato.png</file>
+        <file>../../graphics/preferences-desktop-4.png</file>
+        <file>../../graphics/preferences-system-3.png</file>
+        <file>../../graphics/tabla mensaje chef.png</file>
+        <file>../../graphics/tilde.png</file>
+        <file>../../graphics/tortita.png</file>
+        <file>../../graphics/twitter.png</file>
+        <file>../../graphics/view-refresh-5.png</file>
+        <file>../../graphics/add-user.png</file>
+        <file>../../graphics/system-shutdown.png</file>
+        <file>../../graphics/jobadd.png</file>
+        <file>../../graphics/jobedit.png</file>
+        <file>../../graphics/preferences-system.png</file>
+        <file>../../graphics/edit-find.png</file>
+        <file>../../graphics/window-close-3.png</file>
+        <file>../../graphics/im-kick-user.png</file>
+    </qresource>
+</RCC>
