@@ -1,0 +1,16 @@
+INPUT(
+./..\objs\main.o
+./..\objs\uimanagementmain.o
+./..\objs\uiterminalmain.o
+./..\objs\uiuserlogin.o
+./..\objs\ajax.o
+./..\objs\global_scope.o
+./..\objs\uiuserpanel.o
+./..\objs\uijobwidget.o
+./..\objs\uibookwidget.o
+./..\objs\uiworkordertab.o
+./..\objs\main.o
+./..\objs\bluesystemapp.o
+./..\objs\jsonmodelview.o
+./..\objs\qrc_resources.o
+);
