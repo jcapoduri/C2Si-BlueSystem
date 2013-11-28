@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Form</class>
+ <widget class="QWidget" name="Form">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1023</width>
+    <height>39</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <layout class="QHBoxLayout" name="horizontalLayout">
+   <item>
+    <widget class="QComboBox" name="comboBox">
+     <item>
+      <property name="text">
+       <string>Y (AND Logico)</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>O (OR Logico)</string>
+      </property>
+     </item>
+    </widget>
+   </item>
+   <item>
+    <widget class="QComboBox" name="comboBox_2">
+     <item>
+      <property name="text">
+       <string>Trabajo</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Fecha Ingeso</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Fecha Egreso</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Estado</string>
+      </property>
+     </item>
+    </widget>
+   </item>
+   <item>
+    <widget class="QComboBox" name="comboBox_3">
+     <item>
+      <property name="text">
+       <string>Contiene</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>=</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>&gt;</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>&gt;=</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>&lt;&gt;</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>&lt;</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>&lt;=</string>
+      </property>
+     </item>
+    </widget>
+   </item>
+   <item>
+    <widget class="QLineEdit" name="lineEdit"/>
+   </item>
+   <item>
+    <widget class="QToolButton" name="toolButton">
+     <property name="text">
+      <string>...</string>
+     </property>
+     <property name="icon">
+      <iconset resource="../src/resources.qrc">
+       <normaloff>:/icons/graphics/list-remove-4.png</normaloff>:/icons/graphics/list-remove-4.png</iconset>
+     </property>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources>
+  <include location="../src/resources.qrc"/>
+ </resources>
+ <connections/>
+</ui>

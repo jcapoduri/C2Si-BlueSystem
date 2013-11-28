@@ -11,6 +11,7 @@
 #include "solution.h"
 #include "app.h"
 #include "protoobject.h"
+#include "bluebar.h"
 
 int main(int argc, char *argv[]) {
     QJsonDocument   doc;
@@ -22,6 +23,7 @@ int main(int argc, char *argv[]) {
     QFile           config("./config.json");
     nd::solution*   solution;
     nd::app*        app;
+    bluebar*        blueterminal = new bluebar();
 
     //translate app to spanish
     translator.load("qt_es");
@@ -57,15 +59,16 @@ int main(int argc, char *argv[]) {
     //app->api()->addRoute("logout", "/business/1/login");
 
 
-
     // TESTING
-    nd::model* book = nd::app::model("book")->create();
+    /*nd::model* book = nd::app::model("book")->create();
     book->set("ringing", 1);
     book->set("name", "libro 1");
     book->fetch();
     qDebug() << "MODEL to JSON: " << book->toJSON();
     book->set("name", QString("lalala2"));
-    qDebug() << "Save Result:" << book->save();
+    qDebug() << "Save Result:" << book->save();*/
+
+    blueterminal->show();
 
     return a.exec();
 }

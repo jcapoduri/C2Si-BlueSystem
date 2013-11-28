@@ -22,7 +22,7 @@ DESTDIR = ../bin
 # files
 SOURCES += \
     main.cpp \
-    ../ui/bluebar.cpp
+    bluebar.cpp
 
 # libraries
 DEPENDPATH  += ../../ndlite/c++/src
@@ -32,7 +32,7 @@ INCLUDEPATH += ../../ndlite/c++
 LIBS += -L ../../ndlite/c++/bin -lndlite
 
 HEADERS += \
-    ../ui/bluebar.h
+    bluebar.h
 
 FORMS += \
     ../ui/bluebar.ui \
@@ -40,7 +40,10 @@ FORMS += \
     ../ui/userlogin.ui \
     ../ui/jobForm.ui \
     ../ui/workorderForm.ui \
-    ../ui/workorderViewForm.ui
+    ../ui/workorderViewForm.ui \
+    ../ui/queryItemWidget.ui \
+    ../ui/queryGeneratorForm.ui \
+    ../ui/searchWidget.ui
 
 OTHER_FILES += \
     icons.rc

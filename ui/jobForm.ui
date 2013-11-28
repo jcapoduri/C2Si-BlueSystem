@@ -56,28 +56,7 @@
       <attribute name="title">
        <string>Trabajos</string>
       </attribute>
-      <layout class="QVBoxLayout" name="verticalLayout_2">
-       <item>
-        <widget class="QToolBox" name="toolBox">
-         <property name="currentIndex">
-          <number>0</number>
-         </property>
-         <widget class="QWidget" name="page_2">
-          <property name="geometry">
-           <rect>
-            <x>0</x>
-            <y>0</y>
-            <width>608</width>
-            <height>200</height>
-           </rect>
-          </property>
-          <attribute name="label">
-           <string>Trabajo</string>
-          </attribute>
-         </widget>
-        </widget>
-       </item>
-      </layout>
+      <layout class="QVBoxLayout" name="verticalLayout_2"/>
      </widget>
      <widget class="QWidget" name="infoTab">
       <attribute name="title">

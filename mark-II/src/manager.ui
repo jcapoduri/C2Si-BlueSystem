@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>managerWidget</class>
+ <widget class="QMainWindow" name="managerWidget">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>800</width>
+    <height>600</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralWidget">
+   <layout class="QVBoxLayout" name="verticalLayout">
+    <item>
+     <widget class="QMdiArea" name="mdiArea">
+      <property name="viewMode">
+       <enum>QMdiArea::TabbedView</enum>
+      </property>
+      <property name="tabShape">
+       <enum>QTabWidget::Rounded</enum>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menuBar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>800</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuArchivo">
+    <property name="title">
+     <string>Archivo</string>
+    </property>
+    <addaction name="actionOpciones"/>
+    <addaction name="actionSalir"/>
+   </widget>
+   <widget class="QMenu" name="menuLocales">
+    <property name="title">
+     <string>Locales</string>
+    </property>
+    <addaction name="actionVer_Locales"/>
+    <addaction name="actionAgregar_Locales"/>
+   </widget>
+   <widget class="QMenu" name="menuUsuarios">
+    <property name="title">
+     <string>Usuarios</string>
+    </property>
+    <addaction name="actionVer_Usuarios"/>
+    <addaction name="actionAgregar_Usuarios"/>
+   </widget>
+   <widget class="QMenu" name="menuLibros">
+    <property name="title">
+     <string>Libros</string>
+    </property>
+    <addaction name="actionVer_Libros"/>
+   </widget>
+   <widget class="QMenu" name="menuRegistros">
+    <property name="title">
+     <string>Registros</string>
+    </property>
+    <addaction name="actionDe_Empleado"/>
+    <addaction name="actionDe_Fuera_de_Serie"/>
+   </widget>
+   <widget class="QMenu" name="menuHerramientas">
+    <property name="title">
+     <string>Herramientas</string>
+    </property>
+    <addaction name="actionCrear_back_up_en_la_nube"/>
+    <addaction name="actionManegar_backup_locales"/>
+   </widget>
+   <widget class="QMenu" name="menuTrabajos">
+    <property name="title">
+     <string>Trabajos</string>
+    </property>
+    <addaction name="actionVer_Trabajos"/>
+    <addaction name="actionListar_Trabajos_Pendientes"/>
+   </widget>
+   <addaction name="menuArchivo"/>
+   <addaction name="menuLocales"/>
+   <addaction name="menuUsuarios"/>
+   <addaction name="menuLibros"/>
+   <addaction name="menuTrabajos"/>
+   <addaction name="menuRegistros"/>
+   <addaction name="menuHerramientas"/>
+  </widget>
+  <widget class="QToolBar" name="mainToolBar">
+   <attribute name="toolBarArea">
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+  </widget>
+  <widget class="QStatusBar" name="statusBar"/>
+  <action name="actionVer_Usuarios">
+   <property name="text">
+    <string>Ver Usuarios</string>
+   </property>
+  </action>
+  <action name="actionAgregar_Usuarios">
+   <property name="text">
+    <string>Agregar Usuarios</string>
+   </property>
+  </action>
+  <action name="actionVer_Locales">
+   <property name="text">
+    <string>Ver Locales</string>
+   </property>
+  </action>
+  <action name="actionAgregar_Locales">
+   <property name="text">
+    <string>Agregar Locales</string>
+   </property>
+  </action>
+  <action name="actionOpciones">
+   <property name="text">
+    <string>Opciones</string>
+   </property>
+  </action>
+  <action name="actionSalir">
+   <property name="text">
+    <string>Salir</string>
+   </property>
+  </action>
+  <action name="actionVer_Libros">
+   <property name="text">
+    <string>Ver Libros</string>
+   </property>
+  </action>
+  <action name="actionVer_Trabajos">
+   <property name="text">
+    <string>Ver Trabajos</string>
+   </property>
+  </action>
+  <action name="actionListar_Trabajos_Pendientes">
+   <property name="text">
+    <string>Listar Trabajos Pendientes</string>
+   </property>
+  </action>
+  <action name="actionDe_Empleado">
+   <property name="text">
+    <string>de Empleado</string>
+   </property>
+  </action>
+  <action name="actionCrear_back_up_en_la_nube">
+   <property name="text">
+    <string>Crear back-up en la nube</string>
+   </property>
+  </action>
+  <action name="actionManegar_backup_locales">
+   <property name="text">
+    <string>Manegar backup locales</string>
+   </property>
+  </action>
+  <action name="actionDe_Fuera_de_Serie">
+   <property name="text">
+    <string>de Fuera de Serie</string>
+   </property>
+  </action>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <resources/>
+ <connections/>
+</ui>
