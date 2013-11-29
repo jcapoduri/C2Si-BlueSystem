@@ -22,7 +22,8 @@ DESTDIR = ../bin
 # files
 SOURCES += \
     main.cpp \
-    bluebar.cpp
+    bluebar.cpp \
+    manager.cpp
 
 # libraries
 DEPENDPATH  += ../../ndlite/c++/src
@@ -32,7 +33,8 @@ INCLUDEPATH += ../../ndlite/c++
 LIBS += -L ../../ndlite/c++/bin -lndlite
 
 HEADERS += \
-    bluebar.h
+    bluebar.h \
+    manager.h
 
 FORMS += \
     ../ui/bluebar.ui \

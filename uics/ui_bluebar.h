@@ -17,7 +17,6 @@
 #include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QPushButton>
-#include <QtWidgets/QSpacerItem>
 #include <QtWidgets/QWidget>
 
 QT_BEGIN_NAMESPACE
@@ -28,8 +27,7 @@ public:
     QHBoxLayout *horizontalLayout_2;
     QPushButton *pushButton;
     QFrame *line;
-    QHBoxLayout *horizontalLayout;
-    QSpacerItem *horizontalSpacer;
+    QPushButton *addJobButton;
     QFrame *line_2;
     QPushButton *searchButton;
 
@@ -38,6 +36,7 @@ public:
         if (blueBar->objectName().isEmpty())
             blueBar->setObjectName(QStringLiteral("blueBar"));
         blueBar->resize(755, 33);
+        blueBar->setMaximumSize(QSize(800, 40));
         QPalette palette;
         QBrush brush(QColor(255, 255, 255, 255));
         brush.setStyle(Qt::SolidPattern);
@@ -63,14 +62,10 @@ public:
 
         horizontalLayout_2->addWidget(line);
 
-        horizontalLayout = new QHBoxLayout();
-        horizontalLayout->setObjectName(QStringLiteral("horizontalLayout"));
-        horizontalSpacer = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+        addJobButton = new QPushButton(blueBar);
+        addJobButton->setObjectName(QStringLiteral("addJobButton"));
 
-        horizontalLayout->addItem(horizontalSpacer);
-
-
-        horizontalLayout_2->addLayout(horizontalLayout);
+        horizontalLayout_2->addWidget(addJobButton);
 
         line_2 = new QFrame(blueBar);
         line_2->setObjectName(QStringLiteral("line_2"));
@@ -94,6 +89,7 @@ public:
     {
         blueBar->setWindowTitle(QApplication::translate("blueBar", "Form", 0));
         pushButton->setText(QApplication::translate("blueBar", "log in", 0));
+        addJobButton->setText(QApplication::translate("blueBar", "Agregar Trabajo", 0));
         searchButton->setText(QApplication::translate("blueBar", "Buscar", 0));
     } // retranslateUi
 
