@@ -1,0 +1,12 @@
+[ ] workList
+    [ ] filtro
+[ ] Registro de usuarios
+    [ ] Dado un mes, listar todos los usuarios y horas trabajadas
+    [ ] dado un usuario y mes, detallar horarios de ingreso y egresos
+[ ] Ver logs
+    [ ] log de usuarios
+    [ ] log de objetos
+[ ] Herramientas
+    [ ] sync de dbs
+    [ ] pedir backup
+    [ ] volver a backup
