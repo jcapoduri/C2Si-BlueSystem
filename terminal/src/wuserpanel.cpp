@@ -79,18 +79,10 @@ void wUserPanel::checkJob()
     }else{
         QMessageBox::warning(this, tr("Advertencia"), tr("Este trabajo no pertenece a este negocio"), QMessageBox::Ok);
     };
-    /*wSeachJob* form = new wSeachJob();
-    form->setAttribute(Qt::WA_DeleteOnClose);
-    form->setWindowModality(Qt::ApplicationModal);
-    form->show();*/
 }
 
 void wUserPanel::searchJob()
 {
-    /*bool ok;
-    QString search = QInputDialog::getText(this, tr("Ingrese Busqueda:"), tr("busqueda: "), QLineEdit::Normal, "", &ok);
-    if(!ok) return;*/
-    //QStringList codes = code.split("-");
     wSeachJob* form = new wSeachJob(t_user);
     form->setAttribute(Qt::WA_DeleteOnClose);
     form->setWindowModality(Qt::ApplicationModal);
