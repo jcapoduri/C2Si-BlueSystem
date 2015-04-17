@@ -1,0 +1,4 @@
+*.o
+*.moc
+manager\obj\*.*
+terminal\obj\*.*
