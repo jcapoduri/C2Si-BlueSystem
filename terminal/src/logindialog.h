@@ -14,7 +14,9 @@ class loginDialog : public QDialog
     Q_OBJECT
     
 public:
+    static user* askUserSignature();
     explicit loginDialog(QWidget *parent = 0);
+    user*    getLoggedUser();
     ~loginDialog();
 signals:
     void    userLogged(user* usr);

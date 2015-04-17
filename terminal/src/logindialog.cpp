@@ -1,6 +1,13 @@
 #include "logindialog.h"
 #include "ui_logindialog.h"
 
+user *loginDialog::askUserSignature()
+{
+    loginDialog* dlg = new loginDialog();
+    dlg->exec();
+    return dlg->getLoggedUser();
+}
+
 loginDialog::loginDialog(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::loginDialog)
@@ -12,6 +19,11 @@ loginDialog::loginDialog(QWidget *parent) :
     connect(ui->buttonBox, SIGNAL(rejected()), this, SLOT(reject()));
 
     setAttribute(Qt::WA_DeleteOnClose);
+}
+
+user *loginDialog::getLoggedUser()
+{
+    return this->t_user;
 }
 
 loginDialog::~loginDialog()

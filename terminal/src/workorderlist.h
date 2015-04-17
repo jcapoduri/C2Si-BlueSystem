@@ -23,6 +23,8 @@ public:
     workorder           item(){ /*qDebug() << _index << _currentStrip.length();*/ return _currentStrip.at(_index); }
     QList<QTableWidgetItem*>    getTableRow(){ return getTableRow(item()); }
     QList<QTableWidgetItem*>    getTableRow(workorder w);
+    QStringList                 getShortTableRowHeaders();
+    QList<QTableWidgetItem*>    getShortTableRow(workorder w);
     QList<wListWorkorder*>      asListWorkorder();
 
     // setters

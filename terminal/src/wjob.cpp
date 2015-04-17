@@ -18,6 +18,7 @@ wJob::wJob(user *usr, job *j, QWidget *parent) :
     if(t_job == 0){
         setWindowTitle("Agregar Trabajo");
         t_job = new job();
+        t_job->addWork(new workorder());
         t_job->setUserOwner(new user(*usr));
         t_job->setBusiness(new business(*mainWidget::currentBusiness()));
         isAdd = true;
@@ -65,10 +66,6 @@ wJob::wJob(user *usr, job *j, QWidget *parent) :
 
 wJob::~wJob()
 {
-    /*wworkorder *w;
-    foreach (w, t_tabs) {
-        delete w;
-    };*/
     qDeleteAll(t_tabs.begin(), t_tabs.end());
     if(t_job != 0) delete t_job;
     delete ui;
@@ -167,12 +164,18 @@ void wJob::save()
 
 void wJob::cancel()
 {
-    if(isAdd){
+    /*if(isAdd){
         delete t_job;
         t_job = 0;
     }else{
         if(QMessageBox::warning(this, tr("Advertencia!"), tr("Esta por borrar el trabajo actual y todos sus pedidos derivados, esta seguro de continuar?"), QMessageBox::Yes | QMessageBox::No) == QMessageBox::Yes){
             t_job->erase(t_user->internalID());
+        };
+    };*/
+    if(isAdd){
+        if(QMessageBox::warning(this, tr("Advertencia!"), tr("Esta por borrar el trabajo actual y todos sus pedidos derivados, esta seguro de continuar?"), QMessageBox::Yes | QMessageBox::No) == QMessageBox::Yes){
+            delete t_job;
+            t_job = 0;
         };
     };
     close();
@@ -186,17 +189,6 @@ void wJob::reprint()
 
 void wJob::cloneWork()
 {
-    /*int copies = QInputDialog::getInt(this, tr("Cantidad de copias"), tr("cantidad: "), 1, 1);
-    wworkorder* ww = dynamic_cast<wworkorder*>(ui->tabWidget->currentWidget());
-    ww->save();
-
-    wworkorder* w;
-    foreach (w, t_tabs) {
-        qDebug() << w->windowTitle();
-        w->save();
-        qDebug() << w->getWorkorder()->internalID() << w->getWorkorder()->costumerName();
-    };
-    refreshWorkorders();*/
     int copies = QInputDialog::getInt(this, tr("Cantidad de copias"), tr("cantidad: "), 1, 1);
     wworkorder* ww = dynamic_cast<wworkorder*>(ui->tabWidget->currentWidget());
     ww->save();
@@ -205,6 +197,7 @@ void wJob::cloneWork()
         w = new workorder(*(ww->getWorkorder()));
         w->setUserowner(new user(*t_user));
         w->setCostumerName("");
+        w->clearId();
         t_job->addWork(w);
     };
     refreshWorkorders();
@@ -228,14 +221,16 @@ void wJob::cloneJob()
 {
     qDebug() << "debug";
     save();
-    job* j = new job(*t_job);
+    job* j = new job();
     qDebug() << "debug";
     //clareo info del job
     j->setFileTitle("");
-    workorder* a;
-    for(int i = 0; i < j->workCount(); i++){
-        a = j->workAt(i);
-        a->clearId();
+    workorder* wo;
+    for(int i = 0; i < t_job->workCount(); i++){
+        wo = j->workAt(i);
+        wo = new workorder(*wo);
+        wo->clearId();
+        j->addWork(wo);
     };
     wJob *form = new wJob(t_user, j);
     qDebug() << "debug";

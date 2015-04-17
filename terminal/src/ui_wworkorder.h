@@ -319,6 +319,9 @@ public:
         sizePolicy3.setHeightForWidth(pagesTableWidget->sizePolicy().hasHeightForWidth());
         pagesTableWidget->setSizePolicy(sizePolicy3);
         pagesTableWidget->setMinimumSize(QSize(256, 0));
+        pagesTableWidget->setEditTriggers(QAbstractItemView::NoEditTriggers);
+        pagesTableWidget->setSelectionMode(QAbstractItemView::SingleSelection);
+        pagesTableWidget->setSelectionBehavior(QAbstractItemView::SelectRows);
 
         verticalLayout_3->addWidget(pagesTableWidget);
 

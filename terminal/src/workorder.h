@@ -59,9 +59,10 @@ public:
     void    setIgnore(bool value){ t_ignore = value; }
     void    setUserowner(user* value){ t_userowner = value; }
     void    setOutOfOrder(int value){ t_outoforder = value; }
-    void    addWorkorderPages(workorder_pages* pages){ t_pages << pages; }
-    void    modWorkorderPages(workorder_pages* pages){ t_pages.removeAll(pages); t_pages << pages; }
-    void    delWorkorderPages(workorder_pages* pages){ t_pages.removeAll(pages); }
+    void    addWorkorderPages(workorder_pages* pages){ pages->setWork(this); t_pages << pages; }
+    void    modWorkorderPages(workorder_pages* pages){ pages->setWork(this); t_pages.removeAll(pages); t_pages << pages; }
+    void    delWorkorderPages(workorder_pages* pages){ t_pages.removeAll(pages); pages->erase(0); }
+    void    removeWorkorderPagesAt(int at);
     int     workorderPages(){ return t_pages.count(); }
     workorder_pages* workorderPagesAt(int at){ return t_pages.at(at); }
 

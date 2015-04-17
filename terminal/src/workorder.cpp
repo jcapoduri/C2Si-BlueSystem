@@ -49,12 +49,6 @@ workorder::workorder(quint64 id) : interface(id)
 workorder::workorder(const workorder &other) : interface(0)
 {
     t_tablename = "workorders";
-    /*t_fieldList << "description" << "costumername" << "observations" << "copies" << "conAnillado" << "doComplete";
-    t_fieldList << "lista" << "entregado" << "deadline" << "simplefaz" << "doublefaz" << "simplefaztotal" << "doublefaztotal";
-    t_fieldList << "senna" << "anillado" << "total" << "estado" << "howto" << "business";
-    t_fieldList << "isimplefaz" << "idoublefaz" << "csimplefaz" << "cdoublefaz";
-    t_fieldList << "isimplefaztotal" << "idoublefaztotal" << "csimplefaztotal" << "cdoublefaztotal";
-    t_fieldList << "anilladoHowTo" << "userowner";*/
     t_fieldList << "description" << "costumername" << "observations" << "copies" << "conAnillado" << "doComplete";
     t_fieldList << "lista" << "entregado" << "deadline" << "simplefaz" << "doublefaz" << "simplefaztotal" << "doublefaztotal";
     t_fieldList << "senna" << "anillado" << "total" << "estado" << "howto" << "business";
@@ -410,7 +404,7 @@ bool workorder::commit(quint64 usrid)
     };*/
     for(i = 0; i < t_pages.count(); i++){
         workorder_pages* p = t_pages.at(i);
-        p->commit(usrid);
+        ok = ok && p->commit(usrid);
     };
     t_flag = false;
     return ok;
@@ -430,19 +424,13 @@ bool workorder::update()
     //qDebug() <<  "workorder update" << this->internalID() << ok;
     //int i;
     QSqlQuery query;
-    /*query = nd::connection::instance()->select(QString("SELECT * FROM %1 WHERE id_workorder = %2").arg("workorder_orders").arg(internalID()));
-    t_works.clear();
-    while(query.next()){
-        workorder w(query.record().field("id_order").value().toInt());
-        w.commit();
-        t_works << w;
-    };*/
     t_pages.clear();
     query = nd::connection::instance()->select(QString("SELECT * FROM %1 WHERE workorder = %2").arg("workorders_pages").arg(internalID()), isOnFallback() ? nd::connection::fallbackdb() : nd::connection::maindb());
     while(query.next()){
         workorder_pages* w = new workorder_pages(query.record().field("id").value().toInt());
         w->onFallback(this->isOnFallback());
         w->update();
+        w->setWork(this);
         t_pages << w;
     };
 
@@ -497,4 +485,10 @@ bool workorder::erase(quint64 usrid)
         p->erase(usrid);
     };
     t_flag = false;
+}
+
+void workorder::removeWorkorderPagesAt(int at)
+{
+    if (t_pages.count() < at) return;
+    t_pages.removeAt(at);
 }

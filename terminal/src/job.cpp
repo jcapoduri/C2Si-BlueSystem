@@ -7,7 +7,7 @@ job::job(quint64 id) : nd::interface(id)
     t_tablename = "jobs";
     t_fieldList << "date" << "hour" << "filetitle" << "book" << "kind" << "done" << "ignore" << "userowner" << "business";
     t_instanced = false;
-    t_works << new workorder();
+    //t_works << new workorder();
     t_fileTitle = "";
     t_books = 0;
     t_userowner = 0;
@@ -183,7 +183,7 @@ bool job::update()
         relationship<job, workorder> rel = relationship<job, workorder>::fromFather(this);
         t_works = rel.toSonPtrList();
         workorder *w;
-        foreach(w, t_works) ok = ok && w->update();
+        //foreach(w, t_works) ok = ok && w->update();
     }else{
         qDebug() << "fallo job update";
     };

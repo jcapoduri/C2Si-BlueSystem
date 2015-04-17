@@ -252,9 +252,9 @@ public:
     {
         wJob->setWindowTitle(QApplication::translate("wJob", "Form", 0));
         groupBox_2->setTitle(QApplication::translate("wJob", "Con el Trabajo Actual", 0));
-        otherJobButton->setText(QApplication::translate("wJob", "Otro Trabajo, misma personas", 0));
-        sameWorkButton->setText(QApplication::translate("wJob", "Mismo, diferente Personas", 0));
-        differentButton->setText(QApplication::translate("wJob", "Diferente, diferentes Personas", 0));
+        otherJobButton->setText(QApplication::translate("wJob", "Clonar Trabajo (Otro Trabajo, misma personas)", 0));
+        sameWorkButton->setText(QApplication::translate("wJob", "Clonar Tab (Mismo, diferente Personas)", 0));
+        differentButton->setText(QApplication::translate("wJob", "Agregar Tabs (Diferente, diferentes Personas)", 0));
         groupBox->setTitle(QApplication::translate("wJob", "Para el:", 0));
         fechaLabel->setText(QApplication::translate("wJob", "Fecha:", 0));
         fechaDateEdit->setDisplayFormat(QApplication::translate("wJob", "dddd dd/MM", 0));

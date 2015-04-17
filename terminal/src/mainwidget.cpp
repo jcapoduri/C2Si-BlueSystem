@@ -97,33 +97,6 @@ business *mainWidget::currentBusiness()
 
 void mainWidget::connectToDB()
 {
-
-    /*nd::connection::instance()->addTable("books");
-    nd::connection::instance()->addTable("business");
-    nd::connection::instance()->addTable("business_books");
-    nd::connection::instance()->addTable("business_users");
-    nd::connection::instance()->addTable("client");
-    nd::connection::instance()->addTable("jobs");
-    nd::connection::instance()->addTable("jobs_workorders");
-    nd::connection::instance()->addTable("ndconfig");
-    nd::connection::instance()->addTable("users");
-    nd::connection::instance()->addTable("workorders");
-    nd::connection::instance()->addTable("workorders_pages");*/
-
-    /*nd::connection::instance()->setMainDb(nd::connection::addMySQL("main", "localhost", "root", "", "bluesystem"));
-    nd::connection::instance()->setFallbackDb(nd::connection::addMySQL("fallback", "localhost", "root", "", "bluesystem"));*/
-    //nd::connection::instance()->setFallbackDb(nd::connection::addMySQL("fallback", "fotocasitaazul.com.ar", "fotocasi_user", "lokithor", "fotocasi_bluesystem"));
-
-    //nd::connection::instance()->setFallbackDb(nd::connection::addMySQL("main", "localhost", "root", "", "bluesystem"));
-    //nd::connection::instance()->setMainDb(nd::connection::addMySQL("fallback", "fotocasitaazul.com.ar", "fotocasi_user", "lokithor", "fotocasi_bluesystem"));
-
-    /*qDebug() << "EXPORT:::::";
-    qDebug() << nd::connection::instance()->exportMainDb();
-    qDebug() << "END EXPORT:::::";*/
-    //nd::connection::instance()->setMainDb(nd::connection::addMySQL("main", "fotocasitaazul.com.ar", "fotocasi_user", "lokithor", "fotocasi_bluesystem"));
-    //checkWorks();
-
-
     //seteo de las db
     //nd::connection::instance()->setMainDb(nd::connection::addMySQL("main", "64.22.123.27", "fotocasi_user", "lokithor", "fotocasi_bluesystem"));
     //nd::connection::instance()->setMainDb(nd::connection::addMySQL("main", "c2si.com.ar", "shaka_ShakaBahia", "abcd1234", "shaka_bluesystem"));

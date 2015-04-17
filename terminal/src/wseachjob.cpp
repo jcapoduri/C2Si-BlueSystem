@@ -52,10 +52,13 @@ void wSeachJob::doSearch()
 
 
     where << "(entregado = 0)";
-    if(text.length() == 0){
+    if(text.length() != 0){
+        QStringList closure;
+        closure << QString("(costumername LIKE '%%1%')").arg(text);
+        closure << QString("(description LIKE '%%1%')").arg(text);
+        where << QString("(%1)").arg(closure.join(" OR "));
 
-    }else{
-        QStringList params = text.split(" ");
+        /*QStringList params = text.split(" ");
         QString param;
         QChar c;
         foreach (param, params){
@@ -81,9 +84,9 @@ void wSeachJob::doSearch()
             }else{
                 where << QString("(description LIKE '%%1%')").arg(param);
             };
-        }
+        }*/
     };
-    nd::db::queryResult<workorder> query = nd::db::select<workorder>(QString("id IN (SELECT id FROM workorders_view WHERE %1)").arg(where.join(" AND ")));
+    nd::db::queryResult<workorder> query = nd::db::select<workorder>(QString("id IN (SELECT id FROM workorders WHERE %1)").arg(where.join(" AND ")));
     while(query.next()){
         wListWorkorder *l = new wListWorkorder(query.one());
         t_ww << l;        

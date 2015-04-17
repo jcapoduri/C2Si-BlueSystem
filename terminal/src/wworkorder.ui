@@ -238,6 +238,15 @@
             <height>0</height>
            </size>
           </property>
+          <property name="editTriggers">
+           <set>QAbstractItemView::NoEditTriggers</set>
+          </property>
+          <property name="selectionMode">
+           <enum>QAbstractItemView::SingleSelection</enum>
+          </property>
+          <property name="selectionBehavior">
+           <enum>QAbstractItemView::SelectRows</enum>
+          </property>
          </widget>
         </item>
         <item>
@@ -264,7 +273,7 @@
              <string>...</string>
             </property>
             <property name="icon">
-             <iconset resource="../../../../../../../../home/shaka/Documents/dev/bluegear/src/resources.qrc">
+             <iconset resource="resources.qrc">
               <normaloff>:/icons/graphics/list-add-4.png</normaloff>:/icons/graphics/list-add-4.png</iconset>
             </property>
            </widget>
@@ -275,7 +284,7 @@
              <string>...</string>
             </property>
             <property name="icon">
-             <iconset resource="../../../../../../../../home/shaka/Documents/dev/bluegear/src/resources.qrc">
+             <iconset resource="resources.qrc">
               <normaloff>:/icons/graphics/list-remove-4.png</normaloff>:/icons/graphics/list-remove-4.png</iconset>
             </property>
            </widget>
@@ -861,7 +870,6 @@
   </layout>
  </widget>
  <resources>
-  <include location="resources.qrc"/>
   <include location="resources.qrc"/>
   <include location="resources.qrc"/>
  </resources>

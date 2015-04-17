@@ -139,11 +139,13 @@ void wworkorder::addPages()
 
 void wworkorder::delPages()
 {
+    QModelIndexList list = ui->pagesTableWidget->selectionModel()->selectedRows(0);
+    if(list.isEmpty()) return;
 
-    /*wworkorder_pages* dialog = new wworkorder_pages();
-    connect(dialog, SIGNAL(pagesSaved(workorder_pages*)), this, SLOT(pagesAdded(workorder_pages*)));
-    dialog->setAttribute(Qt::WA_DeleteOnClose);
-    dialog->exec();*/
+    QModelIndex data = list.at(0);
+    t_workorder->removeWorkorderPagesAt(data.row());
+
+    refreshPages();
 }
 
 void wworkorder::pagesAdded(workorder_pages *pages)

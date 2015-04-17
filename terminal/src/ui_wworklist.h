@@ -113,6 +113,7 @@ public:
 
         clientCheckBox = new QCheckBox(filterGroupBox);
         clientCheckBox->setObjectName(QStringLiteral("clientCheckBox"));
+        clientCheckBox->setChecked(true);
 
         horizontalLayout_2->addWidget(clientCheckBox);
 
@@ -219,7 +220,10 @@ public:
         tableWidget = new QTableWidget(wWorkList);
         tableWidget->setObjectName(QStringLiteral("tableWidget"));
         tableWidget->setEditTriggers(QAbstractItemView::NoEditTriggers);
+        tableWidget->setAlternatingRowColors(true);
+        tableWidget->setSelectionMode(QAbstractItemView::SingleSelection);
         tableWidget->setSelectionBehavior(QAbstractItemView::SelectRows);
+        tableWidget->setSortingEnabled(true);
 
         verticalLayout->addWidget(tableWidget);
 
@@ -245,6 +249,7 @@ public:
 
 
         retranslateUi(wWorkList);
+        QObject::connect(searchLineEdit, SIGNAL(returnPressed()), searchButton, SLOT(click()));
 
         QMetaObject::connectSlotsByName(wWorkList);
     } // setupUi

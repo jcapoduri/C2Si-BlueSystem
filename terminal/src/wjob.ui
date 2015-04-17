@@ -25,21 +25,21 @@
         <item>
          <widget class="QPushButton" name="otherJobButton">
           <property name="text">
-           <string>Otro Trabajo, misma personas</string>
+           <string>Clonar Trabajo (Otro Trabajo, misma personas)</string>
           </property>
          </widget>
         </item>
         <item>
          <widget class="QPushButton" name="sameWorkButton">
           <property name="text">
-           <string>Mismo, diferente Personas</string>
+           <string>Clonar Tab (Mismo, diferente Personas)</string>
           </property>
          </widget>
         </item>
         <item>
          <widget class="QPushButton" name="differentButton">
           <property name="text">
-           <string>Diferente, diferentes Personas</string>
+           <string>Agregar Tabs (Diferente, diferentes Personas)</string>
           </property>
          </widget>
         </item>

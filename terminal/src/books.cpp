@@ -33,7 +33,9 @@ books::books(const books &other)
     t_doublecopies = other.t_doublecopies;
     books *bk;
     foreach(bk, other.t_folder){
-        t_folder << new books(*bk);
+        books *b = new books(*bk);
+        b->setParent(this);
+        t_folder << b;
     }
 }
 
@@ -134,8 +136,8 @@ bool books::setFieldValue(int at, QVariant value)
             if(ok) ok = t_anillado->update();
             break;
         case 5:
-            if(t_parent != 0) delete t_parent;
-            t_parent = new books(value.toInt(&ok));
+            //if(t_parent != 0) delete t_parent;
+            //t_parent = new books(value.toInt(&ok));
             break;
         default:
             ok = false;
@@ -172,15 +174,7 @@ bool books::update()
 
 bool books::update(QSqlRecord record)
 {
-    bool ok = nd::interface::update(record);
-    if(ok){
-        t_folder = nd::db::select<books>(QString("%1 = %2").arg(fieldName(5)).arg(this->internalID())).allPtr();
-        books* bk;
-        foreach (bk, t_folder) {
-            bk->setParent(this);
-        }
-    };
-    return ok;
+    return nd::interface::update(record);
 }
 
 bool books::updateFromRecord(QSqlRecord record)
