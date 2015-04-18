@@ -13,11 +13,11 @@ TEMPLATE = app
 MOC_DIR = ../obj
 OBJECTS_DIR = ../obj
 
-DEPENDPATH += ../../../Neodymium/
-INCLUDEPATH += ../../../Neodymium/
+DEPENDPATH += ../../orm/
+INCLUDEPATH += ../../orm/
 
 #win32:LIBS += -L $$PWD/../../../Neodymium/bin/ -lnd
-LIBS += -L"D:/dev/from backup/Neodymium/bin" -lnd
+LIBS += -L"/../../orm/bin" -lnd
 #LIBS += -L "../../Neodymium/bin/libnd.a"
 
 CONFIG += ordered thread

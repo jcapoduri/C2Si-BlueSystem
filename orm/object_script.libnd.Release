@@ -1,0 +1,14 @@
+CREATE bin\libnd.a
+ADDMOD obj\interface.o
+ADDMOD obj\neodymium.o
+ADDMOD obj\object.o
+ADDMOD obj\connection.o
+ADDMOD obj\config.o
+ADDMOD obj\logger.o
+ADDMOD obj\db.o
+ADDMOD obj\utils.o
+ADDMOD obj\relation.o
+ADDMOD obj\queryresult.o
+ADDMOD obj\moc_neodymium.o
+ADDMOD obj\moc_connection.o
+SAVE

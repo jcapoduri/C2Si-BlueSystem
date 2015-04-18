@@ -1,0 +1,14 @@
+INPUT(
+./obj\interface.o
+./obj\neodymium.o
+./obj\object.o
+./obj\connection.o
+./obj\config.o
+./obj\logger.o
+./obj\db.o
+./obj\utils.o
+./obj\relation.o
+./obj\queryresult.o
+./obj\moc_neodymium.o
+./obj\moc_connection.o
+);

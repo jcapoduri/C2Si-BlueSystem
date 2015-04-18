@@ -9,6 +9,6 @@ CONFIG += ordered
 TEMPLATE = subdirs
 
 SUBDIRS = terminal \
-          ../Neodymium \
+          orm \
            manager
 

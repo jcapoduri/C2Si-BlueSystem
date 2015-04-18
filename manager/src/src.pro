@@ -13,12 +13,12 @@ DESTDIR = ../bin
 MOC_DIR = ../obj
 OBJECTS_DIR = ../obj
 
-DEPENDPATH  += ../../../Neodymium/
-INCLUDEPATH += ../../../Neodymium/
-INCLUDEPATH += ../../../../Neodymium/bin
+DEPENDPATH  += ../../orm/
+INCLUDEPATH += ../../orm/
+INCLUDEPATH += ../../orm/bin
 INCLUDEPATH += ../../terminal/src
 
-LIBS += -L ../../../Neodymium/bin -lnd
+LIBS += -L ../../orm/bin -lnd
 #LIBS += -L ../../../Neodymium/bin -lnd
 
 CONFIG += ordered thread

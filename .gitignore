@@ -1,5 +1,6 @@
 *.o
 *.moc
-manager/obj/
-terminal/obj/
+manager/obj/**
+terminal/obj/**
+orm/obj/**
 **/Makefile.*
