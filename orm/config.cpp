@@ -22,6 +22,8 @@ config* config::instance(){
 
 QVariant config::fields(int at, bool toShow)
 {
+    Q_UNUSED(toShow)
+
     switch(at){
         case 0:
             return t_systemname;

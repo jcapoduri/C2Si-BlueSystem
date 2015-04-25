@@ -33,10 +33,9 @@ QString utils::toSqlValue(QVariant value)
 QString utils::addslashes(QString value)
 {
     QString toRet = "";
-    toRet = value.replace('\\', '\\\\');
-    toRet = toRet.replace('"', '\\"');
-    //toRet = toRet.replace(QRegExp('\0'), '');
-    toRet = toRet.replace('\'', '\\\'');
-    toRet = toRet.replace('\n', '\\n');
+    toRet = value.replace("\\", "\\\\");
+    toRet = toRet.replace("\"", "\\\"");
+    toRet = toRet.replace("\'", "\\\'");
+    toRet = toRet.replace("\n", "\\n");
     return toRet;
 }

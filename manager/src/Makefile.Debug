@@ -13,11 +13,11 @@ CC            = gcc
 CXX           = g++
 DEFINES       = -DUNICODE -DQT_PRINTSUPPORT_LIB -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_SQL_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -DQT_NEEDS_QMAIN
 CFLAGS        = -pipe -fno-keep-inline-dllexport -g -Wall -Wextra $(DEFINES)
-CXXFLAGS      = -pipe -fno-keep-inline-dllexport -g -frtti -Wall -Wextra -fexceptions -mthreads $(DEFINES)
-INCPATH       = -I. -I"..\..\..\Neodymium" -I"..\..\..\..\Neodymium\bin" -I"..\..\terminal\src" -I"..\..\..\..\Qt\Qt5.4.0\5.4\mingw491_32\include" -I"..\..\..\..\Qt\Qt5.4.0\5.4\mingw491_32\include\QtPrintSupport" -I"..\..\..\..\Qt\Qt5.4.0\5.4\mingw491_32\include\QtWidgets" -I"..\..\..\..\Qt\Qt5.4.0\5.4\mingw491_32\include\QtGui" -I"..\..\..\..\Qt\Qt5.4.0\5.4\mingw491_32\include\QtSql" -I"..\..\..\..\Qt\Qt5.4.0\5.4\mingw491_32\include\QtNetwork" -I"..\..\..\..\Qt\Qt5.4.0\5.4\mingw491_32\include\QtCore" -I"..\obj" -I"." -I"..\..\..\..\Qt\Qt5.4.0\5.4\mingw491_32\mkspecs\win32-g++"
+CXXFLAGS      = -pipe -fno-keep-inline-dllexport -g -std=c++0x -frtti -Wall -Wextra -fexceptions -mthreads $(DEFINES)
+INCPATH       = -I. -I"..\..\orm" -I"..\..\orm\bin" -I"..\..\terminal\src" -I"..\..\..\..\Qt\Qt5.4.0\5.4\mingw491_32\include" -I"..\..\..\..\Qt\Qt5.4.0\5.4\mingw491_32\include\QtPrintSupport" -I"..\..\..\..\Qt\Qt5.4.0\5.4\mingw491_32\include\QtWidgets" -I"..\..\..\..\Qt\Qt5.4.0\5.4\mingw491_32\include\QtGui" -I"..\..\..\..\Qt\Qt5.4.0\5.4\mingw491_32\include\QtSql" -I"..\..\..\..\Qt\Qt5.4.0\5.4\mingw491_32\include\QtNetwork" -I"..\..\..\..\Qt\Qt5.4.0\5.4\mingw491_32\include\QtCore" -I"..\obj" -I"." -I"..\..\..\..\Qt\Qt5.4.0\5.4\mingw491_32\mkspecs\win32-g++"
 LINKER      =        g++
 LFLAGS        =        -Wl,-subsystem,windows -mthreads
-LIBS        =        -lglu32 -lopengl32 -lgdi32 -luser32 -lmingw32 -LD:/Qt/Qt5.4.0/5.4/mingw491_32/lib -lqtmaind -LC:\mingw491\mingw32\lib -LC:\Utils\icu32_53_1_mingw482\lib -LC:\utils\postgresql\pgsql\lib -LC:\utils\mysql\mysql\lib -LC:\opensll\lib -lshell32 -LD:\Qt\Qt5.4.0\5.4\mingw491_32/lib -L ../../../Neodymium/bin -lnd -lQt5PrintSupportd -lQt5Widgetsd -lQt5Guid -lQt5Sqld -lQt5Networkd -lQt5Cored ..\obj\icons_res.o 
+LIBS        =        -lglu32 -lopengl32 -lgdi32 -luser32 -lmingw32 -LD:/Qt/Qt5.4.0/5.4/mingw491_32/lib -lqtmaind -LC:\mingw491\mingw32\lib -LC:\Utils\icu32_53_1_mingw482\lib -LC:\utils\postgresql\pgsql\lib -LC:\utils\mysql\mysql\lib -LC:\opensll\lib -lshell32 -LD:\Qt\Qt5.4.0\5.4\mingw491_32/lib -L ../../orm/bin -lnd -lQt5PrintSupportd -lQt5Widgetsd -lQt5Guid -lQt5Sqld -lQt5Networkd -lQt5Cored ..\obj\icons_res.o 
 QMAKE         = D:\Qt\Qt5.4.0\5.4\mingw491_32\bin\qmake.exe
 IDC           = idc
 IDL           = midl
@@ -217,12 +217,12 @@ $(DESTDIR_TARGET): ui_mainwindow.h ui_wbusiness.h ui_wbusinessbrowse.h ui_logind
 	windres -i icons.rc -o ..\obj\icons_res.o --include-dir=. $(DEFINES)
 
 qmake: FORCE
-	@$(QMAKE) -spec win32-g++ CONFIG+=debug -o Makefile.Debug src.pro
+	@$(QMAKE) -spec win32-g++ -o Makefile.Debug src.pro
 
 qmake_all: FORCE
 
 dist:
-	$(ZIP) BlueSystemManager.zip $(SOURCES) $(DIST) src.pro ..\..\..\..\Qt\Qt5.4.0\5.4\mingw491_32\mkspecs\features\spec_pre.prf ..\..\..\..\Qt\Qt5.4.0\5.4\mingw491_32\mkspecs\qdevice.pri ..\..\..\..\Qt\Qt5.4.0\5.4\mingw491_32\mkspecs\features\device_config.prf ..\..\..\..\Qt\Qt5.4.0\5.4\mingw491_32\mkspecs\common\shell-win32.conf ..\..\..\..\Qt\Qt5.4.0\5.4\mingw491_32\mkspecs\qconfig.pri ..\..\..\..\Qt\Qt5.4.0\5.4\mingw491_32\mkspecs\modules\qt_lib_axbase.pri ..\..\..\..\Qt\Qt5.4.0\5.4\mingw491_32\mkspecs\modules\qt_lib_axbase_private.pri ..\..\..\..\Qt\Qt5.4.0\5.4\mingw491_32\mkspecs\modules\qt_lib_axcontainer.pri ..\..\..\..\Qt\Qt5.4.0\5.4\mingw491_32\mkspecs\modules\qt_lib_axcontainer_private.pri ..\..\..\..\Qt\Qt5.4.0\5.4\mingw491_32\mkspecs\modules\qt_lib_axserver.pri ..\..\..\..\Qt\Qt5.4.0\5.4\mingw491_32\mkspecs\modules\qt_lib_axserver_private.pri ..\..\..\..\Qt\Qt5.4.0\5.4\mingw491_32\mkspecs\modules\qt_lib_bluetooth.pri ..\..\..\..\Qt\Qt5.4.0\5.4\mingw491_32\mkspecs\modules\qt_lib_bluetooth_private.pri ..\..\..\..\Qt\Qt5.4.0\5.4\mingw491_32\mkspecs\modules\qt_lib_bootstrap_private.pri ..\..\..\..\Qt\Qt5.4.0\5.4\mingw491_32\mkspecs\modules\qt_lib_clucene_private.pri ..\..\..\..\Qt\Qt5.4.0\5.4\mingw491_32\mkspecs\modules\qt_lib_concurrent.pri ..\..\..\..\Qt\Qt5.4.0\5.4\mingw491_32\mkspecs\modules\qt_lib_concurrent_private.pri ..\..\..\..\Qt\Qt5.4.0\5.4\mingw491_32\mkspecs\modules\qt_lib_core.pri ..\..\..\..\Qt\Qt5.4.0\5.4\mingw491_32\mkspecs\modules\qt_lib_core_private.pri ..\..\..\..\Qt\Qt5.4.0\5.4\mingw491_32\mkspecs\modules\qt_lib_declarative.pri ..\..\..\..\Qt\Qt5.4.0\5.4\mingw491_32\mkspecs\modules\qt_lib_declarative_private.pri ..\..\..\..\Qt\Qt5.4.0\5.4\mingw491_32\mkspecs\modules\qt_lib_designer.pri ..\..\..\..\Qt\Qt5.4.0\5.4\mingw491_32\mkspecs\modules\qt_lib_designer_private.pri ..\..\..\..\Qt\Qt5.4.0\5.4\mingw491_32\mkspecs\modules\qt_lib_designercomponents_private.pri ..\..\..\..\Qt\Qt5.4.0\5.4\mingw491_32\mkspecs\modules\qt_lib_enginio.pri ..\..\..\..\Qt\Qt5.4.0\5.4\mingw491_32\mkspecs\modules\qt_lib_enginio_private.pri ..\..\..\..\Qt\Qt5.4.0\5.4\mingw491_32\mkspecs\modules\qt_lib_gui.pri ..\..\..\..\Qt\Qt5.4.0\5.4\mingw491_32\mkspecs\modules\qt_lib_gui_private.pri ..\..\..\..\Qt\Qt5.4.0\5.4\mingw491_32\mkspecs\modules\qt_lib_help.pri ..\..\..\..\Qt\Qt5.4.0\5.4\mingw491_32\mkspecs\modules\qt_lib_help_private.pri ..\..\..\..\Qt\Qt5.4.0\5.4\mingw491_32\mkspecs\modules\qt_lib_location.pri ..\..\..\..\Qt\Qt5.4.0\5.4\mingw491_32\mkspecs\modules\qt_lib_location_private.pri ..\..\..\..\Qt\Qt5.4.0\5.4\mingw491_32\mkspecs\modules\qt_lib_multimedia.pri ..\..\..\..\Qt\Qt5.4.0\5.4\mingw491_32\mkspecs\modules\qt_lib_multimedia_private.pri ..\..\..\..\Qt\Qt5.4.0\5.4\mingw491_32\mkspecs\modules\qt_lib_multimediawidgets.pri ..\..\..\..\Qt\Qt5.4.0\5.4\mingw491_32\mkspecs\modules\qt_lib_multimediawidgets_private.pri ..\..\..\..\Qt\Qt5.4.0\5.4\mingw491_32\mkspecs\modules\qt_lib_network.pri ..\..\..\..\Qt\Qt5.4.0\5.4\mingw491_32\mkspecs\modules\qt_lib_network_private.pri ..\..\..\..\Qt\Qt5.4.0\5.4\mingw491_32\mkspecs\modules\qt_lib_nfc.pri ..\..\..\..\Qt\Qt5.4.0\5.4\mingw491_32\mkspecs\modules\qt_lib_nfc_private.pri ..\..\..\..\Qt\Qt5.4.0\5.4\mingw491_32\mkspecs\modules\qt_lib_opengl.pri ..\..\..\..\Qt\Qt5.4.0\5.4\mingw491_32\mkspecs\modules\qt_lib_opengl_private.pri ..\..\..\..\Qt\Qt5.4.0\5.4\mingw491_32\mkspecs\modules\qt_lib_openglextensions.pri ..\..\..\..\Qt\Qt5.4.0\5.4\mingw491_32\mkspecs\modules\qt_lib_openglextensions_private.pri ..\..\..\..\Qt\Qt5.4.0\5.4\mingw491_32\mkspecs\modules\qt_lib_platformsupport_private.pri ..\..\..\..\Qt\Qt5.4.0\5.4\mingw491_32\mkspecs\modules\qt_lib_positioning.pri ..\..\..\..\Qt\Qt5.4.0\5.4\mingw491_32\mkspecs\modules\qt_lib_positioning_private.pri ..\..\..\..\Qt\Qt5.4.0\5.4\mingw491_32\mkspecs\modules\qt_lib_printsupport.pri ..\..\..\..\Qt\Qt5.4.0\5.4\mingw491_32\mkspecs\modules\qt_lib_printsupport_private.pri ..\..\..\..\Qt\Qt5.4.0\5.4\mingw491_32\mkspecs\modules\qt_lib_qml.pri ..\..\..\..\Qt\Qt5.4.0\5.4\mingw491_32\mkspecs\modules\qt_lib_qml_private.pri ..\..\..\..\Qt\Qt5.4.0\5.4\mingw491_32\mkspecs\modules\qt_lib_qmldevtools_private.pri ..\..\..\..\Qt\Qt5.4.0\5.4\mingw491_32\mkspecs\modules\qt_lib_qmltest.pri ..\..\..\..\Qt\Qt5.4.0\5.4\mingw491_32\mkspecs\modules\qt_lib_qmltest_private.pri ..\..\..\..\Qt\Qt5.4.0\5.4\mingw491_32\mkspecs\modules\qt_lib_qtmultimediaquicktools_private.pri ..\..\..\..\Qt\Qt5.4.0\5.4\mingw491_32\mkspecs\modules\qt_lib_quick.pri ..\..\..\..\Qt\Qt5.4.0\5.4\mingw491_32\mkspecs\modules\qt_lib_quick_private.pri ..\..\..\..\Qt\Qt5.4.0\5.4\mingw491_32\mkspecs\modules\qt_lib_quickparticles_private.pri ..\..\..\..\Qt\Qt5.4.0\5.4\mingw491_32\mkspecs\modules\qt_lib_quickwidgets.pri ..\..\..\..\Qt\Qt5.4.0\5.4\mingw491_32\mkspecs\modules\qt_lib_quickwidgets_private.pri ..\..\..\..\Qt\Qt5.4.0\5.4\mingw491_32\mkspecs\modules\qt_lib_script.pri ..\..\..\..\Qt\Qt5.4.0\5.4\mingw491_32\mkspecs\modules\qt_lib_script_private.pri ..\..\..\..\Qt\Qt5.4.0\5.4\mingw491_32\mkspecs\modules\qt_lib_scripttools.pri ..\..\..\..\Qt\Qt5.4.0\5.4\mingw491_32\mkspecs\modules\qt_lib_scripttools_private.pri ..\..\..\..\Qt\Qt5.4.0\5.4\mingw491_32\mkspecs\modules\qt_lib_sensors.pri ..\..\..\..\Qt\Qt5.4.0\5.4\mingw491_32\mkspecs\modules\qt_lib_sensors_private.pri ..\..\..\..\Qt\Qt5.4.0\5.4\mingw491_32\mkspecs\modules\qt_lib_serialport.pri ..\..\..\..\Qt\Qt5.4.0\5.4\mingw491_32\mkspecs\modules\qt_lib_serialport_private.pri ..\..\..\..\Qt\Qt5.4.0\5.4\mingw491_32\mkspecs\modules\qt_lib_sql.pri ..\..\..\..\Qt\Qt5.4.0\5.4\mingw491_32\mkspecs\modules\qt_lib_sql_private.pri ..\..\..\..\Qt\Qt5.4.0\5.4\mingw491_32\mkspecs\modules\qt_lib_svg.pri ..\..\..\..\Qt\Qt5.4.0\5.4\mingw491_32\mkspecs\modules\qt_lib_svg_private.pri ..\..\..\..\Qt\Qt5.4.0\5.4\mingw491_32\mkspecs\modules\qt_lib_testlib.pri ..\..\..\..\Qt\Qt5.4.0\5.4\mingw491_32\mkspecs\modules\qt_lib_testlib_private.pri ..\..\..\..\Qt\Qt5.4.0\5.4\mingw491_32\mkspecs\modules\qt_lib_uitools.pri ..\..\..\..\Qt\Qt5.4.0\5.4\mingw491_32\mkspecs\modules\qt_lib_uitools_private.pri ..\..\..\..\Qt\Qt5.4.0\5.4\mingw491_32\mkspecs\modules\qt_lib_webchannel.pri ..\..\..\..\Qt\Qt5.4.0\5.4\mingw491_32\mkspecs\modules\qt_lib_webchannel_private.pri ..\..\..\..\Qt\Qt5.4.0\5.4\mingw491_32\mkspecs\modules\qt_lib_webkit.pri ..\..\..\..\Qt\Qt5.4.0\5.4\mingw491_32\mkspecs\modules\qt_lib_webkit_private.pri ..\..\..\..\Qt\Qt5.4.0\5.4\mingw491_32\mkspecs\modules\qt_lib_webkitwidgets.pri ..\..\..\..\Qt\Qt5.4.0\5.4\mingw491_32\mkspecs\modules\qt_lib_webkitwidgets_private.pri ..\..\..\..\Qt\Qt5.4.0\5.4\mingw491_32\mkspecs\modules\qt_lib_websockets.pri ..\..\..\..\Qt\Qt5.4.0\5.4\mingw491_32\mkspecs\modules\qt_lib_websockets_private.pri ..\..\..\..\Qt\Qt5.4.0\5.4\mingw491_32\mkspecs\modules\qt_lib_webview.pri ..\..\..\..\Qt\Qt5.4.0\5.4\mingw491_32\mkspecs\modules\qt_lib_webview_private.pri ..\..\..\..\Qt\Qt5.4.0\5.4\mingw491_32\mkspecs\modules\qt_lib_widgets.pri ..\..\..\..\Qt\Qt5.4.0\5.4\mingw491_32\mkspecs\modules\qt_lib_widgets_private.pri ..\..\..\..\Qt\Qt5.4.0\5.4\mingw491_32\mkspecs\modules\qt_lib_winextras.pri ..\..\..\..\Qt\Qt5.4.0\5.4\mingw491_32\mkspecs\modules\qt_lib_winextras_private.pri ..\..\..\..\Qt\Qt5.4.0\5.4\mingw491_32\mkspecs\modules\qt_lib_xml.pri ..\..\..\..\Qt\Qt5.4.0\5.4\mingw491_32\mkspecs\modules\qt_lib_xml_private.pri ..\..\..\..\Qt\Qt5.4.0\5.4\mingw491_32\mkspecs\modules\qt_lib_xmlpatterns.pri ..\..\..\..\Qt\Qt5.4.0\5.4\mingw491_32\mkspecs\modules\qt_lib_xmlpatterns_private.pri ..\..\..\..\Qt\Qt5.4.0\5.4\mingw491_32\mkspecs\features\qt_functions.prf ..\..\..\..\Qt\Qt5.4.0\5.4\mingw491_32\mkspecs\features\qt_config.prf ..\..\..\..\Qt\Qt5.4.0\5.4\mingw491_32\mkspecs\features\win32\qt_config.prf ..\..\..\..\Qt\Qt5.4.0\5.4\mingw491_32\mkspecs\win32-g++\qmake.conf ..\..\..\..\Qt\Qt5.4.0\5.4\mingw491_32\mkspecs\features\spec_post.prf ..\..\..\..\Qt\Qt5.4.0\5.4\mingw491_32\mkspecs\features\exclusive_builds.prf ..\..\..\..\Qt\Qt5.4.0\5.4\mingw491_32\mkspecs\features\default_pre.prf ..\..\..\..\Qt\Qt5.4.0\5.4\mingw491_32\mkspecs\features\win32\default_pre.prf ..\..\..\..\Qt\Qt5.4.0\5.4\mingw491_32\mkspecs\features\resolve_config.prf ..\..\..\..\Qt\Qt5.4.0\5.4\mingw491_32\mkspecs\features\exclusive_builds_post.prf ..\..\..\..\Qt\Qt5.4.0\5.4\mingw491_32\mkspecs\features\default_post.prf ..\..\..\..\Qt\Qt5.4.0\5.4\mingw491_32\mkspecs\features\build_pass.prf ..\..\..\..\Qt\Qt5.4.0\5.4\mingw491_32\mkspecs\features\win32\rtti.prf ..\..\..\..\Qt\Qt5.4.0\5.4\mingw491_32\mkspecs\features\precompile_header.prf ..\..\..\..\Qt\Qt5.4.0\5.4\mingw491_32\mkspecs\features\warn_on.prf ..\..\..\..\Qt\Qt5.4.0\5.4\mingw491_32\mkspecs\features\qt.prf ..\..\..\..\Qt\Qt5.4.0\5.4\mingw491_32\mkspecs\features\resources.prf ..\..\..\..\Qt\Qt5.4.0\5.4\mingw491_32\mkspecs\features\moc.prf ..\..\..\..\Qt\Qt5.4.0\5.4\mingw491_32\mkspecs\features\win32\opengl.prf ..\..\..\..\Qt\Qt5.4.0\5.4\mingw491_32\mkspecs\features\uic.prf ..\..\..\..\Qt\Qt5.4.0\5.4\mingw491_32\mkspecs\features\win32\windows.prf ..\..\..\..\Qt\Qt5.4.0\5.4\mingw491_32\mkspecs\features\testcase_targets.prf ..\..\..\..\Qt\Qt5.4.0\5.4\mingw491_32\mkspecs\features\exceptions.prf ..\..\..\..\Qt\Qt5.4.0\5.4\mingw491_32\mkspecs\features\yacc.prf ..\..\..\..\Qt\Qt5.4.0\5.4\mingw491_32\mkspecs\features\lex.prf src.pro ..\..\terminal\src\resources.qrc D:/Qt/Qt5.4.0/5.4/mingw491_32/lib/qtmaind.prl D:/Qt/Qt5.4.0/5.4/mingw491_32/lib/Qt5Cored.prl D:/Qt/Qt5.4.0/5.4/mingw491_32/lib/Qt5PrintSupportd.prl D:/Qt/Qt5.4.0/5.4/mingw491_32/lib/Qt5Widgetsd.prl D:/Qt/Qt5.4.0/5.4/mingw491_32/lib/Qt5Guid.prl D:/Qt/Qt5.4.0/5.4/mingw491_32/lib/Qt5Sqld.prl D:/Qt/Qt5.4.0/5.4/mingw491_32/lib/Qt5Networkd.prl  NO_PCH_SOURCES RESOURCES HEADERS SOURCES OBJECTIVE_SOURCES FORMS YACCSOURCES YACCSOURCES LEXSOURCES 
+	$(ZIP) BlueSystemManager.zip $(SOURCES) $(DIST) ..\..\BlueSystem.pro ..\..\..\..\Qt\Qt5.4.0\5.4\mingw491_32\mkspecs\features\spec_pre.prf ..\..\..\..\Qt\Qt5.4.0\5.4\mingw491_32\mkspecs\qdevice.pri ..\..\..\..\Qt\Qt5.4.0\5.4\mingw491_32\mkspecs\features\device_config.prf ..\..\..\..\Qt\Qt5.4.0\5.4\mingw491_32\mkspecs\common\shell-win32.conf ..\..\..\..\Qt\Qt5.4.0\5.4\mingw491_32\mkspecs\qconfig.pri ..\..\..\..\Qt\Qt5.4.0\5.4\mingw491_32\mkspecs\modules\qt_lib_axbase.pri ..\..\..\..\Qt\Qt5.4.0\5.4\mingw491_32\mkspecs\modules\qt_lib_axbase_private.pri ..\..\..\..\Qt\Qt5.4.0\5.4\mingw491_32\mkspecs\modules\qt_lib_axcontainer.pri ..\..\..\..\Qt\Qt5.4.0\5.4\mingw491_32\mkspecs\modules\qt_lib_axcontainer_private.pri ..\..\..\..\Qt\Qt5.4.0\5.4\mingw491_32\mkspecs\modules\qt_lib_axserver.pri ..\..\..\..\Qt\Qt5.4.0\5.4\mingw491_32\mkspecs\modules\qt_lib_axserver_private.pri ..\..\..\..\Qt\Qt5.4.0\5.4\mingw491_32\mkspecs\modules\qt_lib_bluetooth.pri ..\..\..\..\Qt\Qt5.4.0\5.4\mingw491_32\mkspecs\modules\qt_lib_bluetooth_private.pri ..\..\..\..\Qt\Qt5.4.0\5.4\mingw491_32\mkspecs\modules\qt_lib_bootstrap_private.pri ..\..\..\..\Qt\Qt5.4.0\5.4\mingw491_32\mkspecs\modules\qt_lib_clucene_private.pri ..\..\..\..\Qt\Qt5.4.0\5.4\mingw491_32\mkspecs\modules\qt_lib_concurrent.pri ..\..\..\..\Qt\Qt5.4.0\5.4\mingw491_32\mkspecs\modules\qt_lib_concurrent_private.pri ..\..\..\..\Qt\Qt5.4.0\5.4\mingw491_32\mkspecs\modules\qt_lib_core.pri ..\..\..\..\Qt\Qt5.4.0\5.4\mingw491_32\mkspecs\modules\qt_lib_core_private.pri ..\..\..\..\Qt\Qt5.4.0\5.4\mingw491_32\mkspecs\modules\qt_lib_declarative.pri ..\..\..\..\Qt\Qt5.4.0\5.4\mingw491_32\mkspecs\modules\qt_lib_declarative_private.pri ..\..\..\..\Qt\Qt5.4.0\5.4\mingw491_32\mkspecs\modules\qt_lib_designer.pri ..\..\..\..\Qt\Qt5.4.0\5.4\mingw491_32\mkspecs\modules\qt_lib_designer_private.pri ..\..\..\..\Qt\Qt5.4.0\5.4\mingw491_32\mkspecs\modules\qt_lib_designercomponents_private.pri ..\..\..\..\Qt\Qt5.4.0\5.4\mingw491_32\mkspecs\modules\qt_lib_enginio.pri ..\..\..\..\Qt\Qt5.4.0\5.4\mingw491_32\mkspecs\modules\qt_lib_enginio_private.pri ..\..\..\..\Qt\Qt5.4.0\5.4\mingw491_32\mkspecs\modules\qt_lib_gui.pri ..\..\..\..\Qt\Qt5.4.0\5.4\mingw491_32\mkspecs\modules\qt_lib_gui_private.pri ..\..\..\..\Qt\Qt5.4.0\5.4\mingw491_32\mkspecs\modules\qt_lib_help.pri ..\..\..\..\Qt\Qt5.4.0\5.4\mingw491_32\mkspecs\modules\qt_lib_help_private.pri ..\..\..\..\Qt\Qt5.4.0\5.4\mingw491_32\mkspecs\modules\qt_lib_location.pri ..\..\..\..\Qt\Qt5.4.0\5.4\mingw491_32\mkspecs\modules\qt_lib_location_private.pri ..\..\..\..\Qt\Qt5.4.0\5.4\mingw491_32\mkspecs\modules\qt_lib_multimedia.pri ..\..\..\..\Qt\Qt5.4.0\5.4\mingw491_32\mkspecs\modules\qt_lib_multimedia_private.pri ..\..\..\..\Qt\Qt5.4.0\5.4\mingw491_32\mkspecs\modules\qt_lib_multimediawidgets.pri ..\..\..\..\Qt\Qt5.4.0\5.4\mingw491_32\mkspecs\modules\qt_lib_multimediawidgets_private.pri ..\..\..\..\Qt\Qt5.4.0\5.4\mingw491_32\mkspecs\modules\qt_lib_network.pri ..\..\..\..\Qt\Qt5.4.0\5.4\mingw491_32\mkspecs\modules\qt_lib_network_private.pri ..\..\..\..\Qt\Qt5.4.0\5.4\mingw491_32\mkspecs\modules\qt_lib_nfc.pri ..\..\..\..\Qt\Qt5.4.0\5.4\mingw491_32\mkspecs\modules\qt_lib_nfc_private.pri ..\..\..\..\Qt\Qt5.4.0\5.4\mingw491_32\mkspecs\modules\qt_lib_opengl.pri ..\..\..\..\Qt\Qt5.4.0\5.4\mingw491_32\mkspecs\modules\qt_lib_opengl_private.pri ..\..\..\..\Qt\Qt5.4.0\5.4\mingw491_32\mkspecs\modules\qt_lib_openglextensions.pri ..\..\..\..\Qt\Qt5.4.0\5.4\mingw491_32\mkspecs\modules\qt_lib_openglextensions_private.pri ..\..\..\..\Qt\Qt5.4.0\5.4\mingw491_32\mkspecs\modules\qt_lib_platformsupport_private.pri ..\..\..\..\Qt\Qt5.4.0\5.4\mingw491_32\mkspecs\modules\qt_lib_positioning.pri ..\..\..\..\Qt\Qt5.4.0\5.4\mingw491_32\mkspecs\modules\qt_lib_positioning_private.pri ..\..\..\..\Qt\Qt5.4.0\5.4\mingw491_32\mkspecs\modules\qt_lib_printsupport.pri ..\..\..\..\Qt\Qt5.4.0\5.4\mingw491_32\mkspecs\modules\qt_lib_printsupport_private.pri ..\..\..\..\Qt\Qt5.4.0\5.4\mingw491_32\mkspecs\modules\qt_lib_qml.pri ..\..\..\..\Qt\Qt5.4.0\5.4\mingw491_32\mkspecs\modules\qt_lib_qml_private.pri ..\..\..\..\Qt\Qt5.4.0\5.4\mingw491_32\mkspecs\modules\qt_lib_qmldevtools_private.pri ..\..\..\..\Qt\Qt5.4.0\5.4\mingw491_32\mkspecs\modules\qt_lib_qmltest.pri ..\..\..\..\Qt\Qt5.4.0\5.4\mingw491_32\mkspecs\modules\qt_lib_qmltest_private.pri ..\..\..\..\Qt\Qt5.4.0\5.4\mingw491_32\mkspecs\modules\qt_lib_qtmultimediaquicktools_private.pri ..\..\..\..\Qt\Qt5.4.0\5.4\mingw491_32\mkspecs\modules\qt_lib_quick.pri ..\..\..\..\Qt\Qt5.4.0\5.4\mingw491_32\mkspecs\modules\qt_lib_quick_private.pri ..\..\..\..\Qt\Qt5.4.0\5.4\mingw491_32\mkspecs\modules\qt_lib_quickparticles_private.pri ..\..\..\..\Qt\Qt5.4.0\5.4\mingw491_32\mkspecs\modules\qt_lib_quickwidgets.pri ..\..\..\..\Qt\Qt5.4.0\5.4\mingw491_32\mkspecs\modules\qt_lib_quickwidgets_private.pri ..\..\..\..\Qt\Qt5.4.0\5.4\mingw491_32\mkspecs\modules\qt_lib_script.pri ..\..\..\..\Qt\Qt5.4.0\5.4\mingw491_32\mkspecs\modules\qt_lib_script_private.pri ..\..\..\..\Qt\Qt5.4.0\5.4\mingw491_32\mkspecs\modules\qt_lib_scripttools.pri ..\..\..\..\Qt\Qt5.4.0\5.4\mingw491_32\mkspecs\modules\qt_lib_scripttools_private.pri ..\..\..\..\Qt\Qt5.4.0\5.4\mingw491_32\mkspecs\modules\qt_lib_sensors.pri ..\..\..\..\Qt\Qt5.4.0\5.4\mingw491_32\mkspecs\modules\qt_lib_sensors_private.pri ..\..\..\..\Qt\Qt5.4.0\5.4\mingw491_32\mkspecs\modules\qt_lib_serialport.pri ..\..\..\..\Qt\Qt5.4.0\5.4\mingw491_32\mkspecs\modules\qt_lib_serialport_private.pri ..\..\..\..\Qt\Qt5.4.0\5.4\mingw491_32\mkspecs\modules\qt_lib_sql.pri ..\..\..\..\Qt\Qt5.4.0\5.4\mingw491_32\mkspecs\modules\qt_lib_sql_private.pri ..\..\..\..\Qt\Qt5.4.0\5.4\mingw491_32\mkspecs\modules\qt_lib_svg.pri ..\..\..\..\Qt\Qt5.4.0\5.4\mingw491_32\mkspecs\modules\qt_lib_svg_private.pri ..\..\..\..\Qt\Qt5.4.0\5.4\mingw491_32\mkspecs\modules\qt_lib_testlib.pri ..\..\..\..\Qt\Qt5.4.0\5.4\mingw491_32\mkspecs\modules\qt_lib_testlib_private.pri ..\..\..\..\Qt\Qt5.4.0\5.4\mingw491_32\mkspecs\modules\qt_lib_uitools.pri ..\..\..\..\Qt\Qt5.4.0\5.4\mingw491_32\mkspecs\modules\qt_lib_uitools_private.pri ..\..\..\..\Qt\Qt5.4.0\5.4\mingw491_32\mkspecs\modules\qt_lib_webchannel.pri ..\..\..\..\Qt\Qt5.4.0\5.4\mingw491_32\mkspecs\modules\qt_lib_webchannel_private.pri ..\..\..\..\Qt\Qt5.4.0\5.4\mingw491_32\mkspecs\modules\qt_lib_webkit.pri ..\..\..\..\Qt\Qt5.4.0\5.4\mingw491_32\mkspecs\modules\qt_lib_webkit_private.pri ..\..\..\..\Qt\Qt5.4.0\5.4\mingw491_32\mkspecs\modules\qt_lib_webkitwidgets.pri ..\..\..\..\Qt\Qt5.4.0\5.4\mingw491_32\mkspecs\modules\qt_lib_webkitwidgets_private.pri ..\..\..\..\Qt\Qt5.4.0\5.4\mingw491_32\mkspecs\modules\qt_lib_websockets.pri ..\..\..\..\Qt\Qt5.4.0\5.4\mingw491_32\mkspecs\modules\qt_lib_websockets_private.pri ..\..\..\..\Qt\Qt5.4.0\5.4\mingw491_32\mkspecs\modules\qt_lib_webview.pri ..\..\..\..\Qt\Qt5.4.0\5.4\mingw491_32\mkspecs\modules\qt_lib_webview_private.pri ..\..\..\..\Qt\Qt5.4.0\5.4\mingw491_32\mkspecs\modules\qt_lib_widgets.pri ..\..\..\..\Qt\Qt5.4.0\5.4\mingw491_32\mkspecs\modules\qt_lib_widgets_private.pri ..\..\..\..\Qt\Qt5.4.0\5.4\mingw491_32\mkspecs\modules\qt_lib_winextras.pri ..\..\..\..\Qt\Qt5.4.0\5.4\mingw491_32\mkspecs\modules\qt_lib_winextras_private.pri ..\..\..\..\Qt\Qt5.4.0\5.4\mingw491_32\mkspecs\modules\qt_lib_xml.pri ..\..\..\..\Qt\Qt5.4.0\5.4\mingw491_32\mkspecs\modules\qt_lib_xml_private.pri ..\..\..\..\Qt\Qt5.4.0\5.4\mingw491_32\mkspecs\modules\qt_lib_xmlpatterns.pri ..\..\..\..\Qt\Qt5.4.0\5.4\mingw491_32\mkspecs\modules\qt_lib_xmlpatterns_private.pri ..\..\..\..\Qt\Qt5.4.0\5.4\mingw491_32\mkspecs\features\qt_functions.prf ..\..\..\..\Qt\Qt5.4.0\5.4\mingw491_32\mkspecs\features\qt_config.prf ..\..\..\..\Qt\Qt5.4.0\5.4\mingw491_32\mkspecs\features\win32\qt_config.prf ..\..\..\..\Qt\Qt5.4.0\5.4\mingw491_32\mkspecs\win32-g++\qmake.conf ..\..\..\..\Qt\Qt5.4.0\5.4\mingw491_32\mkspecs\features\spec_post.prf ..\..\..\..\Qt\Qt5.4.0\5.4\mingw491_32\mkspecs\features\exclusive_builds.prf ..\..\..\..\Qt\Qt5.4.0\5.4\mingw491_32\mkspecs\features\default_pre.prf ..\..\..\..\Qt\Qt5.4.0\5.4\mingw491_32\mkspecs\features\win32\default_pre.prf ..\..\..\..\Qt\Qt5.4.0\5.4\mingw491_32\mkspecs\features\resolve_config.prf ..\..\..\..\Qt\Qt5.4.0\5.4\mingw491_32\mkspecs\features\exclusive_builds_post.prf ..\..\..\..\Qt\Qt5.4.0\5.4\mingw491_32\mkspecs\features\default_post.prf ..\..\..\..\Qt\Qt5.4.0\5.4\mingw491_32\mkspecs\features\build_pass.prf ..\..\..\..\Qt\Qt5.4.0\5.4\mingw491_32\mkspecs\features\c++11.prf ..\..\..\..\Qt\Qt5.4.0\5.4\mingw491_32\mkspecs\features\win32\rtti.prf ..\..\..\..\Qt\Qt5.4.0\5.4\mingw491_32\mkspecs\features\precompile_header.prf ..\..\..\..\Qt\Qt5.4.0\5.4\mingw491_32\mkspecs\features\warn_on.prf ..\..\..\..\Qt\Qt5.4.0\5.4\mingw491_32\mkspecs\features\qt.prf ..\..\..\..\Qt\Qt5.4.0\5.4\mingw491_32\mkspecs\features\resources.prf ..\..\..\..\Qt\Qt5.4.0\5.4\mingw491_32\mkspecs\features\moc.prf ..\..\..\..\Qt\Qt5.4.0\5.4\mingw491_32\mkspecs\features\win32\opengl.prf ..\..\..\..\Qt\Qt5.4.0\5.4\mingw491_32\mkspecs\features\uic.prf ..\..\..\..\Qt\Qt5.4.0\5.4\mingw491_32\mkspecs\features\win32\windows.prf ..\..\..\..\Qt\Qt5.4.0\5.4\mingw491_32\mkspecs\features\testcase_targets.prf ..\..\..\..\Qt\Qt5.4.0\5.4\mingw491_32\mkspecs\features\exceptions.prf ..\..\..\..\Qt\Qt5.4.0\5.4\mingw491_32\mkspecs\features\yacc.prf ..\..\..\..\Qt\Qt5.4.0\5.4\mingw491_32\mkspecs\features\lex.prf src.pro ..\..\terminal\src\resources.qrc D:/Qt/Qt5.4.0/5.4/mingw491_32/lib/qtmaind.prl D:/Qt/Qt5.4.0/5.4/mingw491_32/lib/Qt5Cored.prl D:/Qt/Qt5.4.0/5.4/mingw491_32/lib/Qt5PrintSupportd.prl D:/Qt/Qt5.4.0/5.4/mingw491_32/lib/Qt5Widgetsd.prl D:/Qt/Qt5.4.0/5.4/mingw491_32/lib/Qt5Guid.prl D:/Qt/Qt5.4.0/5.4/mingw491_32/lib/Qt5Sqld.prl D:/Qt/Qt5.4.0/5.4/mingw491_32/lib/Qt5Networkd.prl  NO_PCH_SOURCES RESOURCES HEADERS SOURCES OBJECTIVE_SOURCES FORMS YACCSOURCES YACCSOURCES LEXSOURCES 
 
 clean: compiler_clean 
 	-$(DEL_FILE) ..\obj\main.o ..\obj\mainwindow.o ..\obj\user.o ..\obj\folder.o ..\obj\business.o ..\obj\books.o ..\obj\client.o ..\obj\job.o ..\obj\workorder.o ..\obj\workorder_pages.o ..\obj\anillado.o ..\obj\userlog.o ..\obj\configmanager.o ..\obj\wanillado.o ..\obj\wbusiness.o ..\obj\wbusinessbrowse.o ..\obj\logindialog.o ..\obj\wbooks.o ..\obj\printobject.o ..\obj\wuser.o ..\obj\wuserbrowse.o ..\obj\wbooksbrowser.o ..\obj\wworksbrowser.o ..\obj\wuserlogbrowser.o ..\obj\wbackups.o ..\obj\wbackupdialog.o ..\obj\woptiondialog.o ..\obj\qrc_resources.o ..\obj\moc_mainwindow.o ..\obj\moc_configmanager.o ..\obj\moc_wanillado.o ..\obj\moc_wbusiness.o ..\obj\moc_wbusinessbrowse.o ..\obj\moc_logindialog.o ..\obj\moc_wbooks.o ..\obj\moc_printobject.o ..\obj\moc_wuser.o ..\obj\moc_wuserbrowse.o ..\obj\moc_wbooksbrowser.o ..\obj\moc_wworksbrowser.o ..\obj\moc_wuserlogbrowser.o ..\obj\moc_wbackups.o ..\obj\moc_wbackupdialog.o ..\obj\moc_woptiondialog.o
@@ -540,37 +540,14 @@ compiler_moc_header_clean:
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qaction.h \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qactiongroup.h \
 		ui_mainwindow.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtCore/QVariant \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/QApplication \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qapplication.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qdesktopwidget.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtGui/qguiapplication.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtGui/qinputmethod.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/QButtonGroup \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qbuttongroup.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/QHeaderView \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qheaderview.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/QMenu \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qmenu.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/QMenuBar \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qmenubar.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/QStatusBar \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qstatusbar.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/QToolBar \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qtoolbar.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/QVBoxLayout \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qboxlayout.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qlayout.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qlayoutitem.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qgridlayout.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/QWidget \
 		../../terminal/src/user.h \
-		../../../Neodymium/interface.h \
-		../../../Neodymium/nd_global.h \
-		../../../Neodymium/connection.h \
+		../../orm/interface.h \
+		../../orm/nd_global.h \
+		../../orm/connection.h \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtCore/QTimer \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtCore/QList \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtCore/QString \
+		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtCore/QVariant \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtCore/QDateTime \
 		../../terminal/src/logindialog.h \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/QDialog \
@@ -579,7 +556,7 @@ compiler_moc_header_clean:
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qmessagebox.h \
 		version.h \
 		mainwindow.h
-	D:\Qt\Qt5.4.0\5.4\mingw491_32\bin\moc.exe $(DEFINES) -D__GNUC__ -DWIN32 -ID:/Qt/Qt5.4.0/5.4/mingw491_32/mkspecs/win32-g++ -ID:/dev/C2Si-BlueSystem/manager/src -ID:/dev/Neodymium -ID:/Neodymium/bin -ID:/dev/C2Si-BlueSystem/terminal/src -ID:/Qt/Qt5.4.0/5.4/mingw491_32/include -ID:/Qt/Qt5.4.0/5.4/mingw491_32/include/QtPrintSupport -ID:/Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets -ID:/Qt/Qt5.4.0/5.4/mingw491_32/include/QtGui -ID:/Qt/Qt5.4.0/5.4/mingw491_32/include/QtSql -ID:/Qt/Qt5.4.0/5.4/mingw491_32/include/QtNetwork -ID:/Qt/Qt5.4.0/5.4/mingw491_32/include/QtCore mainwindow.h -o ..\obj\moc_mainwindow.cpp
+	D:\Qt\Qt5.4.0\5.4\mingw491_32\bin\moc.exe $(DEFINES) -D__GNUC__ -DWIN32 -ID:/Qt/Qt5.4.0/5.4/mingw491_32/mkspecs/win32-g++ -ID:/dev/C2Si-BlueSystem/manager/src -ID:/dev/C2Si-BlueSystem/orm -ID:/dev/C2Si-BlueSystem/orm/bin -ID:/dev/C2Si-BlueSystem/terminal/src -ID:/Qt/Qt5.4.0/5.4/mingw491_32/include -ID:/Qt/Qt5.4.0/5.4/mingw491_32/include/QtPrintSupport -ID:/Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets -ID:/Qt/Qt5.4.0/5.4/mingw491_32/include/QtGui -ID:/Qt/Qt5.4.0/5.4/mingw491_32/include/QtSql -ID:/Qt/Qt5.4.0/5.4/mingw491_32/include/QtNetwork -ID:/Qt/Qt5.4.0/5.4/mingw491_32/include/QtCore mainwindow.h -o ..\obj\moc_mainwindow.cpp
 
 ../obj/moc_configmanager.cpp: ../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtCore/QObject \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtCore/qobject.h \
@@ -651,7 +628,7 @@ compiler_moc_header_clean:
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtCore/qregexp.h \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtCore/qstringmatcher.h \
 		../../terminal/src/configmanager.h
-	D:\Qt\Qt5.4.0\5.4\mingw491_32\bin\moc.exe $(DEFINES) -D__GNUC__ -DWIN32 -ID:/Qt/Qt5.4.0/5.4/mingw491_32/mkspecs/win32-g++ -ID:/dev/C2Si-BlueSystem/manager/src -ID:/dev/Neodymium -ID:/Neodymium/bin -ID:/dev/C2Si-BlueSystem/terminal/src -ID:/Qt/Qt5.4.0/5.4/mingw491_32/include -ID:/Qt/Qt5.4.0/5.4/mingw491_32/include/QtPrintSupport -ID:/Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets -ID:/Qt/Qt5.4.0/5.4/mingw491_32/include/QtGui -ID:/Qt/Qt5.4.0/5.4/mingw491_32/include/QtSql -ID:/Qt/Qt5.4.0/5.4/mingw491_32/include/QtNetwork -ID:/Qt/Qt5.4.0/5.4/mingw491_32/include/QtCore ..\..\terminal\src\configmanager.h -o ..\obj\moc_configmanager.cpp
+	D:\Qt\Qt5.4.0\5.4\mingw491_32\bin\moc.exe $(DEFINES) -D__GNUC__ -DWIN32 -ID:/Qt/Qt5.4.0/5.4/mingw491_32/mkspecs/win32-g++ -ID:/dev/C2Si-BlueSystem/manager/src -ID:/dev/C2Si-BlueSystem/orm -ID:/dev/C2Si-BlueSystem/orm/bin -ID:/dev/C2Si-BlueSystem/terminal/src -ID:/Qt/Qt5.4.0/5.4/mingw491_32/include -ID:/Qt/Qt5.4.0/5.4/mingw491_32/include/QtPrintSupport -ID:/Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets -ID:/Qt/Qt5.4.0/5.4/mingw491_32/include/QtGui -ID:/Qt/Qt5.4.0/5.4/mingw491_32/include/QtSql -ID:/Qt/Qt5.4.0/5.4/mingw491_32/include/QtNetwork -ID:/Qt/Qt5.4.0/5.4/mingw491_32/include/QtCore ..\..\terminal\src\configmanager.h -o ..\obj\moc_configmanager.cpp
 
 ../obj/moc_wanillado.cpp: ../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/QDialog \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qdialog.h \
@@ -757,9 +734,9 @@ compiler_moc_header_clean:
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtGui/qvector2d.h \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtGui/qtouchdevice.h \
 		../../terminal/src/anillado.h \
-		../../../Neodymium/interface.h \
-		../../../Neodymium/nd_global.h \
-		../../../Neodymium/connection.h \
+		../../orm/interface.h \
+		../../orm/nd_global.h \
+		../../orm/connection.h \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtSql/QtSql \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtSql/QtSqlDepends \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtCore/QtCore \
@@ -909,7 +886,7 @@ compiler_moc_header_clean:
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtCore/QVariant \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtCore/QDateTime \
 		wanillado.h
-	D:\Qt\Qt5.4.0\5.4\mingw491_32\bin\moc.exe $(DEFINES) -D__GNUC__ -DWIN32 -ID:/Qt/Qt5.4.0/5.4/mingw491_32/mkspecs/win32-g++ -ID:/dev/C2Si-BlueSystem/manager/src -ID:/dev/Neodymium -ID:/Neodymium/bin -ID:/dev/C2Si-BlueSystem/terminal/src -ID:/Qt/Qt5.4.0/5.4/mingw491_32/include -ID:/Qt/Qt5.4.0/5.4/mingw491_32/include/QtPrintSupport -ID:/Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets -ID:/Qt/Qt5.4.0/5.4/mingw491_32/include/QtGui -ID:/Qt/Qt5.4.0/5.4/mingw491_32/include/QtSql -ID:/Qt/Qt5.4.0/5.4/mingw491_32/include/QtNetwork -ID:/Qt/Qt5.4.0/5.4/mingw491_32/include/QtCore wanillado.h -o ..\obj\moc_wanillado.cpp
+	D:\Qt\Qt5.4.0\5.4\mingw491_32\bin\moc.exe $(DEFINES) -D__GNUC__ -DWIN32 -ID:/Qt/Qt5.4.0/5.4/mingw491_32/mkspecs/win32-g++ -ID:/dev/C2Si-BlueSystem/manager/src -ID:/dev/C2Si-BlueSystem/orm -ID:/dev/C2Si-BlueSystem/orm/bin -ID:/dev/C2Si-BlueSystem/terminal/src -ID:/Qt/Qt5.4.0/5.4/mingw491_32/include -ID:/Qt/Qt5.4.0/5.4/mingw491_32/include/QtPrintSupport -ID:/Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets -ID:/Qt/Qt5.4.0/5.4/mingw491_32/include/QtGui -ID:/Qt/Qt5.4.0/5.4/mingw491_32/include/QtSql -ID:/Qt/Qt5.4.0/5.4/mingw491_32/include/QtNetwork -ID:/Qt/Qt5.4.0/5.4/mingw491_32/include/QtCore wanillado.h -o ..\obj\moc_wanillado.cpp
 
 ../obj/moc_wbusiness.cpp: ../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/QWidget \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qwidget.h \
@@ -1014,9 +991,9 @@ compiler_moc_header_clean:
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtGui/qvector2d.h \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtGui/qtouchdevice.h \
 		../../terminal/src/business.h \
-		../../../Neodymium/interface.h \
-		../../../Neodymium/nd_global.h \
-		../../../Neodymium/connection.h \
+		../../orm/interface.h \
+		../../orm/nd_global.h \
+		../../orm/connection.h \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtSql/QtSql \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtSql/QtSqlDepends \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtCore/QtCore \
@@ -1170,7 +1147,7 @@ compiler_moc_header_clean:
 		../../terminal/src/books.h \
 		../../terminal/src/anillado.h \
 		wbusiness.h
-	D:\Qt\Qt5.4.0\5.4\mingw491_32\bin\moc.exe $(DEFINES) -D__GNUC__ -DWIN32 -ID:/Qt/Qt5.4.0/5.4/mingw491_32/mkspecs/win32-g++ -ID:/dev/C2Si-BlueSystem/manager/src -ID:/dev/Neodymium -ID:/Neodymium/bin -ID:/dev/C2Si-BlueSystem/terminal/src -ID:/Qt/Qt5.4.0/5.4/mingw491_32/include -ID:/Qt/Qt5.4.0/5.4/mingw491_32/include/QtPrintSupport -ID:/Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets -ID:/Qt/Qt5.4.0/5.4/mingw491_32/include/QtGui -ID:/Qt/Qt5.4.0/5.4/mingw491_32/include/QtSql -ID:/Qt/Qt5.4.0/5.4/mingw491_32/include/QtNetwork -ID:/Qt/Qt5.4.0/5.4/mingw491_32/include/QtCore wbusiness.h -o ..\obj\moc_wbusiness.cpp
+	D:\Qt\Qt5.4.0\5.4\mingw491_32\bin\moc.exe $(DEFINES) -D__GNUC__ -DWIN32 -ID:/Qt/Qt5.4.0/5.4/mingw491_32/mkspecs/win32-g++ -ID:/dev/C2Si-BlueSystem/manager/src -ID:/dev/C2Si-BlueSystem/orm -ID:/dev/C2Si-BlueSystem/orm/bin -ID:/dev/C2Si-BlueSystem/terminal/src -ID:/Qt/Qt5.4.0/5.4/mingw491_32/include -ID:/Qt/Qt5.4.0/5.4/mingw491_32/include/QtPrintSupport -ID:/Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets -ID:/Qt/Qt5.4.0/5.4/mingw491_32/include/QtGui -ID:/Qt/Qt5.4.0/5.4/mingw491_32/include/QtSql -ID:/Qt/Qt5.4.0/5.4/mingw491_32/include/QtNetwork -ID:/Qt/Qt5.4.0/5.4/mingw491_32/include/QtCore wbusiness.h -o ..\obj\moc_wbusiness.cpp
 
 ../obj/moc_wbusinessbrowse.cpp: ../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/QWidget \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qwidget.h \
@@ -1422,9 +1399,9 @@ compiler_moc_header_clean:
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qdialog.h \
 		wbusiness.h \
 		../../terminal/src/business.h \
-		../../../Neodymium/interface.h \
-		../../../Neodymium/nd_global.h \
-		../../../Neodymium/connection.h \
+		../../orm/interface.h \
+		../../orm/nd_global.h \
+		../../orm/connection.h \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtCore/QTimer \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtCore/QList \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtCore/QString \
@@ -1435,7 +1412,7 @@ compiler_moc_header_clean:
 		../../terminal/src/books.h \
 		../../terminal/src/anillado.h \
 		wbusinessbrowse.h
-	D:\Qt\Qt5.4.0\5.4\mingw491_32\bin\moc.exe $(DEFINES) -D__GNUC__ -DWIN32 -ID:/Qt/Qt5.4.0/5.4/mingw491_32/mkspecs/win32-g++ -ID:/dev/C2Si-BlueSystem/manager/src -ID:/dev/Neodymium -ID:/Neodymium/bin -ID:/dev/C2Si-BlueSystem/terminal/src -ID:/Qt/Qt5.4.0/5.4/mingw491_32/include -ID:/Qt/Qt5.4.0/5.4/mingw491_32/include/QtPrintSupport -ID:/Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets -ID:/Qt/Qt5.4.0/5.4/mingw491_32/include/QtGui -ID:/Qt/Qt5.4.0/5.4/mingw491_32/include/QtSql -ID:/Qt/Qt5.4.0/5.4/mingw491_32/include/QtNetwork -ID:/Qt/Qt5.4.0/5.4/mingw491_32/include/QtCore wbusinessbrowse.h -o ..\obj\moc_wbusinessbrowse.cpp
+	D:\Qt\Qt5.4.0\5.4\mingw491_32\bin\moc.exe $(DEFINES) -D__GNUC__ -DWIN32 -ID:/Qt/Qt5.4.0/5.4/mingw491_32/mkspecs/win32-g++ -ID:/dev/C2Si-BlueSystem/manager/src -ID:/dev/C2Si-BlueSystem/orm -ID:/dev/C2Si-BlueSystem/orm/bin -ID:/dev/C2Si-BlueSystem/terminal/src -ID:/Qt/Qt5.4.0/5.4/mingw491_32/include -ID:/Qt/Qt5.4.0/5.4/mingw491_32/include/QtPrintSupport -ID:/Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets -ID:/Qt/Qt5.4.0/5.4/mingw491_32/include/QtGui -ID:/Qt/Qt5.4.0/5.4/mingw491_32/include/QtSql -ID:/Qt/Qt5.4.0/5.4/mingw491_32/include/QtNetwork -ID:/Qt/Qt5.4.0/5.4/mingw491_32/include/QtCore wbusinessbrowse.h -o ..\obj\moc_wbusinessbrowse.cpp
 
 ../obj/moc_logindialog.cpp: ../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/QDialog \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qdialog.h \
@@ -1543,9 +1520,9 @@ compiler_moc_header_clean:
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/QMessageBox \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qmessagebox.h \
 		../../terminal/src/user.h \
-		../../../Neodymium/interface.h \
-		../../../Neodymium/nd_global.h \
-		../../../Neodymium/connection.h \
+		../../orm/interface.h \
+		../../orm/nd_global.h \
+		../../orm/connection.h \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtSql/QtSql \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtSql/QtSqlDepends \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtCore/QtCore \
@@ -1695,7 +1672,7 @@ compiler_moc_header_clean:
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtCore/QVariant \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtCore/QDateTime \
 		../../terminal/src/logindialog.h
-	D:\Qt\Qt5.4.0\5.4\mingw491_32\bin\moc.exe $(DEFINES) -D__GNUC__ -DWIN32 -ID:/Qt/Qt5.4.0/5.4/mingw491_32/mkspecs/win32-g++ -ID:/dev/C2Si-BlueSystem/manager/src -ID:/dev/Neodymium -ID:/Neodymium/bin -ID:/dev/C2Si-BlueSystem/terminal/src -ID:/Qt/Qt5.4.0/5.4/mingw491_32/include -ID:/Qt/Qt5.4.0/5.4/mingw491_32/include/QtPrintSupport -ID:/Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets -ID:/Qt/Qt5.4.0/5.4/mingw491_32/include/QtGui -ID:/Qt/Qt5.4.0/5.4/mingw491_32/include/QtSql -ID:/Qt/Qt5.4.0/5.4/mingw491_32/include/QtNetwork -ID:/Qt/Qt5.4.0/5.4/mingw491_32/include/QtCore ..\..\terminal\src\logindialog.h -o ..\obj\moc_logindialog.cpp
+	D:\Qt\Qt5.4.0\5.4\mingw491_32\bin\moc.exe $(DEFINES) -D__GNUC__ -DWIN32 -ID:/Qt/Qt5.4.0/5.4/mingw491_32/mkspecs/win32-g++ -ID:/dev/C2Si-BlueSystem/manager/src -ID:/dev/C2Si-BlueSystem/orm -ID:/dev/C2Si-BlueSystem/orm/bin -ID:/dev/C2Si-BlueSystem/terminal/src -ID:/Qt/Qt5.4.0/5.4/mingw491_32/include -ID:/Qt/Qt5.4.0/5.4/mingw491_32/include/QtPrintSupport -ID:/Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets -ID:/Qt/Qt5.4.0/5.4/mingw491_32/include/QtGui -ID:/Qt/Qt5.4.0/5.4/mingw491_32/include/QtSql -ID:/Qt/Qt5.4.0/5.4/mingw491_32/include/QtNetwork -ID:/Qt/Qt5.4.0/5.4/mingw491_32/include/QtCore ..\..\terminal\src\logindialog.h -o ..\obj\moc_logindialog.cpp
 
 ../obj/moc_wbooks.cpp: ../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/QWidget \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qwidget.h \
@@ -1800,9 +1777,9 @@ compiler_moc_header_clean:
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtGui/qvector2d.h \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtGui/qtouchdevice.h \
 		../../terminal/src/books.h \
-		../../../Neodymium/interface.h \
-		../../../Neodymium/nd_global.h \
-		../../../Neodymium/connection.h \
+		../../orm/interface.h \
+		../../orm/nd_global.h \
+		../../orm/connection.h \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtSql/QtSql \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtSql/QtSqlDepends \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtCore/QtCore \
@@ -1956,7 +1933,7 @@ compiler_moc_header_clean:
 		../../terminal/src/client.h \
 		../../terminal/src/user.h \
 		../../terminal/src/wbooks.h
-	D:\Qt\Qt5.4.0\5.4\mingw491_32\bin\moc.exe $(DEFINES) -D__GNUC__ -DWIN32 -ID:/Qt/Qt5.4.0/5.4/mingw491_32/mkspecs/win32-g++ -ID:/dev/C2Si-BlueSystem/manager/src -ID:/dev/Neodymium -ID:/Neodymium/bin -ID:/dev/C2Si-BlueSystem/terminal/src -ID:/Qt/Qt5.4.0/5.4/mingw491_32/include -ID:/Qt/Qt5.4.0/5.4/mingw491_32/include/QtPrintSupport -ID:/Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets -ID:/Qt/Qt5.4.0/5.4/mingw491_32/include/QtGui -ID:/Qt/Qt5.4.0/5.4/mingw491_32/include/QtSql -ID:/Qt/Qt5.4.0/5.4/mingw491_32/include/QtNetwork -ID:/Qt/Qt5.4.0/5.4/mingw491_32/include/QtCore ..\..\terminal\src\wbooks.h -o ..\obj\moc_wbooks.cpp
+	D:\Qt\Qt5.4.0\5.4\mingw491_32\bin\moc.exe $(DEFINES) -D__GNUC__ -DWIN32 -ID:/Qt/Qt5.4.0/5.4/mingw491_32/mkspecs/win32-g++ -ID:/dev/C2Si-BlueSystem/manager/src -ID:/dev/C2Si-BlueSystem/orm -ID:/dev/C2Si-BlueSystem/orm/bin -ID:/dev/C2Si-BlueSystem/terminal/src -ID:/Qt/Qt5.4.0/5.4/mingw491_32/include -ID:/Qt/Qt5.4.0/5.4/mingw491_32/include/QtPrintSupport -ID:/Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets -ID:/Qt/Qt5.4.0/5.4/mingw491_32/include/QtGui -ID:/Qt/Qt5.4.0/5.4/mingw491_32/include/QtSql -ID:/Qt/Qt5.4.0/5.4/mingw491_32/include/QtNetwork -ID:/Qt/Qt5.4.0/5.4/mingw491_32/include/QtCore ..\..\terminal\src\wbooks.h -o ..\obj\moc_wbooks.cpp
 
 ../obj/moc_printobject.cpp: ../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtCore/QObject \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtCore/qobject.h \
@@ -2214,9 +2191,9 @@ compiler_moc_header_clean:
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtGui/QStandardItemModel \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtGui/qstandarditemmodel.h \
 		../../terminal/src/job.h \
-		../../../Neodymium/interface.h \
-		../../../Neodymium/nd_global.h \
-		../../../Neodymium/connection.h \
+		../../orm/interface.h \
+		../../orm/nd_global.h \
+		../../orm/connection.h \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtCore/QTimer \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtCore/QList \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtCore/QString \
@@ -2280,7 +2257,7 @@ compiler_moc_header_clean:
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qtablewidget.h \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qtableview.h \
 		../../terminal/src/printobject.h
-	D:\Qt\Qt5.4.0\5.4\mingw491_32\bin\moc.exe $(DEFINES) -D__GNUC__ -DWIN32 -ID:/Qt/Qt5.4.0/5.4/mingw491_32/mkspecs/win32-g++ -ID:/dev/C2Si-BlueSystem/manager/src -ID:/dev/Neodymium -ID:/Neodymium/bin -ID:/dev/C2Si-BlueSystem/terminal/src -ID:/Qt/Qt5.4.0/5.4/mingw491_32/include -ID:/Qt/Qt5.4.0/5.4/mingw491_32/include/QtPrintSupport -ID:/Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets -ID:/Qt/Qt5.4.0/5.4/mingw491_32/include/QtGui -ID:/Qt/Qt5.4.0/5.4/mingw491_32/include/QtSql -ID:/Qt/Qt5.4.0/5.4/mingw491_32/include/QtNetwork -ID:/Qt/Qt5.4.0/5.4/mingw491_32/include/QtCore ..\..\terminal\src\printobject.h -o ..\obj\moc_printobject.cpp
+	D:\Qt\Qt5.4.0\5.4\mingw491_32\bin\moc.exe $(DEFINES) -D__GNUC__ -DWIN32 -ID:/Qt/Qt5.4.0/5.4/mingw491_32/mkspecs/win32-g++ -ID:/dev/C2Si-BlueSystem/manager/src -ID:/dev/C2Si-BlueSystem/orm -ID:/dev/C2Si-BlueSystem/orm/bin -ID:/dev/C2Si-BlueSystem/terminal/src -ID:/Qt/Qt5.4.0/5.4/mingw491_32/include -ID:/Qt/Qt5.4.0/5.4/mingw491_32/include/QtPrintSupport -ID:/Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets -ID:/Qt/Qt5.4.0/5.4/mingw491_32/include/QtGui -ID:/Qt/Qt5.4.0/5.4/mingw491_32/include/QtSql -ID:/Qt/Qt5.4.0/5.4/mingw491_32/include/QtNetwork -ID:/Qt/Qt5.4.0/5.4/mingw491_32/include/QtCore ..\..\terminal\src\printobject.h -o ..\obj\moc_printobject.cpp
 
 ../obj/moc_wuser.cpp: ../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/QWidget \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qwidget.h \
@@ -2385,9 +2362,9 @@ compiler_moc_header_clean:
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtGui/qvector2d.h \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtGui/qtouchdevice.h \
 		../../terminal/src/user.h \
-		../../../Neodymium/interface.h \
-		../../../Neodymium/nd_global.h \
-		../../../Neodymium/connection.h \
+		../../orm/interface.h \
+		../../orm/nd_global.h \
+		../../orm/connection.h \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtSql/QtSql \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtSql/QtSqlDepends \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtCore/QtCore \
@@ -2537,7 +2514,7 @@ compiler_moc_header_clean:
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtCore/QVariant \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtCore/QDateTime \
 		wuser.h
-	D:\Qt\Qt5.4.0\5.4\mingw491_32\bin\moc.exe $(DEFINES) -D__GNUC__ -DWIN32 -ID:/Qt/Qt5.4.0/5.4/mingw491_32/mkspecs/win32-g++ -ID:/dev/C2Si-BlueSystem/manager/src -ID:/dev/Neodymium -ID:/Neodymium/bin -ID:/dev/C2Si-BlueSystem/terminal/src -ID:/Qt/Qt5.4.0/5.4/mingw491_32/include -ID:/Qt/Qt5.4.0/5.4/mingw491_32/include/QtPrintSupport -ID:/Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets -ID:/Qt/Qt5.4.0/5.4/mingw491_32/include/QtGui -ID:/Qt/Qt5.4.0/5.4/mingw491_32/include/QtSql -ID:/Qt/Qt5.4.0/5.4/mingw491_32/include/QtNetwork -ID:/Qt/Qt5.4.0/5.4/mingw491_32/include/QtCore wuser.h -o ..\obj\moc_wuser.cpp
+	D:\Qt\Qt5.4.0\5.4\mingw491_32\bin\moc.exe $(DEFINES) -D__GNUC__ -DWIN32 -ID:/Qt/Qt5.4.0/5.4/mingw491_32/mkspecs/win32-g++ -ID:/dev/C2Si-BlueSystem/manager/src -ID:/dev/C2Si-BlueSystem/orm -ID:/dev/C2Si-BlueSystem/orm/bin -ID:/dev/C2Si-BlueSystem/terminal/src -ID:/Qt/Qt5.4.0/5.4/mingw491_32/include -ID:/Qt/Qt5.4.0/5.4/mingw491_32/include/QtPrintSupport -ID:/Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets -ID:/Qt/Qt5.4.0/5.4/mingw491_32/include/QtGui -ID:/Qt/Qt5.4.0/5.4/mingw491_32/include/QtSql -ID:/Qt/Qt5.4.0/5.4/mingw491_32/include/QtNetwork -ID:/Qt/Qt5.4.0/5.4/mingw491_32/include/QtCore wuser.h -o ..\obj\moc_wuser.cpp
 
 ../obj/moc_wuserbrowse.cpp: ../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/QWidget \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qwidget.h \
@@ -2789,16 +2766,16 @@ compiler_moc_header_clean:
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtSql/qtsqlversion.h \
 		wuser.h \
 		../../terminal/src/user.h \
-		../../../Neodymium/interface.h \
-		../../../Neodymium/nd_global.h \
-		../../../Neodymium/connection.h \
+		../../orm/interface.h \
+		../../orm/nd_global.h \
+		../../orm/connection.h \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtCore/QTimer \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtCore/QList \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtCore/QString \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtCore/QVariant \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtCore/QDateTime \
 		wuserbrowse.h
-	D:\Qt\Qt5.4.0\5.4\mingw491_32\bin\moc.exe $(DEFINES) -D__GNUC__ -DWIN32 -ID:/Qt/Qt5.4.0/5.4/mingw491_32/mkspecs/win32-g++ -ID:/dev/C2Si-BlueSystem/manager/src -ID:/dev/Neodymium -ID:/Neodymium/bin -ID:/dev/C2Si-BlueSystem/terminal/src -ID:/Qt/Qt5.4.0/5.4/mingw491_32/include -ID:/Qt/Qt5.4.0/5.4/mingw491_32/include/QtPrintSupport -ID:/Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets -ID:/Qt/Qt5.4.0/5.4/mingw491_32/include/QtGui -ID:/Qt/Qt5.4.0/5.4/mingw491_32/include/QtSql -ID:/Qt/Qt5.4.0/5.4/mingw491_32/include/QtNetwork -ID:/Qt/Qt5.4.0/5.4/mingw491_32/include/QtCore wuserbrowse.h -o ..\obj\moc_wuserbrowse.cpp
+	D:\Qt\Qt5.4.0\5.4\mingw491_32\bin\moc.exe $(DEFINES) -D__GNUC__ -DWIN32 -ID:/Qt/Qt5.4.0/5.4/mingw491_32/mkspecs/win32-g++ -ID:/dev/C2Si-BlueSystem/manager/src -ID:/dev/C2Si-BlueSystem/orm -ID:/dev/C2Si-BlueSystem/orm/bin -ID:/dev/C2Si-BlueSystem/terminal/src -ID:/Qt/Qt5.4.0/5.4/mingw491_32/include -ID:/Qt/Qt5.4.0/5.4/mingw491_32/include/QtPrintSupport -ID:/Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets -ID:/Qt/Qt5.4.0/5.4/mingw491_32/include/QtGui -ID:/Qt/Qt5.4.0/5.4/mingw491_32/include/QtSql -ID:/Qt/Qt5.4.0/5.4/mingw491_32/include/QtNetwork -ID:/Qt/Qt5.4.0/5.4/mingw491_32/include/QtCore wuserbrowse.h -o ..\obj\moc_wuserbrowse.cpp
 
 ../obj/moc_wbooksbrowser.cpp: ../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/QWidget \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qwidget.h \
@@ -2923,8 +2900,8 @@ compiler_moc_header_clean:
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qtabwidget.h \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qrubberband.h \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qtreewidgetitemiterator.h \
-		../../../Neodymium/connection.h \
-		../../../Neodymium/nd_global.h \
+		../../orm/connection.h \
+		../../orm/nd_global.h \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtSql/QtSql \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtSql/QtSqlDepends \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtCore/QtCore \
@@ -3053,13 +3030,13 @@ compiler_moc_header_clean:
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtSql/qtsqlversion.h \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtCore/QTimer \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtCore/QList \
-		../../../Neodymium/db.h \
-		../../../Neodymium/utils.h \
+		../../orm/db.h \
+		../../orm/utils.h \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtCore/QString \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtCore/QVariant \
-		../../../Neodymium/queryresult.h \
-		../../../Neodymium/relation.h \
-		../../../Neodymium/interface.h \
+		../../orm/queryresult.h \
+		../../orm/relation.h \
+		../../orm/interface.h \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtCore/QDateTime \
 		../../terminal/src/business.h \
 		../../terminal/src/client.h \
@@ -3067,7 +3044,7 @@ compiler_moc_header_clean:
 		../../terminal/src/books.h \
 		../../terminal/src/anillado.h \
 		wbooksbrowser.h
-	D:\Qt\Qt5.4.0\5.4\mingw491_32\bin\moc.exe $(DEFINES) -D__GNUC__ -DWIN32 -ID:/Qt/Qt5.4.0/5.4/mingw491_32/mkspecs/win32-g++ -ID:/dev/C2Si-BlueSystem/manager/src -ID:/dev/Neodymium -ID:/Neodymium/bin -ID:/dev/C2Si-BlueSystem/terminal/src -ID:/Qt/Qt5.4.0/5.4/mingw491_32/include -ID:/Qt/Qt5.4.0/5.4/mingw491_32/include/QtPrintSupport -ID:/Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets -ID:/Qt/Qt5.4.0/5.4/mingw491_32/include/QtGui -ID:/Qt/Qt5.4.0/5.4/mingw491_32/include/QtSql -ID:/Qt/Qt5.4.0/5.4/mingw491_32/include/QtNetwork -ID:/Qt/Qt5.4.0/5.4/mingw491_32/include/QtCore wbooksbrowser.h -o ..\obj\moc_wbooksbrowser.cpp
+	D:\Qt\Qt5.4.0\5.4\mingw491_32\bin\moc.exe $(DEFINES) -D__GNUC__ -DWIN32 -ID:/Qt/Qt5.4.0/5.4/mingw491_32/mkspecs/win32-g++ -ID:/dev/C2Si-BlueSystem/manager/src -ID:/dev/C2Si-BlueSystem/orm -ID:/dev/C2Si-BlueSystem/orm/bin -ID:/dev/C2Si-BlueSystem/terminal/src -ID:/Qt/Qt5.4.0/5.4/mingw491_32/include -ID:/Qt/Qt5.4.0/5.4/mingw491_32/include/QtPrintSupport -ID:/Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets -ID:/Qt/Qt5.4.0/5.4/mingw491_32/include/QtGui -ID:/Qt/Qt5.4.0/5.4/mingw491_32/include/QtSql -ID:/Qt/Qt5.4.0/5.4/mingw491_32/include/QtNetwork -ID:/Qt/Qt5.4.0/5.4/mingw491_32/include/QtCore wbooksbrowser.h -o ..\obj\moc_wbooksbrowser.cpp
 
 ../obj/moc_wworksbrowser.cpp: ../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/QWidget \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qwidget.h \
@@ -3314,17 +3291,17 @@ compiler_moc_header_clean:
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtSql/qsqlrelationaltablemodel.h \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtSql/qsqltablemodel.h \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtSql/qtsqlversion.h \
-		../../../Neodymium/connection.h \
-		../../../Neodymium/nd_global.h \
+		../../orm/connection.h \
+		../../orm/nd_global.h \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtCore/QTimer \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtCore/QList \
-		../../../Neodymium/db.h \
-		../../../Neodymium/utils.h \
+		../../orm/db.h \
+		../../orm/utils.h \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtCore/QString \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtCore/QVariant \
-		../../../Neodymium/queryresult.h \
-		../../../Neodymium/relation.h \
-		../../../Neodymium/interface.h \
+		../../orm/queryresult.h \
+		../../orm/relation.h \
+		../../orm/interface.h \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtCore/QDateTime \
 		../../terminal/src/business.h \
 		../../terminal/src/client.h \
@@ -3335,7 +3312,7 @@ compiler_moc_header_clean:
 		../../terminal/src/workorder_pages.h \
 		../../terminal/src/wworkorder.h \
 		wworksbrowser.h
-	D:\Qt\Qt5.4.0\5.4\mingw491_32\bin\moc.exe $(DEFINES) -D__GNUC__ -DWIN32 -ID:/Qt/Qt5.4.0/5.4/mingw491_32/mkspecs/win32-g++ -ID:/dev/C2Si-BlueSystem/manager/src -ID:/dev/Neodymium -ID:/Neodymium/bin -ID:/dev/C2Si-BlueSystem/terminal/src -ID:/Qt/Qt5.4.0/5.4/mingw491_32/include -ID:/Qt/Qt5.4.0/5.4/mingw491_32/include/QtPrintSupport -ID:/Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets -ID:/Qt/Qt5.4.0/5.4/mingw491_32/include/QtGui -ID:/Qt/Qt5.4.0/5.4/mingw491_32/include/QtSql -ID:/Qt/Qt5.4.0/5.4/mingw491_32/include/QtNetwork -ID:/Qt/Qt5.4.0/5.4/mingw491_32/include/QtCore wworksbrowser.h -o ..\obj\moc_wworksbrowser.cpp
+	D:\Qt\Qt5.4.0\5.4\mingw491_32\bin\moc.exe $(DEFINES) -D__GNUC__ -DWIN32 -ID:/Qt/Qt5.4.0/5.4/mingw491_32/mkspecs/win32-g++ -ID:/dev/C2Si-BlueSystem/manager/src -ID:/dev/C2Si-BlueSystem/orm -ID:/dev/C2Si-BlueSystem/orm/bin -ID:/dev/C2Si-BlueSystem/terminal/src -ID:/Qt/Qt5.4.0/5.4/mingw491_32/include -ID:/Qt/Qt5.4.0/5.4/mingw491_32/include/QtPrintSupport -ID:/Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets -ID:/Qt/Qt5.4.0/5.4/mingw491_32/include/QtGui -ID:/Qt/Qt5.4.0/5.4/mingw491_32/include/QtSql -ID:/Qt/Qt5.4.0/5.4/mingw491_32/include/QtNetwork -ID:/Qt/Qt5.4.0/5.4/mingw491_32/include/QtCore wworksbrowser.h -o ..\obj\moc_wworksbrowser.cpp
 
 ../obj/moc_wuserlogbrowser.cpp: ../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/QWidget \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qwidget.h \
@@ -3440,9 +3417,9 @@ compiler_moc_header_clean:
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtGui/qvector2d.h \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtGui/qtouchdevice.h \
 		../../terminal/src/business.h \
-		../../../Neodymium/interface.h \
-		../../../Neodymium/nd_global.h \
-		../../../Neodymium/connection.h \
+		../../orm/interface.h \
+		../../orm/nd_global.h \
+		../../orm/connection.h \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtSql/QtSql \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtSql/QtSqlDepends \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtCore/QtCore \
@@ -3596,7 +3573,7 @@ compiler_moc_header_clean:
 		../../terminal/src/books.h \
 		../../terminal/src/anillado.h \
 		wuserlogbrowser.h
-	D:\Qt\Qt5.4.0\5.4\mingw491_32\bin\moc.exe $(DEFINES) -D__GNUC__ -DWIN32 -ID:/Qt/Qt5.4.0/5.4/mingw491_32/mkspecs/win32-g++ -ID:/dev/C2Si-BlueSystem/manager/src -ID:/dev/Neodymium -ID:/Neodymium/bin -ID:/dev/C2Si-BlueSystem/terminal/src -ID:/Qt/Qt5.4.0/5.4/mingw491_32/include -ID:/Qt/Qt5.4.0/5.4/mingw491_32/include/QtPrintSupport -ID:/Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets -ID:/Qt/Qt5.4.0/5.4/mingw491_32/include/QtGui -ID:/Qt/Qt5.4.0/5.4/mingw491_32/include/QtSql -ID:/Qt/Qt5.4.0/5.4/mingw491_32/include/QtNetwork -ID:/Qt/Qt5.4.0/5.4/mingw491_32/include/QtCore wuserlogbrowser.h -o ..\obj\moc_wuserlogbrowser.cpp
+	D:\Qt\Qt5.4.0\5.4\mingw491_32\bin\moc.exe $(DEFINES) -D__GNUC__ -DWIN32 -ID:/Qt/Qt5.4.0/5.4/mingw491_32/mkspecs/win32-g++ -ID:/dev/C2Si-BlueSystem/manager/src -ID:/dev/C2Si-BlueSystem/orm -ID:/dev/C2Si-BlueSystem/orm/bin -ID:/dev/C2Si-BlueSystem/terminal/src -ID:/Qt/Qt5.4.0/5.4/mingw491_32/include -ID:/Qt/Qt5.4.0/5.4/mingw491_32/include/QtPrintSupport -ID:/Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets -ID:/Qt/Qt5.4.0/5.4/mingw491_32/include/QtGui -ID:/Qt/Qt5.4.0/5.4/mingw491_32/include/QtSql -ID:/Qt/Qt5.4.0/5.4/mingw491_32/include/QtNetwork -ID:/Qt/Qt5.4.0/5.4/mingw491_32/include/QtCore wuserlogbrowser.h -o ..\obj\moc_wuserlogbrowser.cpp
 
 ../obj/moc_wbackups.cpp: ../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/QWidget \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qwidget.h \
@@ -3707,7 +3684,7 @@ compiler_moc_header_clean:
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtCore/qdir.h \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtCore/qfileinfo.h \
 		wbackups.h
-	D:\Qt\Qt5.4.0\5.4\mingw491_32\bin\moc.exe $(DEFINES) -D__GNUC__ -DWIN32 -ID:/Qt/Qt5.4.0/5.4/mingw491_32/mkspecs/win32-g++ -ID:/dev/C2Si-BlueSystem/manager/src -ID:/dev/Neodymium -ID:/Neodymium/bin -ID:/dev/C2Si-BlueSystem/terminal/src -ID:/Qt/Qt5.4.0/5.4/mingw491_32/include -ID:/Qt/Qt5.4.0/5.4/mingw491_32/include/QtPrintSupport -ID:/Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets -ID:/Qt/Qt5.4.0/5.4/mingw491_32/include/QtGui -ID:/Qt/Qt5.4.0/5.4/mingw491_32/include/QtSql -ID:/Qt/Qt5.4.0/5.4/mingw491_32/include/QtNetwork -ID:/Qt/Qt5.4.0/5.4/mingw491_32/include/QtCore wbackups.h -o ..\obj\moc_wbackups.cpp
+	D:\Qt\Qt5.4.0\5.4\mingw491_32\bin\moc.exe $(DEFINES) -D__GNUC__ -DWIN32 -ID:/Qt/Qt5.4.0/5.4/mingw491_32/mkspecs/win32-g++ -ID:/dev/C2Si-BlueSystem/manager/src -ID:/dev/C2Si-BlueSystem/orm -ID:/dev/C2Si-BlueSystem/orm/bin -ID:/dev/C2Si-BlueSystem/terminal/src -ID:/Qt/Qt5.4.0/5.4/mingw491_32/include -ID:/Qt/Qt5.4.0/5.4/mingw491_32/include/QtPrintSupport -ID:/Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets -ID:/Qt/Qt5.4.0/5.4/mingw491_32/include/QtGui -ID:/Qt/Qt5.4.0/5.4/mingw491_32/include/QtSql -ID:/Qt/Qt5.4.0/5.4/mingw491_32/include/QtNetwork -ID:/Qt/Qt5.4.0/5.4/mingw491_32/include/QtCore wbackups.h -o ..\obj\moc_wbackups.cpp
 
 ../obj/moc_wbackupdialog.cpp: ../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/QDialog \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qdialog.h \
@@ -3828,7 +3805,7 @@ compiler_moc_header_clean:
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtNetwork/qssl.h \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtCore/QFlags \
 		wbackupdialog.h
-	D:\Qt\Qt5.4.0\5.4\mingw491_32\bin\moc.exe $(DEFINES) -D__GNUC__ -DWIN32 -ID:/Qt/Qt5.4.0/5.4/mingw491_32/mkspecs/win32-g++ -ID:/dev/C2Si-BlueSystem/manager/src -ID:/dev/Neodymium -ID:/Neodymium/bin -ID:/dev/C2Si-BlueSystem/terminal/src -ID:/Qt/Qt5.4.0/5.4/mingw491_32/include -ID:/Qt/Qt5.4.0/5.4/mingw491_32/include/QtPrintSupport -ID:/Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets -ID:/Qt/Qt5.4.0/5.4/mingw491_32/include/QtGui -ID:/Qt/Qt5.4.0/5.4/mingw491_32/include/QtSql -ID:/Qt/Qt5.4.0/5.4/mingw491_32/include/QtNetwork -ID:/Qt/Qt5.4.0/5.4/mingw491_32/include/QtCore wbackupdialog.h -o ..\obj\moc_wbackupdialog.cpp
+	D:\Qt\Qt5.4.0\5.4\mingw491_32\bin\moc.exe $(DEFINES) -D__GNUC__ -DWIN32 -ID:/Qt/Qt5.4.0/5.4/mingw491_32/mkspecs/win32-g++ -ID:/dev/C2Si-BlueSystem/manager/src -ID:/dev/C2Si-BlueSystem/orm -ID:/dev/C2Si-BlueSystem/orm/bin -ID:/dev/C2Si-BlueSystem/terminal/src -ID:/Qt/Qt5.4.0/5.4/mingw491_32/include -ID:/Qt/Qt5.4.0/5.4/mingw491_32/include/QtPrintSupport -ID:/Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets -ID:/Qt/Qt5.4.0/5.4/mingw491_32/include/QtGui -ID:/Qt/Qt5.4.0/5.4/mingw491_32/include/QtSql -ID:/Qt/Qt5.4.0/5.4/mingw491_32/include/QtNetwork -ID:/Qt/Qt5.4.0/5.4/mingw491_32/include/QtCore wbackupdialog.h -o ..\obj\moc_wbackupdialog.cpp
 
 ../obj/moc_woptiondialog.cpp: ../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/QDialog \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qdialog.h \
@@ -3936,9 +3913,9 @@ compiler_moc_header_clean:
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtCore/QSettings \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtCore/qsettings.h \
 		../../terminal/src/business.h \
-		../../../Neodymium/interface.h \
-		../../../Neodymium/nd_global.h \
-		../../../Neodymium/connection.h \
+		../../orm/interface.h \
+		../../orm/nd_global.h \
+		../../orm/connection.h \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtSql/QtSql \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtSql/QtSqlDepends \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtCore/QtCore \
@@ -4091,7 +4068,7 @@ compiler_moc_header_clean:
 		../../terminal/src/books.h \
 		../../terminal/src/anillado.h \
 		woptiondialog.h
-	D:\Qt\Qt5.4.0\5.4\mingw491_32\bin\moc.exe $(DEFINES) -D__GNUC__ -DWIN32 -ID:/Qt/Qt5.4.0/5.4/mingw491_32/mkspecs/win32-g++ -ID:/dev/C2Si-BlueSystem/manager/src -ID:/dev/Neodymium -ID:/Neodymium/bin -ID:/dev/C2Si-BlueSystem/terminal/src -ID:/Qt/Qt5.4.0/5.4/mingw491_32/include -ID:/Qt/Qt5.4.0/5.4/mingw491_32/include/QtPrintSupport -ID:/Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets -ID:/Qt/Qt5.4.0/5.4/mingw491_32/include/QtGui -ID:/Qt/Qt5.4.0/5.4/mingw491_32/include/QtSql -ID:/Qt/Qt5.4.0/5.4/mingw491_32/include/QtNetwork -ID:/Qt/Qt5.4.0/5.4/mingw491_32/include/QtCore woptiondialog.h -o ..\obj\moc_woptiondialog.cpp
+	D:\Qt\Qt5.4.0\5.4\mingw491_32\bin\moc.exe $(DEFINES) -D__GNUC__ -DWIN32 -ID:/Qt/Qt5.4.0/5.4/mingw491_32/mkspecs/win32-g++ -ID:/dev/C2Si-BlueSystem/manager/src -ID:/dev/C2Si-BlueSystem/orm -ID:/dev/C2Si-BlueSystem/orm/bin -ID:/dev/C2Si-BlueSystem/terminal/src -ID:/Qt/Qt5.4.0/5.4/mingw491_32/include -ID:/Qt/Qt5.4.0/5.4/mingw491_32/include/QtPrintSupport -ID:/Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets -ID:/Qt/Qt5.4.0/5.4/mingw491_32/include/QtGui -ID:/Qt/Qt5.4.0/5.4/mingw491_32/include/QtSql -ID:/Qt/Qt5.4.0/5.4/mingw491_32/include/QtNetwork -ID:/Qt/Qt5.4.0/5.4/mingw491_32/include/QtCore woptiondialog.h -o ..\obj\moc_woptiondialog.cpp
 
 compiler_moc_source_make_all:
 compiler_moc_source_clean:
@@ -4412,32 +4389,14 @@ compiler_clean: compiler_rcc_clean compiler_moc_header_clean compiler_uic_clean
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qaction.h \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qactiongroup.h \
 		ui_mainwindow.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtCore/QVariant \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/QButtonGroup \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qbuttongroup.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/QHeaderView \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qheaderview.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/QMenu \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qmenu.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/QMenuBar \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qmenubar.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/QStatusBar \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qstatusbar.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/QToolBar \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qtoolbar.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/QVBoxLayout \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qboxlayout.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qlayout.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qlayoutitem.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qgridlayout.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/QWidget \
 		../../terminal/src/user.h \
-		../../../Neodymium/interface.h \
-		../../../Neodymium/nd_global.h \
-		../../../Neodymium/connection.h \
+		../../orm/interface.h \
+		../../orm/nd_global.h \
+		../../orm/connection.h \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtCore/QTimer \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtCore/QList \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtCore/QString \
+		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtCore/QVariant \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtCore/QDateTime \
 		../../terminal/src/logindialog.h \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/QDialog \
@@ -4702,37 +4661,14 @@ compiler_clean: compiler_rcc_clean compiler_moc_header_clean compiler_uic_clean
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qaction.h \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qactiongroup.h \
 		ui_mainwindow.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtCore/QVariant \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/QApplication \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qapplication.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qdesktopwidget.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtGui/qguiapplication.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtGui/qinputmethod.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/QButtonGroup \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qbuttongroup.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/QHeaderView \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qheaderview.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/QMenu \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qmenu.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/QMenuBar \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qmenubar.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/QStatusBar \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qstatusbar.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/QToolBar \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qtoolbar.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/QVBoxLayout \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qboxlayout.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qlayout.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qlayoutitem.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qgridlayout.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/QWidget \
 		../../terminal/src/user.h \
-		../../../Neodymium/interface.h \
-		../../../Neodymium/nd_global.h \
-		../../../Neodymium/connection.h \
+		../../orm/interface.h \
+		../../orm/nd_global.h \
+		../../orm/connection.h \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtCore/QTimer \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtCore/QList \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtCore/QString \
+		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtCore/QVariant \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtCore/QDateTime \
 		../../terminal/src/logindialog.h \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/QDialog \
@@ -4741,6 +4677,7 @@ compiler_clean: compiler_rcc_clean compiler_moc_header_clean compiler_uic_clean
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qmessagebox.h \
 		version.h \
 		wbusiness.h \
+		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/QWidget \
 		../../terminal/src/business.h \
 		../../terminal/src/client.h \
 		../../terminal/src/books.h \
@@ -4753,10 +4690,10 @@ compiler_clean: compiler_rcc_clean compiler_moc_header_clean compiler_uic_clean
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qtreewidget.h \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qtreeview.h \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qtreewidgetitemiterator.h \
-		../../../Neodymium/db.h \
-		../../../Neodymium/utils.h \
-		../../../Neodymium/queryresult.h \
-		../../../Neodymium/relation.h \
+		../../orm/db.h \
+		../../orm/utils.h \
+		../../orm/queryresult.h \
+		../../orm/relation.h \
 		wworksbrowser.h \
 		../../terminal/src/workorder.h \
 		../../terminal/src/workorder_pages.h \
@@ -4793,10 +4730,23 @@ compiler_clean: compiler_rcc_clean compiler_moc_header_clean compiler_uic_clean
 		../../terminal/src/job.h \
 		../../terminal/src/wlistworkorder.h \
 		../../terminal/src/ui_piworkorder.h \
+		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/QApplication \
+		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qapplication.h \
+		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qdesktopwidget.h \
+		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtGui/qguiapplication.h \
+		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtGui/qinputmethod.h \
+		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/QButtonGroup \
+		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qbuttongroup.h \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/QGridLayout \
+		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qgridlayout.h \
+		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qlayout.h \
+		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qlayoutitem.h \
+		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qboxlayout.h \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/QGroupBox \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qgroupbox.h \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/QHBoxLayout \
+		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/QHeaderView \
+		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qheaderview.h \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/QLabel \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qlabel.h \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/QListView \
@@ -4813,6 +4763,7 @@ compiler_clean: compiler_rcc_clean compiler_moc_header_clean compiler_uic_clean
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtGui/qglyphrun.h \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtGui/qrawfont.h \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtGui/qfontdatabase.h \
+		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/QVBoxLayout \
 		../../terminal/src/ui_pworkorder.h \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/QSpacerItem \
 		../../terminal/src/ui_plist.h \
@@ -4830,8 +4781,8 @@ compiler_clean: compiler_rcc_clean compiler_moc_header_clean compiler_uic_clean
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o ..\obj\mainwindow.o mainwindow.cpp
 
 ../obj/user.o: ../../terminal/src/user.cpp ../../terminal/src/user.h \
-		../../../Neodymium/interface.h \
-		../../../Neodymium/nd_global.h \
+		../../orm/interface.h \
+		../../orm/nd_global.h \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtCore/qglobal.h \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtCore/qconfig.h \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtCore/qfeatures.h \
@@ -4860,7 +4811,7 @@ compiler_clean: compiler_rcc_clean compiler_moc_header_clean compiler_uic_clean
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtCore/qglobalstatic.h \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtCore/qmutex.h \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtCore/qnumeric.h \
-		../../../Neodymium/connection.h \
+		../../orm/connection.h \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtSql/QtSql \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtSql/QtSqlDepends \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtCore/QtCore \
@@ -5085,8 +5036,8 @@ compiler_clean: compiler_rcc_clean compiler_moc_header_clean compiler_uic_clean
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o ..\obj\user.o ..\..\terminal\src\user.cpp
 
 ../obj/folder.o: ../../terminal/src/folder.cpp ../../terminal/src/folder.h \
-		../../../Neodymium/interface.h \
-		../../../Neodymium/nd_global.h \
+		../../orm/interface.h \
+		../../orm/nd_global.h \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtCore/qglobal.h \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtCore/qconfig.h \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtCore/qfeatures.h \
@@ -5115,7 +5066,7 @@ compiler_clean: compiler_rcc_clean compiler_moc_header_clean compiler_uic_clean
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtCore/qglobalstatic.h \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtCore/qmutex.h \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtCore/qnumeric.h \
-		../../../Neodymium/connection.h \
+		../../orm/connection.h \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtSql/QtSql \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtSql/QtSqlDepends \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtCore/QtCore \
@@ -5342,8 +5293,8 @@ compiler_clean: compiler_rcc_clean compiler_moc_header_clean compiler_uic_clean
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o ..\obj\folder.o ..\..\terminal\src\folder.cpp
 
 ../obj/business.o: ../../terminal/src/business.cpp ../../terminal/src/business.h \
-		../../../Neodymium/interface.h \
-		../../../Neodymium/nd_global.h \
+		../../orm/interface.h \
+		../../orm/nd_global.h \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtCore/qglobal.h \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtCore/qconfig.h \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtCore/qfeatures.h \
@@ -5372,7 +5323,7 @@ compiler_clean: compiler_rcc_clean compiler_moc_header_clean compiler_uic_clean
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtCore/qglobalstatic.h \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtCore/qmutex.h \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtCore/qnumeric.h \
-		../../../Neodymium/connection.h \
+		../../orm/connection.h \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtSql/QtSql \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtSql/QtSqlDepends \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtCore/QtCore \
@@ -5598,15 +5549,15 @@ compiler_clean: compiler_rcc_clean compiler_moc_header_clean compiler_uic_clean
 		../../terminal/src/user.h \
 		../../terminal/src/books.h \
 		../../terminal/src/anillado.h \
-		../../../Neodymium/relation.h \
-		../../../Neodymium/db.h \
-		../../../Neodymium/utils.h \
-		../../../Neodymium/queryresult.h
+		../../orm/relation.h \
+		../../orm/db.h \
+		../../orm/utils.h \
+		../../orm/queryresult.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o ..\obj\business.o ..\..\terminal\src\business.cpp
 
 ../obj/books.o: ../../terminal/src/books.cpp ../../terminal/src/books.h \
-		../../../Neodymium/interface.h \
-		../../../Neodymium/nd_global.h \
+		../../orm/interface.h \
+		../../orm/nd_global.h \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtCore/qglobal.h \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtCore/qconfig.h \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtCore/qfeatures.h \
@@ -5635,7 +5586,7 @@ compiler_clean: compiler_rcc_clean compiler_moc_header_clean compiler_uic_clean
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtCore/qglobalstatic.h \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtCore/qmutex.h \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtCore/qnumeric.h \
-		../../../Neodymium/connection.h \
+		../../orm/connection.h \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtSql/QtSql \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtSql/QtSqlDepends \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtCore/QtCore \
@@ -5858,14 +5809,14 @@ compiler_clean: compiler_rcc_clean compiler_moc_header_clean compiler_uic_clean
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtCore/QVariant \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtCore/QDateTime \
 		../../terminal/src/anillado.h \
-		../../../Neodymium/db.h \
-		../../../Neodymium/utils.h \
-		../../../Neodymium/queryresult.h
+		../../orm/db.h \
+		../../orm/utils.h \
+		../../orm/queryresult.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o ..\obj\books.o ..\..\terminal\src\books.cpp
 
 ../obj/client.o: ../../terminal/src/client.cpp ../../terminal/src/client.h \
-		../../../Neodymium/interface.h \
-		../../../Neodymium/nd_global.h \
+		../../orm/interface.h \
+		../../orm/nd_global.h \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtCore/qglobal.h \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtCore/qconfig.h \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtCore/qfeatures.h \
@@ -5894,7 +5845,7 @@ compiler_clean: compiler_rcc_clean compiler_moc_header_clean compiler_uic_clean
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtCore/qglobalstatic.h \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtCore/qmutex.h \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtCore/qnumeric.h \
-		../../../Neodymium/connection.h \
+		../../orm/connection.h \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtSql/QtSql \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtSql/QtSqlDepends \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtCore/QtCore \
@@ -6119,8 +6070,8 @@ compiler_clean: compiler_rcc_clean compiler_moc_header_clean compiler_uic_clean
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o ..\obj\client.o ..\..\terminal\src\client.cpp
 
 ../obj/job.o: ../../terminal/src/job.cpp ../../terminal/src/job.h \
-		../../../Neodymium/interface.h \
-		../../../Neodymium/nd_global.h \
+		../../orm/interface.h \
+		../../orm/nd_global.h \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtCore/qglobal.h \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtCore/qconfig.h \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtCore/qfeatures.h \
@@ -6149,7 +6100,7 @@ compiler_clean: compiler_rcc_clean compiler_moc_header_clean compiler_uic_clean
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtCore/qglobalstatic.h \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtCore/qmutex.h \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtCore/qnumeric.h \
-		../../../Neodymium/connection.h \
+		../../orm/connection.h \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtSql/QtSql \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtSql/QtSqlDepends \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtCore/QtCore \
@@ -6378,15 +6329,15 @@ compiler_clean: compiler_rcc_clean compiler_moc_header_clean compiler_uic_clean
 		../../terminal/src/books.h \
 		../../terminal/src/anillado.h \
 		../../terminal/src/workorder_pages.h \
-		../../../Neodymium/db.h \
-		../../../Neodymium/utils.h \
-		../../../Neodymium/queryresult.h \
-		../../../Neodymium/relation.h
+		../../orm/db.h \
+		../../orm/utils.h \
+		../../orm/queryresult.h \
+		../../orm/relation.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o ..\obj\job.o ..\..\terminal\src\job.cpp
 
 ../obj/workorder.o: ../../terminal/src/workorder.cpp ../../terminal/src/workorder.h \
-		../../../Neodymium/interface.h \
-		../../../Neodymium/nd_global.h \
+		../../orm/interface.h \
+		../../orm/nd_global.h \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtCore/qglobal.h \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtCore/qconfig.h \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtCore/qfeatures.h \
@@ -6415,7 +6366,7 @@ compiler_clean: compiler_rcc_clean compiler_moc_header_clean compiler_uic_clean
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtCore/qglobalstatic.h \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtCore/qmutex.h \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtCore/qnumeric.h \
-		../../../Neodymium/connection.h \
+		../../orm/connection.h \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtSql/QtSql \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtSql/QtSqlDepends \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtCore/QtCore \
@@ -6643,15 +6594,15 @@ compiler_clean: compiler_rcc_clean compiler_moc_header_clean compiler_uic_clean
 		../../terminal/src/books.h \
 		../../terminal/src/anillado.h \
 		../../terminal/src/workorder_pages.h \
-		../../../Neodymium/relation.h \
-		../../../Neodymium/db.h \
-		../../../Neodymium/utils.h \
-		../../../Neodymium/queryresult.h
+		../../orm/relation.h \
+		../../orm/db.h \
+		../../orm/utils.h \
+		../../orm/queryresult.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o ..\obj\workorder.o ..\..\terminal\src\workorder.cpp
 
 ../obj/workorder_pages.o: ../../terminal/src/workorder_pages.cpp ../../terminal/src/workorder_pages.h \
-		../../../Neodymium/interface.h \
-		../../../Neodymium/nd_global.h \
+		../../orm/interface.h \
+		../../orm/nd_global.h \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtCore/qglobal.h \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtCore/qconfig.h \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtCore/qfeatures.h \
@@ -6680,7 +6631,7 @@ compiler_clean: compiler_rcc_clean compiler_moc_header_clean compiler_uic_clean
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtCore/qglobalstatic.h \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtCore/qmutex.h \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtCore/qnumeric.h \
-		../../../Neodymium/connection.h \
+		../../orm/connection.h \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtSql/QtSql \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtSql/QtSqlDepends \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtCore/QtCore \
@@ -6911,8 +6862,8 @@ compiler_clean: compiler_rcc_clean compiler_moc_header_clean compiler_uic_clean
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o ..\obj\workorder_pages.o ..\..\terminal\src\workorder_pages.cpp
 
 ../obj/anillado.o: ../../terminal/src/anillado.cpp ../../terminal/src/anillado.h \
-		../../../Neodymium/interface.h \
-		../../../Neodymium/nd_global.h \
+		../../orm/interface.h \
+		../../orm/nd_global.h \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtCore/qglobal.h \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtCore/qconfig.h \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtCore/qfeatures.h \
@@ -6941,7 +6892,7 @@ compiler_clean: compiler_rcc_clean compiler_moc_header_clean compiler_uic_clean
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtCore/qglobalstatic.h \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtCore/qmutex.h \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtCore/qnumeric.h \
-		../../../Neodymium/connection.h \
+		../../orm/connection.h \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtSql/QtSql \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtSql/QtSqlDepends \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtCore/QtCore \
@@ -7166,8 +7117,8 @@ compiler_clean: compiler_rcc_clean compiler_moc_header_clean compiler_uic_clean
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o ..\obj\anillado.o ..\..\terminal\src\anillado.cpp
 
 ../obj/userlog.o: ../../terminal/src/userlog.cpp ../../terminal/src/userlog.h \
-		../../../Neodymium/interface.h \
-		../../../Neodymium/nd_global.h \
+		../../orm/interface.h \
+		../../orm/nd_global.h \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtCore/qglobal.h \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtCore/qconfig.h \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtCore/qfeatures.h \
@@ -7196,7 +7147,7 @@ compiler_clean: compiler_rcc_clean compiler_moc_header_clean compiler_uic_clean
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtCore/qglobalstatic.h \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtCore/qmutex.h \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtCore/qnumeric.h \
-		../../../Neodymium/connection.h \
+		../../orm/connection.h \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtSql/QtSql \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtSql/QtSqlDepends \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtCore/QtCore \
@@ -7602,9 +7553,9 @@ compiler_clean: compiler_rcc_clean compiler_moc_header_clean compiler_uic_clean
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtGui/qvector2d.h \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtGui/qtouchdevice.h \
 		../../terminal/src/anillado.h \
-		../../../Neodymium/interface.h \
-		../../../Neodymium/nd_global.h \
-		../../../Neodymium/connection.h \
+		../../orm/interface.h \
+		../../orm/nd_global.h \
+		../../orm/connection.h \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtSql/QtSql \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtSql/QtSqlDepends \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtCore/QtCore \
@@ -7754,38 +7705,6 @@ compiler_clean: compiler_rcc_clean compiler_moc_header_clean compiler_uic_clean
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtCore/QVariant \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtCore/QDateTime \
 		ui_wanillado.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/QAction \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qaction.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qactiongroup.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/QApplication \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qapplication.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qdesktopwidget.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtGui/qguiapplication.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtGui/qinputmethod.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/QButtonGroup \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qbuttongroup.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/QDialogButtonBox \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qdialogbuttonbox.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/QDoubleSpinBox \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qspinbox.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/QFormLayout \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qformlayout.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/QLayout \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qlayout.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qlayoutitem.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qboxlayout.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qgridlayout.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/QHeaderView \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qheaderview.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/QLabel \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qlabel.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/QLineEdit \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qlineedit.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtGui/qtextcursor.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtGui/qtextformat.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtGui/qpen.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtGui/qtextoption.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/QVBoxLayout \
 		mainwindow.h \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/QMainWindow \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qmainwindow.h \
@@ -7793,16 +7712,10 @@ compiler_clean: compiler_rcc_clean compiler_moc_header_clean compiler_uic_clean
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qmdiarea.h \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/QMdiSubWindow \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qmdisubwindow.h \
+		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/QAction \
+		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qaction.h \
+		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qactiongroup.h \
 		ui_mainwindow.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/QMenu \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qmenu.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/QMenuBar \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qmenubar.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/QStatusBar \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qstatusbar.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/QToolBar \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qtoolbar.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/QWidget \
 		../../terminal/src/user.h \
 		../../terminal/src/logindialog.h \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/QMessageBox \
@@ -7914,9 +7827,9 @@ compiler_clean: compiler_rcc_clean compiler_moc_header_clean compiler_uic_clean
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtGui/qvector2d.h \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtGui/qtouchdevice.h \
 		../../terminal/src/business.h \
-		../../../Neodymium/interface.h \
-		../../../Neodymium/nd_global.h \
-		../../../Neodymium/connection.h \
+		../../orm/interface.h \
+		../../orm/nd_global.h \
+		../../orm/connection.h \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtSql/QtSql \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtSql/QtSqlDepends \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtCore/QtCore \
@@ -8070,47 +7983,6 @@ compiler_clean: compiler_rcc_clean compiler_moc_header_clean compiler_uic_clean
 		../../terminal/src/books.h \
 		../../terminal/src/anillado.h \
 		ui_wbusiness.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/QAction \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qaction.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qactiongroup.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/QApplication \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qapplication.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qdesktopwidget.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtGui/qguiapplication.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtGui/qinputmethod.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/QButtonGroup \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qbuttongroup.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/QDialogButtonBox \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qdialogbuttonbox.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/QDoubleSpinBox \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qspinbox.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/QFormLayout \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qformlayout.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/QLayout \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qlayout.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qlayoutitem.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qboxlayout.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qgridlayout.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/QGroupBox \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qgroupbox.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/QHBoxLayout \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/QHeaderView \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qheaderview.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/QLabel \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qlabel.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/QLineEdit \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qlineedit.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtGui/qtextcursor.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtGui/qtextformat.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtGui/qpen.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtGui/qtextoption.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/QListWidget \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qlistwidget.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/QSpacerItem \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/QToolButton \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qtoolbutton.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qabstractbutton.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/QVBoxLayout \
 		wuserbrowse.h \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/QMessageBox \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qmessagebox.h \
@@ -8125,15 +7997,10 @@ compiler_clean: compiler_rcc_clean compiler_moc_header_clean compiler_uic_clean
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qmdiarea.h \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/QMdiSubWindow \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qmdisubwindow.h \
+		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/QAction \
+		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qaction.h \
+		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qactiongroup.h \
 		ui_mainwindow.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/QMenu \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qmenu.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/QMenuBar \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qmenubar.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/QStatusBar \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qstatusbar.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/QToolBar \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qtoolbar.h \
 		../../terminal/src/logindialog.h \
 		version.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o ..\obj\wbusiness.o wbusiness.cpp
@@ -8389,9 +8256,9 @@ compiler_clean: compiler_rcc_clean compiler_moc_header_clean compiler_uic_clean
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qdialog.h \
 		wbusiness.h \
 		../../terminal/src/business.h \
-		../../../Neodymium/interface.h \
-		../../../Neodymium/nd_global.h \
-		../../../Neodymium/connection.h \
+		../../orm/interface.h \
+		../../orm/nd_global.h \
+		../../orm/connection.h \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtCore/QTimer \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtCore/QList \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtCore/QString \
@@ -8402,30 +8269,6 @@ compiler_clean: compiler_rcc_clean compiler_moc_header_clean compiler_uic_clean
 		../../terminal/src/books.h \
 		../../terminal/src/anillado.h \
 		ui_wbusinessbrowse.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/QAction \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qaction.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qactiongroup.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/QApplication \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qapplication.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qdesktopwidget.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtGui/qguiapplication.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtGui/qinputmethod.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/QButtonGroup \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qbuttongroup.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/QHBoxLayout \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qboxlayout.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qlayout.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qlayoutitem.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qgridlayout.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/QHeaderView \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qheaderview.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/QPushButton \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qpushbutton.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qabstractbutton.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/QSpacerItem \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/QTableView \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qtableview.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/QVBoxLayout \
 		mainwindow.h \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/QMainWindow \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qmainwindow.h \
@@ -8433,15 +8276,10 @@ compiler_clean: compiler_rcc_clean compiler_moc_header_clean compiler_uic_clean
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qmdiarea.h \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/QMdiSubWindow \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qmdisubwindow.h \
+		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/QAction \
+		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qaction.h \
+		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qactiongroup.h \
 		ui_mainwindow.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/QMenu \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qmenu.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/QMenuBar \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qmenubar.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/QStatusBar \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qstatusbar.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/QToolBar \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qtoolbar.h \
 		../../terminal/src/logindialog.h \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/QDialog \
 		version.h
@@ -8554,9 +8392,9 @@ compiler_clean: compiler_rcc_clean compiler_moc_header_clean compiler_uic_clean
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/QMessageBox \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qmessagebox.h \
 		../../terminal/src/user.h \
-		../../../Neodymium/interface.h \
-		../../../Neodymium/nd_global.h \
-		../../../Neodymium/connection.h \
+		../../orm/interface.h \
+		../../orm/nd_global.h \
+		../../orm/connection.h \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtSql/QtSql \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtSql/QtSqlDepends \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtCore/QtCore \
@@ -8842,9 +8680,9 @@ compiler_clean: compiler_rcc_clean compiler_moc_header_clean compiler_uic_clean
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtGui/qvector2d.h \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtGui/qtouchdevice.h \
 		../../terminal/src/books.h \
-		../../../Neodymium/interface.h \
-		../../../Neodymium/nd_global.h \
-		../../../Neodymium/connection.h \
+		../../orm/interface.h \
+		../../orm/nd_global.h \
+		../../orm/connection.h \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtSql/QtSql \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtSql/QtSqlDepends \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtCore/QtCore \
@@ -9290,9 +9128,9 @@ compiler_clean: compiler_rcc_clean compiler_moc_header_clean compiler_uic_clean
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtGui/QStandardItemModel \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtGui/qstandarditemmodel.h \
 		../../terminal/src/job.h \
-		../../../Neodymium/interface.h \
-		../../../Neodymium/nd_global.h \
-		../../../Neodymium/connection.h \
+		../../orm/interface.h \
+		../../orm/nd_global.h \
+		../../orm/connection.h \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtCore/QTimer \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtCore/QList \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtCore/QString \
@@ -9467,9 +9305,9 @@ compiler_clean: compiler_rcc_clean compiler_moc_header_clean compiler_uic_clean
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtGui/qvector2d.h \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtGui/qtouchdevice.h \
 		../../terminal/src/user.h \
-		../../../Neodymium/interface.h \
-		../../../Neodymium/nd_global.h \
-		../../../Neodymium/connection.h \
+		../../orm/interface.h \
+		../../orm/nd_global.h \
+		../../orm/connection.h \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtSql/QtSql \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtSql/QtSqlDepends \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtCore/QtCore \
@@ -9618,42 +9456,7 @@ compiler_clean: compiler_rcc_clean compiler_moc_header_clean compiler_uic_clean
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtCore/QString \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtCore/QVariant \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtCore/QDateTime \
-		ui_wuser.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/QAction \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qaction.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qactiongroup.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/QApplication \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qapplication.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qdesktopwidget.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtGui/qguiapplication.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtGui/qinputmethod.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/QButtonGroup \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qbuttongroup.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/QCheckBox \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qcheckbox.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qabstractbutton.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/QDateEdit \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qdatetimeedit.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/QDialogButtonBox \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qdialogbuttonbox.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/QFormLayout \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qformlayout.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/QLayout \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qlayout.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qlayoutitem.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qboxlayout.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qgridlayout.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/QHeaderView \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qheaderview.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/QLabel \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qlabel.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/QLineEdit \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qlineedit.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtGui/qtextcursor.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtGui/qtextformat.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtGui/qpen.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtGui/qtextoption.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/QVBoxLayout
+		ui_wuser.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o ..\obj\wuser.o wuser.cpp
 
 ../obj/wuserbrowse.o: wuserbrowse.cpp wuserbrowse.h \
@@ -9907,39 +9710,15 @@ compiler_clean: compiler_rcc_clean compiler_moc_header_clean compiler_uic_clean
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtSql/qtsqlversion.h \
 		wuser.h \
 		../../terminal/src/user.h \
-		../../../Neodymium/interface.h \
-		../../../Neodymium/nd_global.h \
-		../../../Neodymium/connection.h \
+		../../orm/interface.h \
+		../../orm/nd_global.h \
+		../../orm/connection.h \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtCore/QTimer \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtCore/QList \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtCore/QString \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtCore/QVariant \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtCore/QDateTime \
 		ui_wuserbrowse.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/QAction \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qaction.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qactiongroup.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/QApplication \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qapplication.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qdesktopwidget.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtGui/qguiapplication.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtGui/qinputmethod.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/QButtonGroup \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qbuttongroup.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/QHBoxLayout \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qboxlayout.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qlayout.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qlayoutitem.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qgridlayout.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/QHeaderView \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qheaderview.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/QPushButton \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qpushbutton.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qabstractbutton.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/QSpacerItem \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/QTableView \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qtableview.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/QVBoxLayout \
 		mainwindow.h \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/QMainWindow \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qmainwindow.h \
@@ -9947,15 +9726,10 @@ compiler_clean: compiler_rcc_clean compiler_moc_header_clean compiler_uic_clean
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qmdiarea.h \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/QMdiSubWindow \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qmdisubwindow.h \
+		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/QAction \
+		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qaction.h \
+		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qactiongroup.h \
 		ui_mainwindow.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/QMenu \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qmenu.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/QMenuBar \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qmenubar.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/QStatusBar \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qstatusbar.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/QToolBar \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qtoolbar.h \
 		../../terminal/src/logindialog.h \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/QDialog \
 		version.h
@@ -10085,8 +9859,8 @@ compiler_clean: compiler_rcc_clean compiler_moc_header_clean compiler_uic_clean
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qtabwidget.h \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qrubberband.h \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qtreewidgetitemiterator.h \
-		../../../Neodymium/connection.h \
-		../../../Neodymium/nd_global.h \
+		../../orm/connection.h \
+		../../orm/nd_global.h \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtSql/QtSql \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtSql/QtSqlDepends \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtCore/QtCore \
@@ -10215,13 +9989,13 @@ compiler_clean: compiler_rcc_clean compiler_moc_header_clean compiler_uic_clean
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtSql/qtsqlversion.h \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtCore/QTimer \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtCore/QList \
-		../../../Neodymium/db.h \
-		../../../Neodymium/utils.h \
+		../../orm/db.h \
+		../../orm/utils.h \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtCore/QString \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtCore/QVariant \
-		../../../Neodymium/queryresult.h \
-		../../../Neodymium/relation.h \
-		../../../Neodymium/interface.h \
+		../../orm/queryresult.h \
+		../../orm/relation.h \
+		../../orm/interface.h \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtCore/QDateTime \
 		../../terminal/src/business.h \
 		../../terminal/src/client.h \
@@ -10229,30 +10003,6 @@ compiler_clean: compiler_rcc_clean compiler_moc_header_clean compiler_uic_clean
 		../../terminal/src/books.h \
 		../../terminal/src/anillado.h \
 		ui_wbooksbrowser.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/QAction \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qaction.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qactiongroup.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/QApplication \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qapplication.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qdesktopwidget.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtGui/qguiapplication.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtGui/qinputmethod.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/QButtonGroup \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qbuttongroup.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/QComboBox \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/QHBoxLayout \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qboxlayout.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qlayout.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qlayoutitem.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qgridlayout.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/QHeaderView \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qheaderview.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/QPushButton \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qpushbutton.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qabstractbutton.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/QSpacerItem \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/QTreeWidget \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/QVBoxLayout \
 		../../terminal/src/wbooks.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o ..\obj\wbooksbrowser.o wbooksbrowser.cpp
 
@@ -10502,17 +10252,17 @@ compiler_clean: compiler_rcc_clean compiler_moc_header_clean compiler_uic_clean
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtSql/qsqlrelationaltablemodel.h \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtSql/qsqltablemodel.h \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtSql/qtsqlversion.h \
-		../../../Neodymium/connection.h \
-		../../../Neodymium/nd_global.h \
+		../../orm/connection.h \
+		../../orm/nd_global.h \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtCore/QTimer \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtCore/QList \
-		../../../Neodymium/db.h \
-		../../../Neodymium/utils.h \
+		../../orm/db.h \
+		../../orm/utils.h \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtCore/QString \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtCore/QVariant \
-		../../../Neodymium/queryresult.h \
-		../../../Neodymium/relation.h \
-		../../../Neodymium/interface.h \
+		../../orm/queryresult.h \
+		../../orm/relation.h \
+		../../orm/interface.h \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtCore/QDateTime \
 		../../terminal/src/business.h \
 		../../terminal/src/client.h \
@@ -10523,46 +10273,6 @@ compiler_clean: compiler_rcc_clean compiler_moc_header_clean compiler_uic_clean
 		../../terminal/src/workorder_pages.h \
 		../../terminal/src/wworkorder.h \
 		ui_wworksbrowser.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/QAction \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qaction.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qactiongroup.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/QApplication \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qapplication.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qdesktopwidget.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtGui/qguiapplication.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtGui/qinputmethod.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/QButtonGroup \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qbuttongroup.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/QCheckBox \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qcheckbox.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qabstractbutton.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/QComboBox \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/QDateTimeEdit \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qdatetimeedit.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/QGridLayout \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qgridlayout.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qlayout.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qlayoutitem.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qboxlayout.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/QGroupBox \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qgroupbox.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/QHBoxLayout \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/QHeaderView \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qheaderview.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/QLabel \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qlabel.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/QLineEdit \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qlineedit.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtGui/qtextcursor.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtGui/qtextformat.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtGui/qpen.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtGui/qtextoption.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/QPushButton \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qpushbutton.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/QSpacerItem \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/QTableView \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qtableview.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/QVBoxLayout \
 		../../terminal/src/printobject.h \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtPrintSupport/QPrintPreviewDialog \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtPrintSupport/qprintpreviewdialog.h \
@@ -10578,24 +10288,53 @@ compiler_clean: compiler_rcc_clean compiler_moc_header_clean compiler_uic_clean
 		../../terminal/src/job.h \
 		../../terminal/src/wlistworkorder.h \
 		../../terminal/src/ui_piworkorder.h \
+		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/QAction \
+		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qaction.h \
+		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qactiongroup.h \
+		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/QApplication \
+		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qapplication.h \
+		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qdesktopwidget.h \
+		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtGui/qguiapplication.h \
+		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtGui/qinputmethod.h \
+		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/QButtonGroup \
+		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qbuttongroup.h \
+		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/QGridLayout \
+		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qgridlayout.h \
+		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qlayout.h \
+		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qlayoutitem.h \
+		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qboxlayout.h \
+		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/QGroupBox \
+		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qgroupbox.h \
+		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/QHBoxLayout \
+		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/QHeaderView \
+		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qheaderview.h \
+		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/QLabel \
+		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qlabel.h \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/QListView \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/QPlainTextEdit \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qplaintextedit.h \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qtextedit.h \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtGui/qtextdocument.h \
+		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtGui/qtextoption.h \
+		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtGui/qtextcursor.h \
+		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtGui/qtextformat.h \
+		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtGui/qpen.h \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtGui/qabstracttextdocumentlayout.h \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtGui/qtextlayout.h \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtGui/qglyphrun.h \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtGui/qrawfont.h \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtGui/qfontdatabase.h \
+		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/QVBoxLayout \
 		../../terminal/src/ui_pworkorder.h \
+		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/QSpacerItem \
 		../../terminal/src/ui_plist.h \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/QFrame \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/QScrollArea \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qscrollarea.h \
 		../../terminal/src/ui_pmodellist.h \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/QTableWidget \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qtablewidget.h
+		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qtablewidget.h \
+		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qtableview.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o ..\obj\wworksbrowser.o wworksbrowser.cpp
 
 ../obj/wuserlogbrowser.o: wuserlogbrowser.cpp wuserlogbrowser.h \
@@ -10702,9 +10441,9 @@ compiler_clean: compiler_rcc_clean compiler_moc_header_clean compiler_uic_clean
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtGui/qvector2d.h \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtGui/qtouchdevice.h \
 		../../terminal/src/business.h \
-		../../../Neodymium/interface.h \
-		../../../Neodymium/nd_global.h \
-		../../../Neodymium/connection.h \
+		../../orm/interface.h \
+		../../orm/nd_global.h \
+		../../orm/connection.h \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtSql/QtSql \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtSql/QtSqlDepends \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtCore/QtCore \
@@ -10858,41 +10597,9 @@ compiler_clean: compiler_rcc_clean compiler_moc_header_clean compiler_uic_clean
 		../../terminal/src/books.h \
 		../../terminal/src/anillado.h \
 		ui_wuserlogbrowser.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/QAction \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qaction.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qactiongroup.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/QApplication \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qapplication.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qdesktopwidget.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtGui/qguiapplication.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtGui/qinputmethod.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/QButtonGroup \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qbuttongroup.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/QComboBox \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/QDateEdit \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qdatetimeedit.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/QGroupBox \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qgroupbox.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/QHBoxLayout \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qboxlayout.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qlayout.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qlayoutitem.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qgridlayout.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/QHeaderView \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qheaderview.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/QLabel \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qlabel.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/QPushButton \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qpushbutton.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qabstractbutton.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/QSpacerItem \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/QTableWidget \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qtablewidget.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qtableview.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/QVBoxLayout \
-		../../../Neodymium/db.h \
-		../../../Neodymium/utils.h \
-		../../../Neodymium/queryresult.h
+		../../orm/db.h \
+		../../orm/utils.h \
+		../../orm/queryresult.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o ..\obj\wuserlogbrowser.o wuserlogbrowser.cpp
 
 ../obj/wbackups.o: wbackups.cpp wbackups.h \
@@ -11021,54 +10728,7 @@ compiler_clean: compiler_rcc_clean compiler_moc_header_clean compiler_uic_clean
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtCore/qdatetime.h \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtNetwork/qssl.h \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtCore/QFlags \
-		ui_wbackups.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtCore/QVariant \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/QAction \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qaction.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtGui/qicon.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qactiongroup.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/QApplication \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qapplication.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtCore/qcoreapplication.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtCore/qeventloop.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qdesktopwidget.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtGui/qguiapplication.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtGui/qinputmethod.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/QButtonGroup \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qbuttongroup.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/QGroupBox \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qgroupbox.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qframe.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/QHBoxLayout \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qboxlayout.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qlayout.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qlayoutitem.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qgridlayout.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/QHeaderView \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qheaderview.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qabstractitemview.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qabstractscrollarea.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtCore/qabstractitemmodel.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtCore/qitemselectionmodel.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qabstractitemdelegate.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qstyleoption.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qabstractspinbox.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtGui/qvalidator.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtCore/qregularexpression.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qslider.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qabstractslider.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qstyle.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qtabbar.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qtabwidget.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qrubberband.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/QPushButton \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qpushbutton.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qabstractbutton.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/QSpacerItem \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/QTableWidget \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qtablewidget.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qtableview.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/QVBoxLayout
+		ui_wbackups.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o ..\obj\wbackups.o wbackups.cpp
 
 ../obj/wbackupdialog.o: wbackupdialog.cpp ../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtNetwork/QNetworkReply \
@@ -11203,63 +10863,7 @@ compiler_clean: compiler_rcc_clean compiler_moc_header_clean compiler_uic_clean
 		wbackupdialog.h \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/QDialog \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtCore/QFile \
-		ui_wbackupdialog.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/QAction \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qaction.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtGui/qicon.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qactiongroup.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/QApplication \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qapplication.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtCore/qcoreapplication.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtCore/qeventloop.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qdesktopwidget.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtGui/qguiapplication.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtGui/qinputmethod.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/QButtonGroup \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qbuttongroup.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/QDialogButtonBox \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qdialogbuttonbox.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/QHBoxLayout \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qboxlayout.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qlayout.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qlayoutitem.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qgridlayout.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/QHeaderView \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qheaderview.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qabstractitemview.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qabstractscrollarea.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qframe.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtCore/qabstractitemmodel.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtCore/qitemselectionmodel.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qabstractitemdelegate.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qstyleoption.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qabstractspinbox.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtGui/qvalidator.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtCore/qregularexpression.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qslider.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qabstractslider.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qstyle.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qtabbar.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qtabwidget.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qrubberband.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/QLabel \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qlabel.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/QPlainTextEdit \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qplaintextedit.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qtextedit.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtGui/qtextdocument.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtGui/qtextoption.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtGui/qtextcursor.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtGui/qtextformat.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtGui/qpen.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtGui/qabstracttextdocumentlayout.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtGui/qtextlayout.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtGui/qglyphrun.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtGui/qrawfont.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtGui/qfontdatabase.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/QProgressBar \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qprogressbar.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/QVBoxLayout
+		ui_wbackupdialog.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o ..\obj\wbackupdialog.o wbackupdialog.cpp
 
 ../obj/woptiondialog.o: woptiondialog.cpp woptiondialog.h \
@@ -11369,9 +10973,9 @@ compiler_clean: compiler_rcc_clean compiler_moc_header_clean compiler_uic_clean
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtCore/QSettings \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtCore/qsettings.h \
 		../../terminal/src/business.h \
-		../../../Neodymium/interface.h \
-		../../../Neodymium/nd_global.h \
-		../../../Neodymium/connection.h \
+		../../orm/interface.h \
+		../../orm/nd_global.h \
+		../../orm/connection.h \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtSql/QtSql \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtSql/QtSqlDepends \
 		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtCore/QtCore \
@@ -11524,34 +11128,9 @@ compiler_clean: compiler_rcc_clean compiler_moc_header_clean compiler_uic_clean
 		../../terminal/src/books.h \
 		../../terminal/src/anillado.h \
 		ui_woptiondialog.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/QAction \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qaction.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qactiongroup.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/QApplication \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qapplication.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qdesktopwidget.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtGui/qguiapplication.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtGui/qinputmethod.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/QButtonGroup \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qbuttongroup.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/QComboBox \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/QDialogButtonBox \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qdialogbuttonbox.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/QFormLayout \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qformlayout.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/QLayout \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qlayout.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qlayoutitem.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qboxlayout.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qgridlayout.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/QHeaderView \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qheaderview.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/QLabel \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/qlabel.h \
-		../../../../Qt/Qt5.4.0/5.4/mingw491_32/include/QtWidgets/QVBoxLayout \
-		../../../Neodymium/db.h \
-		../../../Neodymium/utils.h \
-		../../../Neodymium/queryresult.h
+		../../orm/db.h \
+		../../orm/utils.h \
+		../../orm/queryresult.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o ..\obj\woptiondialog.o woptiondialog.cpp
 
 ../obj/qrc_resources.o: debug/qrc_resources.cpp 

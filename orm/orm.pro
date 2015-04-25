@@ -11,7 +11,7 @@ DESTDIR = bin
 #-Wl,--enable-auto-import
 TEMPLATE = lib
 
-CONFIG += orderer thread
+CONFIG += orderer thread c++11
 
 DEFINES += ND_LIBRARY
 
@@ -27,7 +27,6 @@ SOURCES +=\
     logger.cpp \
     db.cpp \
     utils.cpp \
-    relation.cpp \
     queryresult.cpp
 
 HEADERS  += neodymium.h \

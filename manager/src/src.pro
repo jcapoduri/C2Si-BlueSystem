@@ -19,9 +19,8 @@ INCLUDEPATH += ../../orm/bin
 INCLUDEPATH += ../../terminal/src
 
 LIBS += -L ../../orm/bin -lnd
-#LIBS += -L ../../../Neodymium/bin -lnd
 
-CONFIG += ordered thread
+CONFIG += ordered thread c++11
 
 SOURCES += main.cpp\
         mainwindow.cpp\

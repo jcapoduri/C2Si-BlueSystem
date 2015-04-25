@@ -234,8 +234,6 @@ bool business::erase(quint64 usrid)
     t_validUsers.clear();
     if(ok){
         relationship<business, user> rel = relationship<business, user>::fromFather(this);
-        //ok = rel.erase(usrid);
-        //t_validUsers = rel.toSonList();
     };
     return ok;
 }
@@ -250,37 +248,7 @@ bool business::update()
         relationship<business, books> rel2 = relationship<business, books>::fromFather(this);
         t_books = rel2.toSonPtrList();
         relationship<business, anillado> rel3 = relationship<business, anillado>::fromFather(this);
-        //qDebug() << "business anillado: " << rel3.count();
         t_anillados = rel3.toSonPtrList();
-
-        /*load books*/
-        /*books b(0);
-        books* _bk;
-        books* _bk2;
-        QList<books*> _lst_bk;
-        QSqlQuery q = nd::connection::instance()->select(QString("SELECT %1 FROM books WHERE id in (SELECT books FROM business_books WHERE business = %2) ORDER BY id_parent").arg(b.allFieldNames()).arg(this->internalID()));
-        while(q.next()){
-            _bk = new books();
-            _bk->updateFromRecord(q.record());
-            t_books << _bk;
-            _lst_bk << _bk;
-        };
-
-        q = nd::connection::instance()->select(QString("SELECT * FROM books WHERE id_parent IN ( SELECT books FROM business_books WHERE business = %1)").arg(this->internalID()));
-        while(!_lst_bk.isEmpty()){
-            _bk = _lst_bk.takeFirst();
-            if(q.first()){
-                do{
-                    if(q.record().field("id_parent").value().toInt() == _bk->internalID()){
-                        _bk2 = new books();
-                        _bk2->updateFromRecord(q.record());
-                        _bk->addBook(_bk2);
-                        _lst_bk << _bk2;
-                    };
-                }while(q.next());
-            };
-        };*/
-
     };
     return ok;
 }
@@ -303,36 +271,7 @@ bool business::update(QSqlRecord record)
         relationship<business, books> rel2 = relationship<business, books>::fromFather(this);
         t_books = rel2.toSonPtrList();
         relationship<business, anillado> rel3 = relationship<business, anillado>::fromFather(this);
-        t_anillados = rel3.toSonPtrList();
-        // load with one select
-        /*QList<books*> all;
-        QSqlQuery q = nd::connection::select(QString("SELECT books.* FROM books JOIN business_books ON books.id = business_books.books WHERE business = %1 ORDER BY id_parent").arg(id_db));*/
-        /*books b(0);
-        books* _bk;
-        books* _bk2;
-        QList<books*> _lst_bk;
-        QSqlQuery q = nd::connection::instance()->select(QString("SELECT %1 FROM books WHERE id in (SELECT books FROM business_books WHERE business = %2) ORDER BY id_parent").arg(b.allFieldNames()).arg(this->internalID()));
-        while(q.next()){
-            _bk = new books();
-            _bk->updateFromRecord(q.record());
-            t_books << _bk;
-            _lst_bk << _bk;
-        };
-
-        q = nd::connection::instance()->select(QString("SELECT * FROM books WHERE id_parent IN ( SELECT books FROM business_books WHERE business = %1)").arg(this->internalID()));
-        while(!_lst_bk.isEmpty()){
-            _bk = _lst_bk.takeFirst();
-            if(q.first()){
-                do{
-                    if(q.record().field("id_parent").value().toInt() == _bk->internalID()){
-                        _bk2 = new books();
-                        _bk2->updateFromRecord(q.record());
-                        _bk->addBook(_bk2);
-                        _lst_bk << _bk2;
-                    };
-                }while(q.next());
-            };
-        };*/
+        t_anillados = rel3.toSonPtrList();        
     };
     return ok;
 }

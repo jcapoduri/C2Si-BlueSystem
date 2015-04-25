@@ -132,7 +132,7 @@ bool books::setFieldValue(int at, QVariant value)
             break;
         case 4:
             if(t_anillado != 0) delete t_anillado;
-            t_anillado = new anillado(value.toInt(&ok));
+            t_anillado = new anillado(value.toLongLong(&ok));
             if(ok) ok = t_anillado->update();
             break;
         case 5:

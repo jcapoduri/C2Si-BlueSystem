@@ -165,7 +165,7 @@ bool connection::exec(QString str, QString fallbackstr)
     nd::logger::log(query.lastQuery());
     nd::logger::log(query.lastError().text());
 
-    if(query.lastInsertId().isValid()) t_lastId = query.lastInsertId().toInt();
+    if(query.lastInsertId().isValid()) t_lastId = query.lastInsertId().toLongLong();
 
     if(result && this->t_fallbackdb.isValid()){
         QSqlQuery query2(this->t_fallbackdb);
@@ -240,8 +240,8 @@ QString connection::exportDb(QSqlDatabase db)
     foreach(tb, t_tables){
         query.exec(QString("SHOW CREATE TABLE `%1`;").arg(tb));
         if(query.next()){
-            exportSql += QString("DROP TABLE `%1`;").arg(tb) + '\n\n';
-            exportSql += query.record().field(1).value().toString() + ";" + '\n\n';
+            exportSql += QString("DROP TABLE `%1`;").arg(tb) + "\n\n";
+            exportSql += query.record().field(1).value().toString() + ";" + "\n\n";
             query.exec(QString("SELECT * FROM `%1`").arg(tb));
             while(query.next()){
                 exportSql += QString("INSERT INTO `%1` VALUES (").arg(tb);

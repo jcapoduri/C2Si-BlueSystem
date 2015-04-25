@@ -7,7 +7,6 @@ INPUT(
 ./obj\logger.o
 ./obj\db.o
 ./obj\utils.o
-./obj\relation.o
 ./obj\queryresult.o
 ./obj\moc_neodymium.o
 ./obj\moc_connection.o

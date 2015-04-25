@@ -13,12 +13,11 @@ TEMPLATE = app
 MOC_DIR = ../obj
 OBJECTS_DIR = ../obj
 
-DEPENDPATH += ../../orm/
+DEPENDPATH  += ../../orm/
 INCLUDEPATH += ../../orm/
+INCLUDEPATH += ../../orm/bin
 
-#win32:LIBS += -L $$PWD/../../../Neodymium/bin/ -lnd
-LIBS += -L"/../../orm/bin" -lnd
-#LIBS += -L "../../Neodymium/bin/libnd.a"
+LIBS += -L ../../orm/bin -lnd
 
 CONFIG += ordered thread
 
@@ -51,7 +50,7 @@ SOURCES += main.cpp\
     wuserlist.cpp \
     userstamp.cpp \
     folder.cpp \
-    log.cpp \
+ #   log.cpp \
     workorderlist.cpp \
     bookslist.cpp \
     wworklist.cpp \
@@ -88,7 +87,7 @@ HEADERS  += mainwidget.h\
     wuserlist.h \
     userstamp.h \
     folder.h \
-    log.h \
+ #   log.h \
     workorderlist.h \
     bookslist.h \
     wworklist.h \

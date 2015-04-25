@@ -49,7 +49,7 @@ namespace nd{
             U* data2;
             while(query.next()){
                 //qDebug() << query.record().field(data.tablename()).value();
-                data2 = new U(query.record().field(data.tablename()).value().toInt());
+                data2 = new U(query.record().field(data.tablename()).value().toLongLong());
                 //qDebug() << "internal id:" << data.internalID();
                 bool ok = data2->update();
                 qDebug() << ok;

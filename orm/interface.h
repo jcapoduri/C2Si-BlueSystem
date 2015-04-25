@@ -14,7 +14,7 @@ namespace nd{
     {
     public:
         interface(quint64 id = 0){ id_db = id; t_valid = false; t_onFallback = false; }
-        ~interface();
+        virtual ~interface();
         virtual int         fieldsCount(){ return t_fieldList.count(); }
         virtual int         fieldAt(QString name){ return t_fieldList.indexOf(name); }
         virtual QVariant    fields(int at, bool toShow = false) = 0;

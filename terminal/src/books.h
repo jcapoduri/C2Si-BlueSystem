@@ -7,7 +7,7 @@
 class books : public nd::interface
 {
 public:
-    inline books(quint64 id = 0);
+    books(quint64 id = 0);
     books(const books& other);
     books & operator= (const books &other);
     ~books();

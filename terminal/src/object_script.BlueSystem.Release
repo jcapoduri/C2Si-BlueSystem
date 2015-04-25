@@ -28,7 +28,6 @@ INPUT(
 ./..\obj\wuserlist.o
 ./..\obj\userstamp.o
 ./..\obj\folder.o
-./..\obj\log.o
 ./..\obj\workorderlist.o
 ./..\obj\bookslist.o
 ./..\obj\wworklist.o
@@ -53,7 +52,6 @@ INPUT(
 ./..\obj\moc_woptions.o
 ./..\obj\moc_wseachjob.o
 ./..\obj\moc_wuserlist.o
-./..\obj\moc_log.o
 ./..\obj\moc_workorderlist.o
 ./..\obj\moc_bookslist.o
 ./..\obj\moc_wworklist.o

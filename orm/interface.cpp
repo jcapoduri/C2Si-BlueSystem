@@ -88,7 +88,7 @@ bool interface::commit(quint64 usrid){
     nd::logger::log(q.lastQuery() + QString(" error: %1").arg(q.lastError().text()) + QString(" prep time: %1, bind time: %2 exec time: %3, total time: %4").arg(_prep).arg(_bind).arg(_total).arg(t.elapsed()));
 
     if(id_db == 0){
-        id_db = q.lastInsertId().toInt();
+        id_db = q.lastInsertId().toLongLong();
     }else{
         touch(usrid);
     };
@@ -115,13 +115,13 @@ bool interface::update(){
 }
 
 bool interface::update(QSqlRecord record){
-    id_db = record.field("id").value().toInt();
+    id_db = record.field("id").value().toLongLong();
     t_ctime = record.field("ctime").value().toDateTime();
     t_mtime = record.field("mtime").value().toDateTime();
     t_dtime = record.field("dtime").value().toDateTime();
     t_deleted = record.field("deleted").value().toBool();
     t_instanced = record.field("instanced").value().toBool();
-    t_user = record.field("user_id").value().toInt();
+    t_user = record.field("user_id").value().toLongLong();
     t_valid = true;    
     for(int i = 0; i < fieldsCount(); i++){
         t_valid = t_valid && setFieldValue(i, record.field(fieldName(i)).value());

@@ -7,6 +7,7 @@ namespace nd{
     {
     public:
         object(QString tablename = "", quint64 id = 0);
+        ~object();
         QString     tablename(){ return t_tablename; }
         QVariant    fields(int at, bool toShow = false);
         bool        setFieldValue(int at, QVariant value);

@@ -11,8 +11,14 @@ object::object(QString tablename, quint64 id) : interface(id)
     t_valid = false;
 }
 
+object::~object()
+{
+
+}
+
 QVariant object::fields(int at, bool toShow)
 {
+    Q_UNUSED(toShow)
     if(at >= t_fieldData.count()) return QVariant();
     return t_fieldData.at(at);
 }
@@ -21,10 +27,12 @@ bool object::setFieldValue(int at, QVariant value)
 {
     if(at >= t_fieldData.count()) return false;
     t_fieldData.replace(at, value);
+    return true;
 }
 
 bool object::commit(quint64 usrid)
 {
+    Q_UNUSED(usrid)
     QString query;
     if(id_db == 0){
         QStringList names, values;
@@ -52,7 +60,7 @@ bool object::commit(quint64 usrid)
     nd::logger::log(q.lastQuery());
     nd::logger::log(q.lastError().text());
     if(id_db == 0){
-        id_db = q.lastInsertId().toInt();
+        id_db = q.lastInsertId().toLongLong();
     };
     t_valid = (id_db != 0);
     return t_valid;
@@ -60,6 +68,7 @@ bool object::commit(quint64 usrid)
 
 bool object::insert(quint64 usrid)
 {
+    Q_UNUSED(usrid)
     QString query;
     QStringList names, values;
     query = "INSERT INTO %1 (%2) VALUES (%3)";
@@ -117,13 +126,13 @@ bool object::update()
 
 bool object::update(QSqlRecord record)
 {
-    id_db = record.field("id").value().toInt();
+    id_db = record.field("id").value().toLongLong();
     t_ctime = record.field("ctime").value().toDateTime();
     t_mtime = record.field("mtime").value().toDateTime();
     t_dtime = record.field("dtime").value().toDateTime();
     t_deleted = record.field("deleted").value().toBool();
     t_instanced = record.field("instanced").value().toBool();
-    t_user = record.field("user_id").value().toInt();
+    t_user = record.field("user_id").value().toLongLong();
     t_valid = true;
     t_fieldData.clear();
     t_fieldList.clear();
@@ -139,6 +148,7 @@ bool object::update(QSqlRecord record)
         t_fieldList << record.fieldName(i);
         t_fieldData << record.field(i).value();
     };
+    return true;
 }
 
 void object::touch(quint64 usrid)

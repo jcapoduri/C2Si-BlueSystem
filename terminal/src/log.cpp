@@ -11,7 +11,7 @@ log::log(QObject *parent) :
     t_fatalfile = 0;
 }
 
-log *log::setUp(QString info_file_name, QString error_file_name, QString debug_file_name, QString fatal_file_name)
+log* log::setUp(QString info_file_name, QString error_file_name, QString debug_file_name, QString fatal_file_name)
 {
     if(t_instance != 0){
         delete t_instance;

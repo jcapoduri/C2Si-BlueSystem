@@ -5,7 +5,8 @@
 #-------------------------------------------------
 
 TARGET = BlueSystem
-CONFIG += ordered
+CONFIG += ordered c++11
+
 TEMPLATE = subdirs
 
 SUBDIRS = terminal \

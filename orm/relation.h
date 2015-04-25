@@ -33,6 +33,7 @@ namespace nd{
         }
 
         QVariant    fields(int at, bool toShow){
+            Q_UNUSED(toShow)
             switch(at){
                 case 0:
                     //qDebug() << "fields: " << t_father->internalID();
@@ -50,14 +51,10 @@ namespace nd{
             bool ok = true;
             switch(at){
                 case 0:
-                    //delete t_father;
-                    //qDebug() << value;
-                    t_father = new Father(value.toInt(&ok));
+                    t_father = new Father(value.toLongLong(&ok));
                     break;
                 case 1:
-                    //delete t_son;
-                    //qDebug() << value;
-                    t_son = new Son(value.toInt(&ok));
+                    t_son = new Son(value.toLongLong(&ok));
                     break;
                 default:
                     ok = false;
@@ -178,9 +175,6 @@ namespace nd{
                             };
                         };
                         if(!find){ //hijo nuevo
-//                            relation<Father, Son> q(*father, children[i]);
-                            /*qDebug() << "add new relation!";
-                            qDebug() << "father" << father->internalID() << children[i].internalID();*/
                             this->append(relation<Father, Son>(*father, *(children[i])));
                         };
                     };
