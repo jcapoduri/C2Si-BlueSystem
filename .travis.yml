@@ -11,7 +11,7 @@ before_install:
 
 script:
  - qmake -project
- - qmake Ultron.pro
+ - qmake Bluesystem.pro
  - make
  
 branch:
