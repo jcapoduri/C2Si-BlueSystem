@@ -11,7 +11,7 @@ before_install:
 
 script:
  - qmake -project
- - qmake Bluesystem.pro
+ - qmake BlueSystem.pro
  - make
  
 branch:
