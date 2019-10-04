@@ -75,8 +75,6 @@ void MainWindow::connectToDB()
     nd::connection::instance()->addTable("workorders_pages");*/
     printObject::instance();
 
-    configManager::setValue("database", "dbname", "bluesystem_old");
-
     QString dbname = configManager::getValue("database", "dbname").toString();
     QString dbhost = configManager::getValue("database", "dbhost").toString();
     QString dbuser = configManager::getValue("database", "dbuser").toString();

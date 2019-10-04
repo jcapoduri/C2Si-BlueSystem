@@ -53,7 +53,7 @@ QList<QTableWidgetItem *> workorderList::getShortTableRow(workorder w)
 bool workorderList::query()
 {
     QStringList whereClosures;
-    QString     where = '\0';
+    QString     where;
     int         i;
 
     for(i = 0; i < _currentState.length(); i++)
