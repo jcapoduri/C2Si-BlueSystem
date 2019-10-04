@@ -7,7 +7,7 @@
 QT       += core sql
 QT       -= gui
 TARGET = nd
-DESTDIR = bin
+DESTDIR = ../bin
 #-Wl,--enable-auto-import
 TEMPLATE = lib
 

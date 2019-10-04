@@ -7,7 +7,7 @@
 QT       += core gui sql network widgets printsupport
 
 TARGET = BlueSystem
-DESTDIR = ../bin
+DESTDIR = ../../bin
 TEMPLATE = app
 
 MOC_DIR = ../obj
@@ -15,9 +15,9 @@ OBJECTS_DIR = ../obj
 
 DEPENDPATH  += ../../orm/
 INCLUDEPATH += ../../orm/
-INCLUDEPATH += ../../orm/bin
+INCLUDEPATH += ../../bin
 
-LIBS += -L ../../orm/bin -lnd
+LIBS += -L ../../bin -lnd
 
 CONFIG += ordered thread
 
