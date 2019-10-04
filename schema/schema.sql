@@ -2,7 +2,7 @@ SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
 
 CREATE TABLE IF NOT EXISTS `anillados` (
-`id` int(10) unsigned NOT NULL,
+  `id` int(10) unsigned AUTO_INCREMENT NOT NULL PRIMARY KEY,
   `ctime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `dtime` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `mtime` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
@@ -15,7 +15,7 @@ CREATE TABLE IF NOT EXISTS `anillados` (
 ) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 CREATE TABLE IF NOT EXISTS `baseobject` (
-`id` int(10) unsigned NOT NULL,
+  `id` int(10) unsigned AUTO_INCREMENT NOT NULL PRIMARY KEY,
   `ctime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `dtime` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `mtime` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
@@ -26,13 +26,13 @@ CREATE TABLE IF NOT EXISTS `baseobject` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 CREATE TABLE IF NOT EXISTS `baseobject_instance` (
-`id` int(10) unsigned NOT NULL,
+  `id` int(10) unsigned AUTO_INCREMENT NOT NULL PRIMARY KEY,
   `ctime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `checked` tinyint(1) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 CREATE TABLE IF NOT EXISTS `books` (
-`id` int(10) unsigned NOT NULL,
+  `id` int(10) unsigned AUTO_INCREMENT NOT NULL PRIMARY KEY,
   `ctime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `dtime` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `mtime` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
@@ -49,7 +49,7 @@ CREATE TABLE IF NOT EXISTS `books` (
 ) ENGINE=InnoDB AUTO_INCREMENT=306 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 CREATE TABLE IF NOT EXISTS `business` (
-`id` int(10) unsigned NOT NULL,
+  `id` int(10) unsigned AUTO_INCREMENT NOT NULL PRIMARY KEY,
   `ctime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `dtime` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `mtime` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
@@ -83,7 +83,7 @@ CREATE TABLE IF NOT EXISTS `businesses` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 CREATE TABLE IF NOT EXISTS `business_anillados` (
-`id` int(10) unsigned NOT NULL,
+  `id` int(10) unsigned AUTO_INCREMENT NOT NULL PRIMARY KEY,
   `ctime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `dtime` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `mtime` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
@@ -96,7 +96,7 @@ CREATE TABLE IF NOT EXISTS `business_anillados` (
 ) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 CREATE TABLE IF NOT EXISTS `business_books` (
-`id` int(10) unsigned NOT NULL,
+  `id` int(10) unsigned AUTO_INCREMENT NOT NULL PRIMARY KEY,
   `ctime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `dtime` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `mtime` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
@@ -109,7 +109,7 @@ CREATE TABLE IF NOT EXISTS `business_books` (
 ) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 CREATE TABLE IF NOT EXISTS `business_users` (
-`id` int(10) unsigned NOT NULL,
+  `id` int(10) unsigned AUTO_INCREMENT NOT NULL PRIMARY KEY,
   `ctime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `dtime` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `mtime` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
@@ -122,7 +122,7 @@ CREATE TABLE IF NOT EXISTS `business_users` (
 ) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 CREATE TABLE IF NOT EXISTS `client` (
-`id` int(10) unsigned NOT NULL,
+  `id` int(10) unsigned AUTO_INCREMENT NOT NULL PRIMARY KEY,
   `ctime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `dtime` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `mtime` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
@@ -133,7 +133,7 @@ CREATE TABLE IF NOT EXISTS `client` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 CREATE TABLE IF NOT EXISTS `jobs` (
-`id` int(10) unsigned NOT NULL,
+  `id` int(10) unsigned AUTO_INCREMENT NOT NULL PRIMARY KEY,
   `ctime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `dtime` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `mtime` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
@@ -153,7 +153,7 @@ CREATE TABLE IF NOT EXISTS `jobs` (
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 CREATE TABLE IF NOT EXISTS `jobs_workorders` (
-`id` int(10) unsigned NOT NULL,
+  `id` int(10) unsigned AUTO_INCREMENT NOT NULL PRIMARY KEY,
   `ctime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `dtime` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `mtime` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
@@ -166,7 +166,7 @@ CREATE TABLE IF NOT EXISTS `jobs_workorders` (
 ) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 CREATE TABLE IF NOT EXISTS `ndconfig` (
-`id` int(10) unsigned NOT NULL,
+  `id` int(10) unsigned AUTO_INCREMENT NOT NULL PRIMARY KEY,
   `deleted` tinyint(1) NOT NULL DEFAULT '0',
   `last_instance` int(10) unsigned NOT NULL,
   `ctime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
@@ -186,7 +186,7 @@ CREATE TABLE IF NOT EXISTS `ndconfig` (
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 CREATE TABLE IF NOT EXISTS `userlog` (
-`id` int(10) unsigned NOT NULL,
+  `id` int(10) unsigned AUTO_INCREMENT NOT NULL PRIMARY KEY,
   `ctime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `dtime` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `mtime` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
@@ -201,7 +201,7 @@ CREATE TABLE IF NOT EXISTS `userlog` (
 ) ENGINE=InnoDB AUTO_INCREMENT=113 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 CREATE TABLE IF NOT EXISTS `users` (
-`id` int(10) unsigned NOT NULL,
+  `id` int(10) unsigned AUTO_INCREMENT NOT NULL PRIMARY KEY,
   `deleted` tinyint(1) NOT NULL DEFAULT '0',
   `last_instance` int(10) unsigned NOT NULL,
   `ctime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
@@ -222,7 +222,7 @@ CREATE TABLE IF NOT EXISTS `users` (
 ) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 CREATE TABLE IF NOT EXISTS `userstamp` (
-`id` int(10) unsigned NOT NULL,
+  `id` int(10) unsigned AUTO_INCREMENT NOT NULL PRIMARY KEY,
   `ctime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `dtime` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `mtime` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
@@ -236,7 +236,7 @@ CREATE TABLE IF NOT EXISTS `userstamp` (
 ) ENGINE=InnoDB AUTO_INCREMENT=52 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 CREATE TABLE IF NOT EXISTS `workorders` (
-`id` int(10) unsigned NOT NULL,
+  `id` int(10) unsigned AUTO_INCREMENT NOT NULL PRIMARY KEY,
   `ctime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `dtime` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `mtime` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
@@ -278,7 +278,7 @@ CREATE TABLE IF NOT EXISTS `workorders` (
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 CREATE TABLE IF NOT EXISTS `workorders_pages` (
-`id` int(10) unsigned NOT NULL,
+  `id` int(10) unsigned AUTO_INCREMENT NOT NULL PRIMARY KEY,
   `ctime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `dtime` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `mtime` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
@@ -296,106 +296,94 @@ CREATE TABLE IF NOT EXISTS `workorders_pages` (
 -- Indices de la tabla `anillados`
 --
 ALTER TABLE `anillados`
- ADD PRIMARY KEY (`id`), ADD KEY `last_instance` (`last_instance`), ADD KEY `user_id` (`user_id`);
+ ADD KEY `last_instance` (`last_instance`), ADD KEY `user_id` (`user_id`);
 
 --
 -- Indices de la tabla `baseobject`
 --
 ALTER TABLE `baseobject`
- ADD PRIMARY KEY (`id`), ADD KEY `last_instance` (`last_instance`), ADD KEY `user_id` (`user_id`);
-
---
--- Indices de la tabla `baseobject_instance`
---
-ALTER TABLE `baseobject_instance`
- ADD PRIMARY KEY (`id`);
+ ADD KEY `last_instance` (`last_instance`), ADD KEY `user_id` (`user_id`);
 
 --
 -- Indices de la tabla `books`
 --
 ALTER TABLE `books`
- ADD PRIMARY KEY (`id`), ADD KEY `last_instance` (`last_instance`), ADD KEY `user_id` (`user_id`), ADD KEY `id_parent` (`id_parent`);
+ ADD KEY `last_instance` (`last_instance`), ADD KEY `user_id` (`user_id`), ADD KEY `id_parent` (`id_parent`);
 
 --
 -- Indices de la tabla `business`
 --
 ALTER TABLE `business`
- ADD PRIMARY KEY (`id`), ADD KEY `last_instance` (`last_instance`), ADD KEY `user_id` (`user_id`);
-
---
--- Indices de la tabla `businesses`
---
-ALTER TABLE `businesses`
- ADD PRIMARY KEY (`id`);
+ ADD KEY `last_instance` (`last_instance`), ADD KEY `user_id` (`user_id`);
 
 --
 -- Indices de la tabla `business_anillados`
 --
 ALTER TABLE `business_anillados`
- ADD PRIMARY KEY (`id`), ADD KEY `last_instance` (`last_instance`), ADD KEY `user_id` (`user_id`);
+ ADD KEY `last_instance` (`last_instance`), ADD KEY `user_id` (`user_id`);
 
 --
 -- Indices de la tabla `business_books`
 --
 ALTER TABLE `business_books`
- ADD PRIMARY KEY (`id`), ADD KEY `last_instance` (`last_instance`), ADD KEY `user_id` (`user_id`);
+ ADD KEY `last_instance` (`last_instance`), ADD KEY `user_id` (`user_id`);
 
 --
 -- Indices de la tabla `business_users`
 --
 ALTER TABLE `business_users`
- ADD PRIMARY KEY (`id`), ADD KEY `last_instance` (`last_instance`), ADD KEY `user_id` (`user_id`);
+ ADD KEY `last_instance` (`last_instance`), ADD KEY `user_id` (`user_id`);
 
 --
 -- Indices de la tabla `client`
 --
 ALTER TABLE `client`
- ADD PRIMARY KEY (`id`), ADD KEY `last_instance` (`last_instance`), ADD KEY `user_id` (`user_id`);
+ ADD KEY `last_instance` (`last_instance`), ADD KEY `user_id` (`user_id`);
 
 --
 -- Indices de la tabla `jobs`
 --
 ALTER TABLE `jobs`
- ADD PRIMARY KEY (`id`), ADD KEY `last_instance` (`last_instance`), ADD KEY `user_id` (`user_id`);
+ ADD KEY `last_instance` (`last_instance`), ADD KEY `user_id` (`user_id`);
 
 --
 -- Indices de la tabla `jobs_workorders`
 --
 ALTER TABLE `jobs_workorders`
- ADD PRIMARY KEY (`id`), ADD KEY `last_instance` (`last_instance`), ADD KEY `user_id` (`user_id`);
+ ADD KEY `last_instance` (`last_instance`), ADD KEY `user_id` (`user_id`);
 
 --
 -- Indices de la tabla `ndconfig`
 --
 ALTER TABLE `ndconfig`
- ADD PRIMARY KEY (`id`), ADD KEY `last_instance` (`last_instance`), ADD KEY `user_id` (`user_id`);
+ ADD KEY `last_instance` (`last_instance`), ADD KEY `user_id` (`user_id`);
 
 --
 -- Indices de la tabla `userlog`
 --
 ALTER TABLE `userlog`
- ADD PRIMARY KEY (`id`), ADD KEY `last_instance` (`last_instance`), ADD KEY `user_id` (`user_id`);
+ ADD KEY `last_instance` (`last_instance`), ADD KEY `user_id` (`user_id`);
 
 --
 -- Indices de la tabla `users`
 --
 ALTER TABLE `users`
- ADD PRIMARY KEY (`id`), ADD KEY `last_instance` (`last_instance`), ADD KEY `user_id` (`user_id`);
+ ADD KEY `last_instance` (`last_instance`), ADD KEY `user_id` (`user_id`);
 
 --
 -- Indices de la tabla `userstamp`
 --
 ALTER TABLE `userstamp`
- ADD PRIMARY KEY (`id`), ADD KEY `last_instance` (`last_instance`), ADD KEY `user_id` (`user_id`);
+ ADD KEY `last_instance` (`last_instance`), ADD KEY `user_id` (`user_id`);
 
 --
 -- Indices de la tabla `workorders`
 --
 ALTER TABLE `workorders`
- ADD PRIMARY KEY (`id`), ADD KEY `last_instance` (`last_instance`), ADD KEY `user_id` (`user_id`);
+ ADD KEY `last_instance` (`last_instance`), ADD KEY `user_id` (`user_id`);
 
 --
 -- Indices de la tabla `workorders_pages`
 --
 ALTER TABLE `workorders_pages`
- ADD PRIMARY KEY (`id`), ADD KEY `last_instance` (`last_instance`), ADD KEY `user_id` (`user_id`), ADD KEY `workorder` (`workorder`), ADD KEY `business` (`business`);
+ ADD KEY `last_instance` (`last_instance`), ADD KEY `user_id` (`user_id`), ADD KEY `workorder` (`workorder`), ADD KEY `business` (`business`);
