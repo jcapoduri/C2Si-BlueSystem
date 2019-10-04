@@ -9,7 +9,7 @@ CONFIG += ordered c++11
 
 TEMPLATE = subdirs
 
-SUBDIRS = terminal \
-          orm \
+SUBDIRS = orm \
+          terminal \
            manager
 
