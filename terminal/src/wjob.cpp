@@ -227,7 +227,7 @@ void wJob::cloneJob()
     j->setFileTitle("");
     workorder* wo;
     for(int i = 0; i < t_job->workCount(); i++){
-        wo = j->workAt(i);
+        wo = t_job->workAt(i);
         wo = new workorder(*wo);
         wo->clearId();
         j->addWork(wo);
