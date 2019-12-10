@@ -18,6 +18,7 @@ void printObject::printJob(job *j)
     printer->setPaperSize(QPrinter::A5);
     printer->setOrientation(QPrinter::Portrait);
     printer->setFullPage(true);
+    printer->setOutputFormat(QPrinter::NativeFormat);
     t_job = j;
 
     QPrintPreviewDialog dialog(printer);
@@ -33,6 +34,7 @@ void printObject::printList(QList<wListWorkorder *> &list, QString title)
     printer->setPageSize(QPrinter::A4);
     //printer->setPaperSize(QPrinter::A4);
     printer->setOrientation(QPrinter::Portrait);
+    printer->setOutputFormat(QPrinter::NativeFormat);
     printer->setFullPage(true);
     t_ww = &(list);
     t_title = title;
@@ -61,6 +63,7 @@ void printObject::printSQLModel(QSqlQueryModel* model, QString title)
     QPrinter *printer = new QPrinter();
     printer->setPageSize(QPrinter::A4);
     printer->setOrientation(QPrinter::Portrait);
+    printer->setOutputFormat(QPrinter::NativeFormat);
     printer->setFullPage(true);
 
     QPrintPreviewDialog dialog(printer);
@@ -77,6 +80,7 @@ bool printObject::printModel(QAbstractItemModel *model, QString title)
     QPrinter *printer = new QPrinter();
     printer->setPageSize(QPrinter::A4);
     printer->setOrientation(QPrinter::Portrait);
+    printer->setOutputFormat(QPrinter::NativeFormat);
     printer->setFullPage(true);
 
     QPrintPreviewDialog dialog(printer);
@@ -92,6 +96,7 @@ bool printObject::printTable(QTableWidget *model, QString title)
     QPrinter *printer = new QPrinter();
     printer->setPageSize(QPrinter::A4);
     printer->setOrientation(QPrinter::Portrait);
+    printer->setOutputFormat(QPrinter::NativeFormat);
     printer->setFullPage(true);
 
     QPrintPreviewDialog dialog(printer);
@@ -110,6 +115,7 @@ bool printObject::printOutOfOrder(int from, int howMany, business *bus)
     printer->setPageSize(QPrinter::A5);
     printer->setPaperSize(QPrinter::A5);
     printer->setOrientation(QPrinter::Portrait);
+    printer->setOutputFormat(QPrinter::NativeFormat);
     printer->setFullPage(true);
 
     QPrintPreviewDialog dialog(printer);
@@ -124,6 +130,7 @@ void printObject::paintRequest(QPrinter *printer)
     p->setOrientation(QPrinter::Landscape);
     p->setPageSize(QPrinter::A6);
     p->setPaperSize(QPrinter::A6);
+    p->setOutputFormat(QPrinter::NativeFormat);
 
     QPainter *painter = new QPainter();
     Ui::piworkorder *printiui = new Ui::piworkorder();
@@ -504,7 +511,7 @@ QWidget *printObject::getInternalWorkOrders(workorder *w)
     item->setupUi(_toRet);
 
     item->barcodeLabel->setText(toCode128(QString("%1-%2-%3").arg(w->bussiness()->internalID()).arg(t_job->internalID())).arg(w->internalID()));
-    item->readableBarcodeLabel->setText(QString("%1-%2-%3").arg(w->bussiness()->internalID()).arg(t_job->internalID()).arg(w->internalID()));
+    item->readableBarcodeLabel->setText(QString("Codigo: %1-%2-%3").arg(w->bussiness()->internalID()).arg(t_job->internalID()).arg(w->internalID()));
     //item->readableBarcodeLabel->setText(toCode128(QString("%1-%2").arg(w->bussiness()->internalID()).arg(t_job->internalID())));
     item->worknameLabel->setText(w->descripcion());
     item->recibidoLabel->setText(user::getUserName(w->userOwner()->internalID()));

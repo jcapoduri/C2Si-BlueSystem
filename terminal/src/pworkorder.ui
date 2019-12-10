@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>3092</width>
-    <height>1081</height>
+    <width>4419</width>
+    <height>1197</height>
    </rect>
   </property>
   <property name="font">
@@ -25,7 +25,16 @@ border: solid thin rgb(0, 0, 0);
 </string>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
-   <property name="margin">
+   <property name="leftMargin">
+    <number>50</number>
+   </property>
+   <property name="topMargin">
+    <number>50</number>
+   </property>
+   <property name="rightMargin">
+    <number>50</number>
+   </property>
+   <property name="bottomMargin">
     <number>50</number>
    </property>
    <item>
@@ -223,7 +232,7 @@ border: solid thin rgb(0, 0, 0);
      <property name="font">
       <font>
        <family>Verdana</family>
-       <pointsize>32</pointsize>
+       <pointsize>72</pointsize>
       </font>
      </property>
      <property name="text">

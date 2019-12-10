@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>3235</width>
-    <height>1507</height>
+    <width>3552</width>
+    <height>1626</height>
    </rect>
   </property>
   <property name="font">
@@ -37,7 +37,16 @@ border: solid thin rgb(0, 0, 0);
   <layout class="QVBoxLayout" name="verticalLayout_4">
    <item>
     <layout class="QGridLayout" name="gridLayout_3">
-     <property name="margin">
+     <property name="leftMargin">
+      <number>10</number>
+     </property>
+     <property name="topMargin">
+      <number>10</number>
+     </property>
+     <property name="rightMargin">
+      <number>10</number>
+     </property>
+     <property name="bottomMargin">
       <number>10</number>
      </property>
      <item row="1" column="1">
@@ -486,7 +495,7 @@ border: solid thin rgb(0, 0, 0);
        <property name="font">
         <font>
          <family>Verdana</family>
-         <pointsize>32</pointsize>
+         <pointsize>72</pointsize>
         </font>
        </property>
        <property name="text">
