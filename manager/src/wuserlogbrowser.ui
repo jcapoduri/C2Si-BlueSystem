@@ -137,6 +137,20 @@
       </spacer>
      </item>
      <item>
+      <widget class="QPushButton" name="printButton">
+       <property name="text">
+        <string>Imprimir</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="printDetailButton">
+       <property name="text">
+        <string>Imprimir Detalle de Empleado</string>
+       </property>
+      </widget>
+     </item>
+     <item>
       <widget class="QPushButton" name="closeButton">
        <property name="text">
         <string>Cerrar</string>

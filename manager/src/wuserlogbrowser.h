@@ -20,7 +20,8 @@ public slots:
     void    comboChanged();
     void    refreshEmployee();
     void    refreshEmployeeLog();
-
+    void    print();
+    void    printDetail();
 private:
     Ui::wUserLogBrowser *ui;
     QList<business>     t_business;
