@@ -10,6 +10,7 @@ workorder::workorder(quint64 id) : interface(id)
     t_fieldList << "isimplefaz" << "idoublefaz" << "csimplefaz" << "cdoublefaz";
     t_fieldList << "isimplefaztotal" << "idoublefaztotal" << "csimplefaztotal" << "cdoublefaztotal";
     t_fieldList << "anilladoHowTo" << "ignore" << "userowner" << "outoforder";
+    t_fieldList << "conAbrochado" << "howtoFlags";
     t_instanced = false;
     t_flag = false;
     t_descripcion = "";
@@ -38,12 +39,14 @@ workorder::workorder(quint64 id) : interface(id)
     t_anillado = false;
     t_total = 0;
     t_estado = Waiting;
-    t_howto = likeThat;
+    t_howto = _likeThat;
     t_business = 0;
     t_howtoAnillado = Superior;
     t_ignore = false;
     t_userowner = 0;
     t_outoforder = 0;
+    t_conAbrochado = false;
+    t_howtoFlags = 0;
 }
 
 workorder::workorder(const workorder &other) : interface(0)
@@ -55,6 +58,7 @@ workorder::workorder(const workorder &other) : interface(0)
     t_fieldList << "isimplefaz" << "idoublefaz" << "csimplefaz" << "cdoublefaz";
     t_fieldList << "isimplefaztotal" << "idoublefaztotal" << "csimplefaztotal" << "cdoublefaztotal";
     t_fieldList << "anilladoHowTo" << "ignore" << "userowner" << "outoforder";
+    t_fieldList << "conAbrochado" << "howtoFlags";
     t_instanced = false;
     t_flag = false;
     t_userowner = 0;
@@ -86,6 +90,8 @@ workorder::workorder(const workorder &other) : interface(0)
     t_total = other.t_total;
     t_estado = other.t_estado;
     t_howto = other.t_howto;
+    t_conAbrochado = other.t_conAbrochado;
+    t_howtoFlags = other.t_howtoFlags;
 
     if(other.t_business) t_business = new business(*(other.t_business));
     t_howtoAnillado = other.t_howtoAnillado;
@@ -135,6 +141,8 @@ workorder &workorder::operator =(const workorder &other)
         t_total = other.t_total;
         t_estado = other.t_estado;
         t_howto = other.t_howto;
+        t_conAbrochado = other.t_conAbrochado;
+        t_howtoFlags = other.t_howtoFlags;
         if(t_business) delete t_business;
         t_business = new business(*(other.t_business));
         t_howtoAnillado = other.t_howtoAnillado;
@@ -277,6 +285,12 @@ bool workorder::setFieldValue(int at, QVariant value)
         case 30:
             t_outoforder = value.toInt(&ok);
             break;
+        case 31:
+            t_conAbrochado = value.toBool();
+            break;
+        case 32:
+            t_howtoFlags = value.toInt(&ok);
+            break;
         default:
             ok = false;
             break;
@@ -385,6 +399,12 @@ QVariant workorder::fields(int at, bool toShow)
             };
         case 30:
             return t_outoforder;
+            break;
+        case 31:
+            return t_conAbrochado;
+            break;
+        case 32:
+            return t_howtoFlags;
             break;
         default:
             return QVariant();

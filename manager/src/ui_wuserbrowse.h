@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'wuserbrowse.ui'
 **
-** Created by: Qt User Interface Compiler version 5.4.0
+** Created by: Qt User Interface Compiler version 5.13.1
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -10,9 +10,7 @@
 #define UI_WUSERBROWSE_H
 
 #include <QtCore/QVariant>
-#include <QtWidgets/QAction>
 #include <QtWidgets/QApplication>
-#include <QtWidgets/QButtonGroup>
 #include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QPushButton>
@@ -40,25 +38,25 @@ public:
     void setupUi(QWidget *wUserBrowse)
     {
         if (wUserBrowse->objectName().isEmpty())
-            wUserBrowse->setObjectName(QStringLiteral("wUserBrowse"));
+            wUserBrowse->setObjectName(QString::fromUtf8("wUserBrowse"));
         wUserBrowse->resize(574, 374);
         verticalLayout = new QVBoxLayout(wUserBrowse);
-        verticalLayout->setObjectName(QStringLiteral("verticalLayout"));
+        verticalLayout->setObjectName(QString::fromUtf8("verticalLayout"));
         tableView = new QTableView(wUserBrowse);
-        tableView->setObjectName(QStringLiteral("tableView"));
+        tableView->setObjectName(QString::fromUtf8("tableView"));
         tableView->setEditTriggers(QAbstractItemView::NoEditTriggers);
         tableView->setSelectionBehavior(QAbstractItemView::SelectRows);
 
         verticalLayout->addWidget(tableView);
 
         horizontalLayout = new QHBoxLayout();
-        horizontalLayout->setObjectName(QStringLiteral("horizontalLayout"));
+        horizontalLayout->setObjectName(QString::fromUtf8("horizontalLayout"));
         horizontalSpacer = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
 
         horizontalLayout->addItem(horizontalSpacer);
 
         selButton = new QPushButton(wUserBrowse);
-        selButton->setObjectName(QStringLiteral("selButton"));
+        selButton->setObjectName(QString::fromUtf8("selButton"));
 
         horizontalLayout->addWidget(selButton);
 
@@ -66,23 +64,23 @@ public:
         verticalLayout->addLayout(horizontalLayout);
 
         horizontalLayout_2 = new QHBoxLayout();
-        horizontalLayout_2->setObjectName(QStringLiteral("horizontalLayout_2"));
+        horizontalLayout_2->setObjectName(QString::fromUtf8("horizontalLayout_2"));
         horizontalSpacer_2 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
 
         horizontalLayout_2->addItem(horizontalSpacer_2);
 
         addButton = new QPushButton(wUserBrowse);
-        addButton->setObjectName(QStringLiteral("addButton"));
+        addButton->setObjectName(QString::fromUtf8("addButton"));
 
         horizontalLayout_2->addWidget(addButton);
 
         modButton = new QPushButton(wUserBrowse);
-        modButton->setObjectName(QStringLiteral("modButton"));
+        modButton->setObjectName(QString::fromUtf8("modButton"));
 
         horizontalLayout_2->addWidget(modButton);
 
         delButton = new QPushButton(wUserBrowse);
-        delButton->setObjectName(QStringLiteral("delButton"));
+        delButton->setObjectName(QString::fromUtf8("delButton"));
 
         horizontalLayout_2->addWidget(delButton);
 
@@ -97,11 +95,11 @@ public:
 
     void retranslateUi(QWidget *wUserBrowse)
     {
-        wUserBrowse->setWindowTitle(QApplication::translate("wUserBrowse", "Form", 0));
-        selButton->setText(QApplication::translate("wUserBrowse", "Seleccionar", 0));
-        addButton->setText(QApplication::translate("wUserBrowse", "Agregar", 0));
-        modButton->setText(QApplication::translate("wUserBrowse", "Modificar", 0));
-        delButton->setText(QApplication::translate("wUserBrowse", "Borrar", 0));
+        wUserBrowse->setWindowTitle(QCoreApplication::translate("wUserBrowse", "Form", nullptr));
+        selButton->setText(QCoreApplication::translate("wUserBrowse", "Seleccionar", nullptr));
+        addButton->setText(QCoreApplication::translate("wUserBrowse", "Agregar", nullptr));
+        modButton->setText(QCoreApplication::translate("wUserBrowse", "Modificar", nullptr));
+        delButton->setText(QCoreApplication::translate("wUserBrowse", "Borrar", nullptr));
     } // retranslateUi
 
 };

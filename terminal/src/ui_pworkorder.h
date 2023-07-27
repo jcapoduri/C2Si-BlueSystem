@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'pworkorder.ui'
 **
-** Created by: Qt User Interface Compiler version 5.4.0
+** Created by: Qt User Interface Compiler version 5.13.1
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -10,12 +10,9 @@
 #define UI_PWORKORDER_H
 
 #include <QtCore/QVariant>
-#include <QtWidgets/QAction>
 #include <QtWidgets/QApplication>
-#include <QtWidgets/QButtonGroup>
 #include <QtWidgets/QGridLayout>
 #include <QtWidgets/QHBoxLayout>
-#include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QSpacerItem>
 #include <QtWidgets/QVBoxLayout>
@@ -65,24 +62,24 @@ public:
     void setupUi(QWidget *pworkorder)
     {
         if (pworkorder->objectName().isEmpty())
-            pworkorder->setObjectName(QStringLiteral("pworkorder"));
-        pworkorder->resize(3092, 1081);
+            pworkorder->setObjectName(QString::fromUtf8("pworkorder"));
+        pworkorder->resize(4419, 1197);
         QFont font;
-        font.setFamily(QStringLiteral("Verdana"));
+        font.setFamily(QString::fromUtf8("Verdana"));
         font.setPointSize(250);
         pworkorder->setFont(font);
-        pworkorder->setStyleSheet(QLatin1String("background-color: rgb(255, 255, 255);\n"
+        pworkorder->setStyleSheet(QString::fromUtf8("background-color: rgb(255, 255, 255);\n"
 "border: solid thin rgb(0, 0, 0);\n"
 ""));
         verticalLayout = new QVBoxLayout(pworkorder);
+        verticalLayout->setObjectName(QString::fromUtf8("verticalLayout"));
         verticalLayout->setContentsMargins(50, 50, 50, 50);
-        verticalLayout->setObjectName(QStringLiteral("verticalLayout"));
         horizontalLayout = new QHBoxLayout();
-        horizontalLayout->setObjectName(QStringLiteral("horizontalLayout"));
+        horizontalLayout->setObjectName(QString::fromUtf8("horizontalLayout"));
         barcodeLabel = new QLabel(pworkorder);
-        barcodeLabel->setObjectName(QStringLiteral("barcodeLabel"));
+        barcodeLabel->setObjectName(QString::fromUtf8("barcodeLabel"));
         QFont font1;
-        font1.setFamily(QStringLiteral("Code 128"));
+        font1.setFamily(QString::fromUtf8("Code 128"));
         font1.setPointSize(200);
         barcodeLabel->setFont(font1);
         barcodeLabel->setTextFormat(Qt::PlainText);
@@ -91,17 +88,17 @@ public:
         horizontalLayout->addWidget(barcodeLabel);
 
         verticalLayout_2 = new QVBoxLayout();
-        verticalLayout_2->setObjectName(QStringLiteral("verticalLayout_2"));
+        verticalLayout_2->setObjectName(QString::fromUtf8("verticalLayout_2"));
         verticalLayout_2->setContentsMargins(-1, -1, 0, -1);
         horizontalLayout_3 = new QHBoxLayout();
-        horizontalLayout_3->setObjectName(QStringLiteral("horizontalLayout_3"));
+        horizontalLayout_3->setObjectName(QString::fromUtf8("horizontalLayout_3"));
         horizontalLayout_3->setContentsMargins(-1, 10, -1, -1);
         horizontalSpacer = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
 
         horizontalLayout_3->addItem(horizontalSpacer);
 
         label_4 = new QLabel(pworkorder);
-        label_4->setObjectName(QStringLiteral("label_4"));
+        label_4->setObjectName(QString::fromUtf8("label_4"));
         QSizePolicy sizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
         sizePolicy.setHorizontalStretch(0);
         sizePolicy.setVerticalStretch(0);
@@ -124,10 +121,10 @@ public:
         verticalLayout_2->addLayout(horizontalLayout_3);
 
         label_5 = new QLabel(pworkorder);
-        label_5->setObjectName(QStringLiteral("label_5"));
+        label_5->setObjectName(QString::fromUtf8("label_5"));
         label_5->setMinimumSize(QSize(320, 0));
         QFont font2;
-        font2.setFamily(QStringLiteral("Verdana"));
+        font2.setFamily(QString::fromUtf8("Verdana"));
         font2.setPointSize(50);
         label_5->setFont(font2);
         label_5->setAlignment(Qt::AlignCenter);
@@ -139,31 +136,31 @@ public:
         horizontalLayout->addLayout(verticalLayout_2);
 
         gridLayout_2 = new QGridLayout();
-        gridLayout_2->setObjectName(QStringLiteral("gridLayout_2"));
+        gridLayout_2->setObjectName(QString::fromUtf8("gridLayout_2"));
         label_2 = new QLabel(pworkorder);
-        label_2->setObjectName(QStringLiteral("label_2"));
+        label_2->setObjectName(QString::fromUtf8("label_2"));
         QFont font3;
-        font3.setFamily(QStringLiteral("Verdana"));
+        font3.setFamily(QString::fromUtf8("Verdana"));
         font3.setPointSize(72);
         label_2->setFont(font3);
 
         gridLayout_2->addWidget(label_2, 0, 0, 1, 1);
 
         nameLabel = new QLabel(pworkorder);
-        nameLabel->setObjectName(QStringLiteral("nameLabel"));
+        nameLabel->setObjectName(QString::fromUtf8("nameLabel"));
         nameLabel->setMinimumSize(QSize(500, 0));
         nameLabel->setFont(font3);
 
         gridLayout_2->addWidget(nameLabel, 0, 1, 1, 1);
 
         label_3 = new QLabel(pworkorder);
-        label_3->setObjectName(QStringLiteral("label_3"));
+        label_3->setObjectName(QString::fromUtf8("label_3"));
         label_3->setFont(font3);
 
         gridLayout_2->addWidget(label_3, 1, 0, 1, 1);
 
         nroJuegosLabel = new QLabel(pworkorder);
-        nroJuegosLabel->setObjectName(QStringLiteral("nroJuegosLabel"));
+        nroJuegosLabel->setObjectName(QString::fromUtf8("nroJuegosLabel"));
         nroJuegosLabel->setMinimumSize(QSize(500, 0));
         nroJuegosLabel->setFont(font3);
 
@@ -176,16 +173,13 @@ public:
         verticalLayout->addLayout(horizontalLayout);
 
         readableBarcodeLabel = new QLabel(pworkorder);
-        readableBarcodeLabel->setObjectName(QStringLiteral("readableBarcodeLabel"));
-        QFont font4;
-        font4.setFamily(QStringLiteral("Verdana"));
-        font4.setPointSize(32);
-        readableBarcodeLabel->setFont(font4);
+        readableBarcodeLabel->setObjectName(QString::fromUtf8("readableBarcodeLabel"));
+        readableBarcodeLabel->setFont(font3);
 
         verticalLayout->addWidget(readableBarcodeLabel);
 
         label_7 = new QLabel(pworkorder);
-        label_7->setObjectName(QStringLiteral("label_7"));
+        label_7->setObjectName(QString::fromUtf8("label_7"));
         label_7->setFont(font2);
 
         verticalLayout->addWidget(label_7);
@@ -195,59 +189,59 @@ public:
         verticalLayout->addItem(verticalSpacer);
 
         label_8 = new QLabel(pworkorder);
-        label_8->setObjectName(QStringLiteral("label_8"));
+        label_8->setObjectName(QString::fromUtf8("label_8"));
         label_8->setFont(font2);
 
         verticalLayout->addWidget(label_8);
 
         horizontalLayout_2 = new QHBoxLayout();
-        horizontalLayout_2->setObjectName(QStringLiteral("horizontalLayout_2"));
+        horizontalLayout_2->setObjectName(QString::fromUtf8("horizontalLayout_2"));
         gridLayout = new QGridLayout();
-        gridLayout->setObjectName(QStringLiteral("gridLayout"));
+        gridLayout->setObjectName(QString::fromUtf8("gridLayout"));
         label_6 = new QLabel(pworkorder);
-        label_6->setObjectName(QStringLiteral("label_6"));
+        label_6->setObjectName(QString::fromUtf8("label_6"));
         label_6->setFont(font3);
 
         gridLayout->addWidget(label_6, 0, 0, 1, 1);
 
         fotocopiaValueLabel = new QLabel(pworkorder);
-        fotocopiaValueLabel->setObjectName(QStringLiteral("fotocopiaValueLabel"));
+        fotocopiaValueLabel->setObjectName(QString::fromUtf8("fotocopiaValueLabel"));
         fotocopiaValueLabel->setFont(font3);
 
         gridLayout->addWidget(fotocopiaValueLabel, 0, 1, 1, 1);
 
         label_9 = new QLabel(pworkorder);
-        label_9->setObjectName(QStringLiteral("label_9"));
+        label_9->setObjectName(QString::fromUtf8("label_9"));
         label_9->setFont(font3);
 
         gridLayout->addWidget(label_9, 1, 0, 1, 1);
 
         anilladoValueLabel = new QLabel(pworkorder);
-        anilladoValueLabel->setObjectName(QStringLiteral("anilladoValueLabel"));
+        anilladoValueLabel->setObjectName(QString::fromUtf8("anilladoValueLabel"));
         anilladoValueLabel->setFont(font3);
 
         gridLayout->addWidget(anilladoValueLabel, 1, 1, 1, 1);
 
         label_11 = new QLabel(pworkorder);
-        label_11->setObjectName(QStringLiteral("label_11"));
+        label_11->setObjectName(QString::fromUtf8("label_11"));
         label_11->setFont(font3);
 
         gridLayout->addWidget(label_11, 2, 0, 1, 1);
 
         sennaValueLabel = new QLabel(pworkorder);
-        sennaValueLabel->setObjectName(QStringLiteral("sennaValueLabel"));
+        sennaValueLabel->setObjectName(QString::fromUtf8("sennaValueLabel"));
         sennaValueLabel->setFont(font3);
 
         gridLayout->addWidget(sennaValueLabel, 2, 1, 1, 1);
 
         label_13 = new QLabel(pworkorder);
-        label_13->setObjectName(QStringLiteral("label_13"));
+        label_13->setObjectName(QString::fromUtf8("label_13"));
         label_13->setFont(font3);
 
         gridLayout->addWidget(label_13, 3, 0, 1, 1);
 
         totalValueLabel = new QLabel(pworkorder);
-        totalValueLabel->setObjectName(QStringLiteral("totalValueLabel"));
+        totalValueLabel->setObjectName(QString::fromUtf8("totalValueLabel"));
         totalValueLabel->setFont(font3);
 
         gridLayout->addWidget(totalValueLabel, 3, 1, 1, 1);
@@ -256,27 +250,27 @@ public:
         horizontalLayout_2->addLayout(gridLayout);
 
         gridLayout_3 = new QGridLayout();
-        gridLayout_3->setObjectName(QStringLiteral("gridLayout_3"));
+        gridLayout_3->setObjectName(QString::fromUtf8("gridLayout_3"));
         label_14 = new QLabel(pworkorder);
-        label_14->setObjectName(QStringLiteral("label_14"));
+        label_14->setObjectName(QString::fromUtf8("label_14"));
         label_14->setFont(font3);
 
         gridLayout_3->addWidget(label_14, 0, 0, 1, 1);
 
         fechaValueLabel = new QLabel(pworkorder);
-        fechaValueLabel->setObjectName(QStringLiteral("fechaValueLabel"));
+        fechaValueLabel->setObjectName(QString::fromUtf8("fechaValueLabel"));
         fechaValueLabel->setFont(font3);
 
         gridLayout_3->addWidget(fechaValueLabel, 0, 1, 1, 1);
 
         label_16 = new QLabel(pworkorder);
-        label_16->setObjectName(QStringLiteral("label_16"));
+        label_16->setObjectName(QString::fromUtf8("label_16"));
         label_16->setFont(font3);
 
         gridLayout_3->addWidget(label_16, 1, 0, 1, 1);
 
         horaValueLabel = new QLabel(pworkorder);
-        horaValueLabel->setObjectName(QStringLiteral("horaValueLabel"));
+        horaValueLabel->setObjectName(QString::fromUtf8("horaValueLabel"));
         horaValueLabel->setFont(font3);
 
         gridLayout_3->addWidget(horaValueLabel, 1, 1, 1, 1);
@@ -292,11 +286,11 @@ public:
         verticalLayout->addLayout(horizontalLayout_2);
 
         label = new QLabel(pworkorder);
-        label->setObjectName(QStringLiteral("label"));
-        QFont font5;
-        font5.setFamily(QStringLiteral("Verdana"));
-        font5.setPointSize(39);
-        label->setFont(font5);
+        label->setObjectName(QString::fromUtf8("label"));
+        QFont font4;
+        font4.setFamily(QString::fromUtf8("Verdana"));
+        font4.setPointSize(39);
+        label->setFont(font4);
 
         verticalLayout->addWidget(label);
 
@@ -308,30 +302,30 @@ public:
 
     void retranslateUi(QWidget *pworkorder)
     {
-        pworkorder->setWindowTitle(QApplication::translate("pworkorder", "Form", 0));
-        barcodeLabel->setText(QApplication::translate("pworkorder", "001-000001-00000001", 0));
+        pworkorder->setWindowTitle(QCoreApplication::translate("pworkorder", "Form", nullptr));
+        barcodeLabel->setText(QCoreApplication::translate("pworkorder", "001-000001-00000001", nullptr));
         label_4->setText(QString());
-        label_5->setText(QApplication::translate("pworkorder", "La Casita Azul", 0));
-        label_2->setText(QApplication::translate("pworkorder", "A Nombre de:", 0));
+        label_5->setText(QCoreApplication::translate("pworkorder", "La Casita Azul", nullptr));
+        label_2->setText(QCoreApplication::translate("pworkorder", "A Nombre de:", nullptr));
         nameLabel->setText(QString());
-        label_3->setText(QApplication::translate("pworkorder", "Juegos a Retirar", 0));
+        label_3->setText(QCoreApplication::translate("pworkorder", "Juegos a Retirar", nullptr));
         nroJuegosLabel->setText(QString());
-        readableBarcodeLabel->setText(QApplication::translate("pworkorder", "TextLabel", 0));
-        label_7->setText(QApplication::translate("pworkorder", "Email: fotocasitaazul@yahoo.com.ar", 0));
-        label_8->setText(QApplication::translate("pworkorder", "Tel: (0291) - 4514665", 0));
-        label_6->setText(QApplication::translate("pworkorder", "Costo Fotocopia:", 0));
+        readableBarcodeLabel->setText(QCoreApplication::translate("pworkorder", "TextLabel", nullptr));
+        label_7->setText(QCoreApplication::translate("pworkorder", "Email: fotocasitaazul@yahoo.com.ar", nullptr));
+        label_8->setText(QCoreApplication::translate("pworkorder", "Tel: (0291) - 4514665", nullptr));
+        label_6->setText(QCoreApplication::translate("pworkorder", "Costo Fotocopia:", nullptr));
         fotocopiaValueLabel->setText(QString());
-        label_9->setText(QApplication::translate("pworkorder", "Costo Anillado:", 0));
+        label_9->setText(QCoreApplication::translate("pworkorder", "Costo Anillado:", nullptr));
         anilladoValueLabel->setText(QString());
-        label_11->setText(QApplication::translate("pworkorder", "Se\303\261a:", 0));
+        label_11->setText(QCoreApplication::translate("pworkorder", "Se\303\261a:", nullptr));
         sennaValueLabel->setText(QString());
-        label_13->setText(QApplication::translate("pworkorder", "Total a Pagar:", 0));
+        label_13->setText(QCoreApplication::translate("pworkorder", "Total a Pagar:", nullptr));
         totalValueLabel->setText(QString());
-        label_14->setText(QApplication::translate("pworkorder", "Fecha de Entrega:", 0));
+        label_14->setText(QCoreApplication::translate("pworkorder", "Fecha de Entrega:", nullptr));
         fechaValueLabel->setText(QString());
-        label_16->setText(QApplication::translate("pworkorder", "Hora Aprox.:", 0));
+        label_16->setText(QCoreApplication::translate("pworkorder", "Hora Aprox.:", nullptr));
         horaValueLabel->setText(QString());
-        label->setText(QApplication::translate("pworkorder", "Pasados los 30 dias corridos desde la fecha de entrega, el trabajo sera dado de baja como descarte", 0));
+        label->setText(QCoreApplication::translate("pworkorder", "Pasados los 30 dias corridos desde la fecha de entrega, el trabajo sera dado de baja como descarte", nullptr));
     } // retranslateUi
 
 };

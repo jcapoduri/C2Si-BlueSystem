@@ -71,7 +71,7 @@ books::~books()
         delete b;
     };*/
     if(!t_folder.isEmpty()) qDeleteAll(t_folder.begin(), t_folder.end());
-    qDebug() << "delete bk3" << (int)t_anillado;
+    //qDebug() << "delete bk3" << (int)t_anillado;
     if(t_anillado != 0){
         delete t_anillado;
         t_anillado = 0;
@@ -174,7 +174,15 @@ bool books::update()
 
 bool books::update(QSqlRecord record)
 {
-    return nd::interface::update(record);
+    bool ok = nd::interface::update(record);
+    if(ok){
+        t_folder = nd::db::select<books>(QString("%1 = %2").arg(fieldName(5)).arg(this->internalID())).allPtr();
+        books* bk;
+        foreach (bk, t_folder) {
+            bk->setParent(this);
+        }
+    };
+    return ok;
 }
 
 bool books::updateFromRecord(QSqlRecord record)

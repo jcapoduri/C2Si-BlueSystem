@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'shortlogindialog.ui'
 **
-** Created by: Qt User Interface Compiler version 5.4.0
+** Created by: Qt User Interface Compiler version 5.13.1
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -10,13 +10,10 @@
 #define UI_SHORTLOGINDIALOG_H
 
 #include <QtCore/QVariant>
-#include <QtWidgets/QAction>
 #include <QtWidgets/QApplication>
-#include <QtWidgets/QButtonGroup>
 #include <QtWidgets/QDialog>
 #include <QtWidgets/QDialogButtonBox>
 #include <QtWidgets/QGridLayout>
-#include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QLineEdit>
 #include <QtWidgets/QSpacerItem>
@@ -39,29 +36,29 @@ public:
     void setupUi(QDialog *shortLoginDialog)
     {
         if (shortLoginDialog->objectName().isEmpty())
-            shortLoginDialog->setObjectName(QStringLiteral("shortLoginDialog"));
+            shortLoginDialog->setObjectName(QString::fromUtf8("shortLoginDialog"));
         shortLoginDialog->resize(392, 97);
         verticalLayout = new QVBoxLayout(shortLoginDialog);
-        verticalLayout->setObjectName(QStringLiteral("verticalLayout"));
+        verticalLayout->setObjectName(QString::fromUtf8("verticalLayout"));
         gridLayout = new QGridLayout();
-        gridLayout->setObjectName(QStringLiteral("gridLayout"));
+        gridLayout->setObjectName(QString::fromUtf8("gridLayout"));
         label = new QLabel(shortLoginDialog);
-        label->setObjectName(QStringLiteral("label"));
+        label->setObjectName(QString::fromUtf8("label"));
 
         gridLayout->addWidget(label, 0, 0, 1, 1);
 
         label_2 = new QLabel(shortLoginDialog);
-        label_2->setObjectName(QStringLiteral("label_2"));
+        label_2->setObjectName(QString::fromUtf8("label_2"));
 
         gridLayout->addWidget(label_2, 1, 0, 1, 1);
 
         userEdit = new QLabel(shortLoginDialog);
-        userEdit->setObjectName(QStringLiteral("userEdit"));
+        userEdit->setObjectName(QString::fromUtf8("userEdit"));
 
         gridLayout->addWidget(userEdit, 0, 1, 1, 1);
 
         passwordLineEdit = new QLineEdit(shortLoginDialog);
-        passwordLineEdit->setObjectName(QStringLiteral("passwordLineEdit"));
+        passwordLineEdit->setObjectName(QString::fromUtf8("passwordLineEdit"));
         passwordLineEdit->setEchoMode(QLineEdit::Password);
 
         gridLayout->addWidget(passwordLineEdit, 1, 1, 1, 1);
@@ -74,7 +71,7 @@ public:
         verticalLayout->addItem(verticalSpacer);
 
         buttonBox = new QDialogButtonBox(shortLoginDialog);
-        buttonBox->setObjectName(QStringLiteral("buttonBox"));
+        buttonBox->setObjectName(QString::fromUtf8("buttonBox"));
         buttonBox->setOrientation(Qt::Horizontal);
         buttonBox->setStandardButtons(QDialogButtonBox::Cancel|QDialogButtonBox::Ok);
 
@@ -90,10 +87,10 @@ public:
 
     void retranslateUi(QDialog *shortLoginDialog)
     {
-        shortLoginDialog->setWindowTitle(QApplication::translate("shortLoginDialog", "Login::Usuario", 0));
-        label->setText(QApplication::translate("shortLoginDialog", "Usuario: ", 0));
-        label_2->setText(QApplication::translate("shortLoginDialog", "Password:", 0));
-        userEdit->setText(QApplication::translate("shortLoginDialog", "TextLabel", 0));
+        shortLoginDialog->setWindowTitle(QCoreApplication::translate("shortLoginDialog", "Login::Usuario", nullptr));
+        label->setText(QCoreApplication::translate("shortLoginDialog", "Usuario: ", nullptr));
+        label_2->setText(QCoreApplication::translate("shortLoginDialog", "Password:", nullptr));
+        userEdit->setText(QCoreApplication::translate("shortLoginDialog", "TextLabel", nullptr));
     } // retranslateUi
 
 };

@@ -106,9 +106,6 @@
             </property>
            </widget>
           </item>
-          <item row="0" column="1">
-           <widget class="QRadioButton" name="d2En1DFRadioButton"/>
-          </item>
           <item row="1" column="0">
            <widget class="QLabel" name="d2En1SFLabel">
             <property name="text">
@@ -151,27 +148,30 @@
             </property>
            </widget>
           </item>
-          <item row="1" column="1">
-           <widget class="QRadioButton" name="d2En1SFRadioButton"/>
-          </item>
-          <item row="2" column="1">
-           <widget class="QRadioButton" name="hHDFRadioButton"/>
-          </item>
-          <item row="3" column="1">
-           <widget class="QRadioButton" name="hHSFRadioButton"/>
-          </item>
-          <item row="4" column="1">
-           <widget class="QRadioButton" name="pasarDFRadioButton"/>
-          </item>
-          <item row="5" column="1">
-           <widget class="QRadioButton" name="pasarSFRadioButton"/>
+          <item row="0" column="1">
+           <widget class="QCheckBox" name="d2En1DFCheckBox"/>
           </item>
           <item row="6" column="1">
-           <widget class="QRadioButton" name="comoEstaRadioButton">
+           <widget class="QCheckBox" name="comoEstaCheckBox">
             <property name="checked">
              <bool>true</bool>
             </property>
            </widget>
+          </item>
+          <item row="5" column="1">
+           <widget class="QCheckBox" name="pasarSFCheckBox"/>
+          </item>
+          <item row="4" column="1">
+           <widget class="QCheckBox" name="pasarDFCheckBox"/>
+          </item>
+          <item row="3" column="1">
+           <widget class="QCheckBox" name="hHSFCheckBox"/>
+          </item>
+          <item row="2" column="1">
+           <widget class="QCheckBox" name="hHDFCheckBox"/>
+          </item>
+          <item row="1" column="1">
+           <widget class="QCheckBox" name="d2En1SFCheckBox"/>
           </item>
          </layout>
         </item>
@@ -390,14 +390,37 @@
          <layout class="QVBoxLayout" name="verticalLayout_6">
           <item>
            <layout class="QGridLayout" name="gridLayout">
-            <item row="0" column="0">
+            <item row="2" column="1">
+             <widget class="QRadioButton" name="bottomButton">
+              <property name="text">
+               <string>de Abajo</string>
+              </property>
+             </widget>
+            </item>
+            <item row="0" column="1">
              <widget class="QRadioButton" name="superiorRadioButton">
               <property name="text">
                <string>Superior</string>
               </property>
              </widget>
             </item>
-            <item row="1" column="0">
+            <item row="1" column="2">
+             <widget class="QRadioButton" name="leftRadioButton">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="text">
+               <string>Lateral</string>
+              </property>
+              <property name="checked">
+               <bool>true</bool>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="1">
              <widget class="QFrame" name="frame">
               <property name="sizePolicy">
                <sizepolicy hsizetype="Preferred" vsizetype="MinimumExpanding">
@@ -422,30 +445,21 @@
               </property>
              </widget>
             </item>
-            <item row="1" column="1">
-             <widget class="QRadioButton" name="leftRadioButton">
-              <property name="sizePolicy">
-               <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
-                <horstretch>0</horstretch>
-                <verstretch>0</verstretch>
-               </sizepolicy>
-              </property>
+            <item row="1" column="0">
+             <widget class="QRadioButton" name="rightRadioButton">
               <property name="text">
-               <string>Lateral</string>
-              </property>
-              <property name="checked">
-               <bool>true</bool>
-              </property>
-             </widget>
-            </item>
-            <item row="2" column="0">
-             <widget class="QRadioButton" name="bottomButton">
-              <property name="text">
-               <string>de Abajo</string>
+               <string>Lateral derecho</string>
               </property>
              </widget>
             </item>
            </layout>
+          </item>
+          <item>
+           <widget class="QCheckBox" name="abrochadoCheckBox">
+            <property name="text">
+             <string>Abrochado</string>
+            </property>
+           </widget>
           </item>
          </layout>
         </widget>
@@ -870,7 +884,6 @@
   </layout>
  </widget>
  <resources>
-  <include location="resources.qrc"/>
   <include location="resources.qrc"/>
  </resources>
  <connections>

@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'wlist.ui'
 **
-** Created by: Qt User Interface Compiler version 5.4.0
+** Created by: Qt User Interface Compiler version 5.13.1
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -10,11 +10,8 @@
 #define UI_WLIST_H
 
 #include <QtCore/QVariant>
-#include <QtWidgets/QAction>
 #include <QtWidgets/QApplication>
-#include <QtWidgets/QButtonGroup>
 #include <QtWidgets/QHBoxLayout>
-#include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QScrollArea>
@@ -42,18 +39,18 @@ public:
     void setupUi(QWidget *wList)
     {
         if (wList->objectName().isEmpty())
-            wList->setObjectName(QStringLiteral("wList"));
+            wList->setObjectName(QString::fromUtf8("wList"));
         wList->resize(207, 471);
         verticalLayout = new QVBoxLayout(wList);
-        verticalLayout->setObjectName(QStringLiteral("verticalLayout"));
+        verticalLayout->setObjectName(QString::fromUtf8("verticalLayout"));
         horizontalLayout = new QHBoxLayout();
-        horizontalLayout->setObjectName(QStringLiteral("horizontalLayout"));
+        horizontalLayout->setObjectName(QString::fromUtf8("horizontalLayout"));
         horizontalSpacer = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
 
         horizontalLayout->addItem(horizontalSpacer);
 
         printButton = new QPushButton(wList);
-        printButton->setObjectName(QStringLiteral("printButton"));
+        printButton->setObjectName(QString::fromUtf8("printButton"));
 
         horizontalLayout->addWidget(printButton);
 
@@ -61,24 +58,24 @@ public:
         verticalLayout->addLayout(horizontalLayout);
 
         listScrollArea = new QScrollArea(wList);
-        listScrollArea->setObjectName(QStringLiteral("listScrollArea"));
+        listScrollArea->setObjectName(QString::fromUtf8("listScrollArea"));
         listScrollArea->setWidgetResizable(true);
         listScrollArea->setAlignment(Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop);
         scrollAreaWidgetContents = new QWidget();
-        scrollAreaWidgetContents->setObjectName(QStringLiteral("scrollAreaWidgetContents"));
+        scrollAreaWidgetContents->setObjectName(QString::fromUtf8("scrollAreaWidgetContents"));
         scrollAreaWidgetContents->setGeometry(QRect(0, 0, 187, 370));
         verticalLayout_2 = new QVBoxLayout(scrollAreaWidgetContents);
         verticalLayout_2->setSpacing(2);
         verticalLayout_2->setContentsMargins(1, 1, 1, 1);
-        verticalLayout_2->setObjectName(QStringLiteral("verticalLayout_2"));
+        verticalLayout_2->setObjectName(QString::fromUtf8("verticalLayout_2"));
         listScrollArea->setWidget(scrollAreaWidgetContents);
 
         verticalLayout->addWidget(listScrollArea);
 
         horizontalLayout_2 = new QHBoxLayout();
-        horizontalLayout_2->setObjectName(QStringLiteral("horizontalLayout_2"));
+        horizontalLayout_2->setObjectName(QString::fromUtf8("horizontalLayout_2"));
         label = new QLabel(wList);
-        label->setObjectName(QStringLiteral("label"));
+        label->setObjectName(QString::fromUtf8("label"));
         QSizePolicy sizePolicy(QSizePolicy::Maximum, QSizePolicy::Preferred);
         sizePolicy.setHorizontalStretch(0);
         sizePolicy.setVerticalStretch(0);
@@ -88,7 +85,7 @@ public:
         horizontalLayout_2->addWidget(label);
 
         stateLabel = new QLabel(wList);
-        stateLabel->setObjectName(QStringLiteral("stateLabel"));
+        stateLabel->setObjectName(QString::fromUtf8("stateLabel"));
 
         horizontalLayout_2->addWidget(stateLabel);
 
@@ -96,7 +93,7 @@ public:
         verticalLayout->addLayout(horizontalLayout_2);
 
         updateButton = new QPushButton(wList);
-        updateButton->setObjectName(QStringLiteral("updateButton"));
+        updateButton->setObjectName(QString::fromUtf8("updateButton"));
 
         verticalLayout->addWidget(updateButton);
 
@@ -108,11 +105,11 @@ public:
 
     void retranslateUi(QWidget *wList)
     {
-        wList->setWindowTitle(QApplication::translate("wList", "Form", 0));
-        printButton->setText(QApplication::translate("wList", "Imprimir", 0));
-        label->setText(QApplication::translate("wList", "Estado:", 0));
+        wList->setWindowTitle(QCoreApplication::translate("wList", "Form", nullptr));
+        printButton->setText(QCoreApplication::translate("wList", "Imprimir", nullptr));
+        label->setText(QCoreApplication::translate("wList", "Estado:", nullptr));
         stateLabel->setText(QString());
-        updateButton->setText(QApplication::translate("wList", "Actualizar", 0));
+        updateButton->setText(QCoreApplication::translate("wList", "Actualizar", nullptr));
     } // retranslateUi
 
 };

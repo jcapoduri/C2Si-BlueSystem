@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'woptions.ui'
 **
-** Created by: Qt User Interface Compiler version 5.4.0
+** Created by: Qt User Interface Compiler version 5.13.1
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -10,15 +10,12 @@
 #define UI_WOPTIONS_H
 
 #include <QtCore/QVariant>
-#include <QtWidgets/QAction>
 #include <QtWidgets/QApplication>
-#include <QtWidgets/QButtonGroup>
 #include <QtWidgets/QDialog>
 #include <QtWidgets/QDialogButtonBox>
 #include <QtWidgets/QFormLayout>
 #include <QtWidgets/QGroupBox>
 #include <QtWidgets/QHBoxLayout>
-#include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QLineEdit>
 #include <QtWidgets/QPushButton>
@@ -57,39 +54,39 @@ public:
     void setupUi(QDialog *woptions)
     {
         if (woptions->objectName().isEmpty())
-            woptions->setObjectName(QStringLiteral("woptions"));
+            woptions->setObjectName(QString::fromUtf8("woptions"));
         woptions->resize(465, 317);
         verticalLayout = new QVBoxLayout(woptions);
-        verticalLayout->setObjectName(QStringLiteral("verticalLayout"));
+        verticalLayout->setObjectName(QString::fromUtf8("verticalLayout"));
         groupBox = new QGroupBox(woptions);
-        groupBox->setObjectName(QStringLiteral("groupBox"));
+        groupBox->setObjectName(QString::fromUtf8("groupBox"));
         QSizePolicy sizePolicy(QSizePolicy::Preferred, QSizePolicy::Maximum);
         sizePolicy.setHorizontalStretch(0);
         sizePolicy.setVerticalStretch(0);
         sizePolicy.setHeightForWidth(groupBox->sizePolicy().hasHeightForWidth());
         groupBox->setSizePolicy(sizePolicy);
         verticalLayout_3 = new QVBoxLayout(groupBox);
-        verticalLayout_3->setObjectName(QStringLiteral("verticalLayout_3"));
+        verticalLayout_3->setObjectName(QString::fromUtf8("verticalLayout_3"));
         formLayout = new QFormLayout();
-        formLayout->setObjectName(QStringLiteral("formLayout"));
+        formLayout->setObjectName(QString::fromUtf8("formLayout"));
         passwordLabel = new QLabel(groupBox);
-        passwordLabel->setObjectName(QStringLiteral("passwordLabel"));
+        passwordLabel->setObjectName(QString::fromUtf8("passwordLabel"));
 
         formLayout->setWidget(0, QFormLayout::LabelRole, passwordLabel);
 
         passwordLineEdit = new QLineEdit(groupBox);
-        passwordLineEdit->setObjectName(QStringLiteral("passwordLineEdit"));
+        passwordLineEdit->setObjectName(QString::fromUtf8("passwordLineEdit"));
         passwordLineEdit->setEchoMode(QLineEdit::PasswordEchoOnEdit);
 
         formLayout->setWidget(0, QFormLayout::FieldRole, passwordLineEdit);
 
         repetirPasswordLabel = new QLabel(groupBox);
-        repetirPasswordLabel->setObjectName(QStringLiteral("repetirPasswordLabel"));
+        repetirPasswordLabel->setObjectName(QString::fromUtf8("repetirPasswordLabel"));
 
         formLayout->setWidget(1, QFormLayout::LabelRole, repetirPasswordLabel);
 
         repetirPasswordLineEdit = new QLineEdit(groupBox);
-        repetirPasswordLineEdit->setObjectName(QStringLiteral("repetirPasswordLineEdit"));
+        repetirPasswordLineEdit->setObjectName(QString::fromUtf8("repetirPasswordLineEdit"));
         repetirPasswordLineEdit->setEchoMode(QLineEdit::PasswordEchoOnEdit);
 
         formLayout->setWidget(1, QFormLayout::FieldRole, repetirPasswordLineEdit);
@@ -98,13 +95,13 @@ public:
         verticalLayout_3->addLayout(formLayout);
 
         horizontalLayout = new QHBoxLayout();
-        horizontalLayout->setObjectName(QStringLiteral("horizontalLayout"));
+        horizontalLayout->setObjectName(QString::fromUtf8("horizontalLayout"));
         horizontalSpacer = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
 
         horizontalLayout->addItem(horizontalSpacer);
 
         resetPasswordButton = new QPushButton(groupBox);
-        resetPasswordButton->setObjectName(QStringLiteral("resetPasswordButton"));
+        resetPasswordButton->setObjectName(QString::fromUtf8("resetPasswordButton"));
 
         horizontalLayout->addWidget(resetPasswordButton);
 
@@ -115,31 +112,31 @@ public:
         verticalLayout->addWidget(groupBox);
 
         groupBox_2 = new QGroupBox(woptions);
-        groupBox_2->setObjectName(QStringLiteral("groupBox_2"));
+        groupBox_2->setObjectName(QString::fromUtf8("groupBox_2"));
         sizePolicy.setHeightForWidth(groupBox_2->sizePolicy().hasHeightForWidth());
         groupBox_2->setSizePolicy(sizePolicy);
         verticalLayout_2 = new QVBoxLayout(groupBox_2);
-        verticalLayout_2->setObjectName(QStringLiteral("verticalLayout_2"));
+        verticalLayout_2->setObjectName(QString::fromUtf8("verticalLayout_2"));
         formLayout_2 = new QFormLayout();
-        formLayout_2->setObjectName(QStringLiteral("formLayout_2"));
+        formLayout_2->setObjectName(QString::fromUtf8("formLayout_2"));
         shortPasswordLabel = new QLabel(groupBox_2);
-        shortPasswordLabel->setObjectName(QStringLiteral("shortPasswordLabel"));
+        shortPasswordLabel->setObjectName(QString::fromUtf8("shortPasswordLabel"));
 
         formLayout_2->setWidget(0, QFormLayout::LabelRole, shortPasswordLabel);
 
         shortPasswordLineEdit = new QLineEdit(groupBox_2);
-        shortPasswordLineEdit->setObjectName(QStringLiteral("shortPasswordLineEdit"));
+        shortPasswordLineEdit->setObjectName(QString::fromUtf8("shortPasswordLineEdit"));
         shortPasswordLineEdit->setEchoMode(QLineEdit::PasswordEchoOnEdit);
 
         formLayout_2->setWidget(0, QFormLayout::FieldRole, shortPasswordLineEdit);
 
         repetirShortLabel = new QLabel(groupBox_2);
-        repetirShortLabel->setObjectName(QStringLiteral("repetirShortLabel"));
+        repetirShortLabel->setObjectName(QString::fromUtf8("repetirShortLabel"));
 
         formLayout_2->setWidget(1, QFormLayout::LabelRole, repetirShortLabel);
 
         repetirShortLineEdit = new QLineEdit(groupBox_2);
-        repetirShortLineEdit->setObjectName(QStringLiteral("repetirShortLineEdit"));
+        repetirShortLineEdit->setObjectName(QString::fromUtf8("repetirShortLineEdit"));
         repetirShortLineEdit->setEchoMode(QLineEdit::PasswordEchoOnEdit);
 
         formLayout_2->setWidget(1, QFormLayout::FieldRole, repetirShortLineEdit);
@@ -148,13 +145,13 @@ public:
         verticalLayout_2->addLayout(formLayout_2);
 
         horizontalLayout_2 = new QHBoxLayout();
-        horizontalLayout_2->setObjectName(QStringLiteral("horizontalLayout_2"));
+        horizontalLayout_2->setObjectName(QString::fromUtf8("horizontalLayout_2"));
         horizontalSpacer_2 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
 
         horizontalLayout_2->addItem(horizontalSpacer_2);
 
         resetShortPasswordButton = new QPushButton(groupBox_2);
-        resetShortPasswordButton->setObjectName(QStringLiteral("resetShortPasswordButton"));
+        resetShortPasswordButton->setObjectName(QString::fromUtf8("resetShortPasswordButton"));
 
         horizontalLayout_2->addWidget(resetShortPasswordButton);
 
@@ -169,7 +166,7 @@ public:
         verticalLayout->addItem(verticalSpacer);
 
         buttonBox = new QDialogButtonBox(woptions);
-        buttonBox->setObjectName(QStringLiteral("buttonBox"));
+        buttonBox->setObjectName(QString::fromUtf8("buttonBox"));
         buttonBox->setOrientation(Qt::Horizontal);
         buttonBox->setStandardButtons(QDialogButtonBox::Cancel|QDialogButtonBox::Save);
 
@@ -185,15 +182,15 @@ public:
 
     void retranslateUi(QDialog *woptions)
     {
-        woptions->setWindowTitle(QApplication::translate("woptions", "Opciones ", 0));
-        groupBox->setTitle(QApplication::translate("woptions", "Reseteo de Contrase\303\261a", 0));
-        passwordLabel->setText(QApplication::translate("woptions", "password:", 0));
-        repetirPasswordLabel->setText(QApplication::translate("woptions", "repetir password:", 0));
-        resetPasswordButton->setText(QApplication::translate("woptions", "Resetear", 0));
-        groupBox_2->setTitle(QApplication::translate("woptions", "Reseteo Contrase\303\261a Corta:", 0));
-        shortPasswordLabel->setText(QApplication::translate("woptions", "short password:", 0));
-        repetirShortLabel->setText(QApplication::translate("woptions", "repetir short:", 0));
-        resetShortPasswordButton->setText(QApplication::translate("woptions", "Resetarte", 0));
+        woptions->setWindowTitle(QCoreApplication::translate("woptions", "Opciones ", nullptr));
+        groupBox->setTitle(QCoreApplication::translate("woptions", "Reseteo de Contrase\303\261a", nullptr));
+        passwordLabel->setText(QCoreApplication::translate("woptions", "password:", nullptr));
+        repetirPasswordLabel->setText(QCoreApplication::translate("woptions", "repetir password:", nullptr));
+        resetPasswordButton->setText(QCoreApplication::translate("woptions", "Resetear", nullptr));
+        groupBox_2->setTitle(QCoreApplication::translate("woptions", "Reseteo Contrase\303\261a Corta:", nullptr));
+        shortPasswordLabel->setText(QCoreApplication::translate("woptions", "short password:", nullptr));
+        repetirShortLabel->setText(QCoreApplication::translate("woptions", "repetir short:", nullptr));
+        resetShortPasswordButton->setText(QCoreApplication::translate("woptions", "Resetarte", nullptr));
     } // retranslateUi
 
 };

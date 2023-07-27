@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'mainwidget.ui'
 **
-** Created by: Qt User Interface Compiler version 5.4.0
+** Created by: Qt User Interface Compiler version 5.13.1
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -10,11 +10,9 @@
 #define UI_MAINWIDGET_H
 
 #include <QtCore/QVariant>
-#include <QtWidgets/QAction>
+#include <QtGui/QIcon>
 #include <QtWidgets/QApplication>
-#include <QtWidgets/QButtonGroup>
 #include <QtWidgets/QGroupBox>
-#include <QtWidgets/QHeaderView>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QScrollArea>
 #include <QtWidgets/QVBoxLayout>
@@ -39,10 +37,10 @@ public:
     void setupUi(QWidget *mainWidget)
     {
         if (mainWidget->objectName().isEmpty())
-            mainWidget->setObjectName(QStringLiteral("mainWidget"));
+            mainWidget->setObjectName(QString::fromUtf8("mainWidget"));
         mainWidget->resize(97, 660);
         mainWidget->setMaximumSize(QSize(97, 16777215));
-        mainWidget->setStyleSheet(QLatin1String("#mainWidget{\n"
+        mainWidget->setStyleSheet(QString::fromUtf8("#mainWidget{\n"
 "	background-color: rgba(255, 255, 255, 200);\n"
 "}\n"
 "\n"
@@ -52,52 +50,51 @@ public:
         verticalLayout = new QVBoxLayout(mainWidget);
         verticalLayout->setSpacing(6);
         verticalLayout->setContentsMargins(1, 1, 1, 1);
-        verticalLayout->setObjectName(QStringLiteral("verticalLayout"));
+        verticalLayout->setObjectName(QString::fromUtf8("verticalLayout"));
         logUserButton = new QPushButton(mainWidget);
-        logUserButton->setObjectName(QStringLiteral("logUserButton"));
+        logUserButton->setObjectName(QString::fromUtf8("logUserButton"));
         QIcon icon;
-        icon.addFile(QStringLiteral(":/icons/graphics/add-user.png"), QSize(), QIcon::Normal, QIcon::Off);
+        icon.addFile(QString::fromUtf8(":/icons/graphics/add-user.png"), QSize(), QIcon::Normal, QIcon::Off);
         logUserButton->setIcon(icon);
         logUserButton->setIconSize(QSize(32, 32));
-        logUserButton->setDefault(true);
         logUserButton->setFlat(false);
 
         verticalLayout->addWidget(logUserButton);
 
         userArea = new QScrollArea(mainWidget);
-        userArea->setObjectName(QStringLiteral("userArea"));
+        userArea->setObjectName(QString::fromUtf8("userArea"));
         userArea->setWidgetResizable(true);
         userArea->setAlignment(Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop);
         scrollAreaWidgetContents_2 = new QWidget();
-        scrollAreaWidgetContents_2->setObjectName(QStringLiteral("scrollAreaWidgetContents_2"));
+        scrollAreaWidgetContents_2->setObjectName(QString::fromUtf8("scrollAreaWidgetContents_2"));
         scrollAreaWidgetContents_2->setGeometry(QRect(0, 0, 93, 490));
         verticalLayout_4 = new QVBoxLayout(scrollAreaWidgetContents_2);
         verticalLayout_4->setSpacing(9);
         verticalLayout_4->setContentsMargins(11, 11, 11, 11);
-        verticalLayout_4->setObjectName(QStringLiteral("verticalLayout_4"));
+        verticalLayout_4->setObjectName(QString::fromUtf8("verticalLayout_4"));
         verticalLayout_4->setContentsMargins(3, 15, 3, 3);
         userArea->setWidget(scrollAreaWidgetContents_2);
 
         verticalLayout->addWidget(userArea);
 
         groupBox = new QGroupBox(mainWidget);
-        groupBox->setObjectName(QStringLiteral("groupBox"));
+        groupBox->setObjectName(QString::fromUtf8("groupBox"));
         verticalLayout_2 = new QVBoxLayout(groupBox);
         verticalLayout_2->setSpacing(6);
         verticalLayout_2->setContentsMargins(11, 11, 11, 11);
-        verticalLayout_2->setObjectName(QStringLiteral("verticalLayout_2"));
+        verticalLayout_2->setObjectName(QString::fromUtf8("verticalLayout_2"));
         worksPushButton = new QPushButton(groupBox);
-        worksPushButton->setObjectName(QStringLiteral("worksPushButton"));
+        worksPushButton->setObjectName(QString::fromUtf8("worksPushButton"));
 
         verticalLayout_2->addWidget(worksPushButton);
 
         listaButton = new QPushButton(groupBox);
-        listaButton->setObjectName(QStringLiteral("listaButton"));
+        listaButton->setObjectName(QString::fromUtf8("listaButton"));
 
         verticalLayout_2->addWidget(listaButton);
 
         othersButton = new QPushButton(groupBox);
-        othersButton->setObjectName(QStringLiteral("othersButton"));
+        othersButton->setObjectName(QString::fromUtf8("othersButton"));
 
         verticalLayout_2->addWidget(othersButton);
 
@@ -107,17 +104,20 @@ public:
 
         retranslateUi(mainWidget);
 
+        logUserButton->setDefault(true);
+
+
         QMetaObject::connectSlotsByName(mainWidget);
     } // setupUi
 
     void retranslateUi(QWidget *mainWidget)
     {
-        mainWidget->setWindowTitle(QApplication::translate("mainWidget", "mainWidget", 0));
-        logUserButton->setText(QApplication::translate("mainWidget", "Logearse", 0));
-        groupBox->setTitle(QApplication::translate("mainWidget", "Listados de", 0));
-        worksPushButton->setText(QApplication::translate("mainWidget", "Pendientes", 0));
-        listaButton->setText(QApplication::translate("mainWidget", "Lista", 0));
-        othersButton->setText(QApplication::translate("mainWidget", "Otros", 0));
+        mainWidget->setWindowTitle(QCoreApplication::translate("mainWidget", "mainWidget", nullptr));
+        logUserButton->setText(QCoreApplication::translate("mainWidget", "Logearse", nullptr));
+        groupBox->setTitle(QCoreApplication::translate("mainWidget", "Listados de", nullptr));
+        worksPushButton->setText(QCoreApplication::translate("mainWidget", "Pendientes", nullptr));
+        listaButton->setText(QCoreApplication::translate("mainWidget", "Lista", nullptr));
+        othersButton->setText(QCoreApplication::translate("mainWidget", "Otros", nullptr));
     } // retranslateUi
 
 };

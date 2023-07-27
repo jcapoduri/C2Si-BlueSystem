@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'wbackups.ui'
 **
-** Created by: Qt User Interface Compiler version 5.4.0
+** Created by: Qt User Interface Compiler version 5.13.1
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -10,9 +10,7 @@
 #define UI_WBACKUPS_H
 
 #include <QtCore/QVariant>
-#include <QtWidgets/QAction>
 #include <QtWidgets/QApplication>
-#include <QtWidgets/QButtonGroup>
 #include <QtWidgets/QGroupBox>
 #include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QHeaderView>
@@ -39,12 +37,12 @@ public:
     void setupUi(QWidget *wBackups)
     {
         if (wBackups->objectName().isEmpty())
-            wBackups->setObjectName(QStringLiteral("wBackups"));
+            wBackups->setObjectName(QString::fromUtf8("wBackups"));
         wBackups->resize(740, 379);
         horizontalLayout = new QHBoxLayout(wBackups);
-        horizontalLayout->setObjectName(QStringLiteral("horizontalLayout"));
+        horizontalLayout->setObjectName(QString::fromUtf8("horizontalLayout"));
         tableWidget = new QTableWidget(wBackups);
-        tableWidget->setObjectName(QStringLiteral("tableWidget"));
+        tableWidget->setObjectName(QString::fromUtf8("tableWidget"));
         tableWidget->setEditTriggers(QAbstractItemView::NoEditTriggers);
         tableWidget->setSelectionMode(QAbstractItemView::SingleSelection);
         tableWidget->setSelectionBehavior(QAbstractItemView::SelectRows);
@@ -53,21 +51,21 @@ public:
         horizontalLayout->addWidget(tableWidget);
 
         groupBox = new QGroupBox(wBackups);
-        groupBox->setObjectName(QStringLiteral("groupBox"));
+        groupBox->setObjectName(QString::fromUtf8("groupBox"));
         verticalLayout = new QVBoxLayout(groupBox);
-        verticalLayout->setObjectName(QStringLiteral("verticalLayout"));
+        verticalLayout->setObjectName(QString::fromUtf8("verticalLayout"));
         createButton = new QPushButton(groupBox);
-        createButton->setObjectName(QStringLiteral("createButton"));
+        createButton->setObjectName(QString::fromUtf8("createButton"));
 
         verticalLayout->addWidget(createButton);
 
         applyButton = new QPushButton(groupBox);
-        applyButton->setObjectName(QStringLiteral("applyButton"));
+        applyButton->setObjectName(QString::fromUtf8("applyButton"));
 
         verticalLayout->addWidget(applyButton);
 
         deleteButton = new QPushButton(groupBox);
-        deleteButton->setObjectName(QStringLiteral("deleteButton"));
+        deleteButton->setObjectName(QString::fromUtf8("deleteButton"));
 
         verticalLayout->addWidget(deleteButton);
 
@@ -86,11 +84,11 @@ public:
 
     void retranslateUi(QWidget *wBackups)
     {
-        wBackups->setWindowTitle(QApplication::translate("wBackups", "Copias de Seguridad del Sistema", 0));
-        groupBox->setTitle(QApplication::translate("wBackups", "Tareas", 0));
-        createButton->setText(QApplication::translate("wBackups", "Crear", 0));
-        applyButton->setText(QApplication::translate("wBackups", "Aplicar", 0));
-        deleteButton->setText(QApplication::translate("wBackups", "Borrar", 0));
+        wBackups->setWindowTitle(QCoreApplication::translate("wBackups", "Copias de Seguridad del Sistema", nullptr));
+        groupBox->setTitle(QCoreApplication::translate("wBackups", "Tareas", nullptr));
+        createButton->setText(QCoreApplication::translate("wBackups", "Crear", nullptr));
+        applyButton->setText(QCoreApplication::translate("wBackups", "Aplicar", nullptr));
+        deleteButton->setText(QCoreApplication::translate("wBackups", "Borrar", nullptr));
     } // retranslateUi
 
 };

@@ -9,8 +9,9 @@ class workorder : public nd::interface
 public:
     //         0        1             2          3         4          5
     enum State{Waiting, Fotocopiando, Anillando, Finished, Delivered, Recycled};
-    enum HowTo{TwoinOneDF, TwoinOneSF, toDF, toSF, HHDF, HHSF, likeThat};
-    enum Anillado{Superior = 0, Lateral = 1, Inferior = 2};
+    enum HowTo {_TwoinOneDF, _TwoinOneSF, _toDF, _toSF, _HHDF, _HHSF, _likeThat};
+    enum HowToFlags {TwoinOneDF = 1, TwoinOneSF = 2, toDF = 4, toSF = 8, HHDF = 16, HHSF = 32, likeThat = 64};
+    enum Anillado{Superior = 0, Lateral = 1, Inferior = 2, LateralDerecho = 3};
 
     workorder(quint64 id = 0);
     workorder(const workorder & other);
@@ -33,6 +34,7 @@ public:
     void    setObservation(QString value){ t_observations = value; }
     void    setCopies(int value){ t_copies = value; }
     void    setConAnillado(bool value){ t_conAnillado = value; }
+    void    setConAbrochado(bool value){ t_conAbrochado = value; }
     void    setDoComplete(bool value){ t_doComplete = value; }
     void    setLista(bool value){ t_lista = value; }
     void    setEntregado(bool value){ t_entregado = value; }
@@ -53,7 +55,9 @@ public:
     void    setTotal(double value){ t_total = value; }
     void    setEstado(State value){ t_estado = value; }
     void    setAnillado(double value){ t_anillado = value; }
+    // deprecated
     void    setHowTo(HowTo value){ t_howto = value; }
+    void    setHowToFlags(int value){ t_howtoFlags = value; }
     void    setBusiness(business *value){ if(t_business) delete t_business; t_business = value; }
     void    setAnilladoHowTo(Anillado value){ t_howtoAnillado = value; }
     void    setIgnore(bool value){ t_ignore = value; }
@@ -75,6 +79,7 @@ public:
     QString     observations(){ return t_observations ;}
     int         copies(){ return t_copies ;}
     bool        conAnillado(){ return t_conAnillado ;}
+    bool        conAbrochado(){ return t_conAbrochado ;}
     bool        doComplete(){ return t_doComplete ;}
     bool        lista(){ return t_lista ;}
     bool        entregado(){ return t_entregado ;}
@@ -98,7 +103,9 @@ public:
     double      totalFotocopias(){ return t_simpleFazTotal + t_doubleFazTotal + t_isimpleFazTotal + t_idoubleFazTotal + t_csimpleFazTotal + t_cdoubleFazTotal;}
     user*       userOwner(){ return t_userowner; }
     State       estado(){ return t_estado ;}
+    // deprecated
     HowTo       howto(){ return t_howto ;}
+    int         howtoFlags(){ return t_howtoFlags ;}
     Anillado    anilladoHowTo(){ return t_howtoAnillado; }
     int         outOfOrder(){ return t_outoforder; }
     QList<workorder_pages*>  pages(){ return t_pages ;}
@@ -133,8 +140,11 @@ private:
     double      t_total;
     user*       t_userowner;
     State       t_estado;
+    // deprecated
     HowTo       t_howto;
     int         t_outoforder;
+    bool        t_conAbrochado;
+    int         t_howtoFlags;
     QList<workorder_pages*>  t_pages;
    // QList<workorder>        t_works;
     business    *t_business;

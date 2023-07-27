@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'wworklist.ui'
 **
-** Created by: Qt User Interface Compiler version 5.4.0
+** Created by: Qt User Interface Compiler version 5.13.1
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -10,9 +10,8 @@
 #define UI_WWORKLIST_H
 
 #include <QtCore/QVariant>
-#include <QtWidgets/QAction>
+#include <QtGui/QIcon>
 #include <QtWidgets/QApplication>
-#include <QtWidgets/QButtonGroup>
 #include <QtWidgets/QCheckBox>
 #include <QtWidgets/QDateTimeEdit>
 #include <QtWidgets/QGroupBox>
@@ -69,35 +68,35 @@ public:
     void setupUi(QWidget *wWorkList)
     {
         if (wWorkList->objectName().isEmpty())
-            wWorkList->setObjectName(QStringLiteral("wWorkList"));
+            wWorkList->setObjectName(QString::fromUtf8("wWorkList"));
         wWorkList->resize(851, 461);
         verticalLayout = new QVBoxLayout(wWorkList);
-        verticalLayout->setObjectName(QStringLiteral("verticalLayout"));
+        verticalLayout->setObjectName(QString::fromUtf8("verticalLayout"));
         horizontalLayout_4 = new QHBoxLayout();
-        horizontalLayout_4->setObjectName(QStringLiteral("horizontalLayout_4"));
+        horizontalLayout_4->setObjectName(QString::fromUtf8("horizontalLayout_4"));
         verticalLayout_5 = new QVBoxLayout();
-        verticalLayout_5->setObjectName(QStringLiteral("verticalLayout_5"));
+        verticalLayout_5->setObjectName(QString::fromUtf8("verticalLayout_5"));
         filterGroupBox = new QGroupBox(wWorkList);
-        filterGroupBox->setObjectName(QStringLiteral("filterGroupBox"));
+        filterGroupBox->setObjectName(QString::fromUtf8("filterGroupBox"));
         verticalLayout_4 = new QVBoxLayout(filterGroupBox);
-        verticalLayout_4->setObjectName(QStringLiteral("verticalLayout_4"));
+        verticalLayout_4->setObjectName(QString::fromUtf8("verticalLayout_4"));
         verticalLayout_4->setContentsMargins(-1, -1, -1, 1);
         horizontalLayout = new QHBoxLayout();
-        horizontalLayout->setObjectName(QStringLiteral("horizontalLayout"));
+        horizontalLayout->setObjectName(QString::fromUtf8("horizontalLayout"));
         label = new QLabel(filterGroupBox);
-        label->setObjectName(QStringLiteral("label"));
+        label->setObjectName(QString::fromUtf8("label"));
 
         horizontalLayout->addWidget(label);
 
         searchLineEdit = new QLineEdit(filterGroupBox);
-        searchLineEdit->setObjectName(QStringLiteral("searchLineEdit"));
+        searchLineEdit->setObjectName(QString::fromUtf8("searchLineEdit"));
 
         horizontalLayout->addWidget(searchLineEdit);
 
         searchButton = new QPushButton(filterGroupBox);
-        searchButton->setObjectName(QStringLiteral("searchButton"));
+        searchButton->setObjectName(QString::fromUtf8("searchButton"));
         QIcon icon;
-        icon.addFile(QStringLiteral(":/icons/graphics/edit-find.png"), QSize(), QIcon::Normal, QIcon::Off);
+        icon.addFile(QString::fromUtf8(":/icons/graphics/edit-find.png"), QSize(), QIcon::Normal, QIcon::Off);
         searchButton->setIcon(icon);
 
         horizontalLayout->addWidget(searchButton);
@@ -106,19 +105,19 @@ public:
         verticalLayout_4->addLayout(horizontalLayout);
 
         horizontalLayout_2 = new QHBoxLayout();
-        horizontalLayout_2->setObjectName(QStringLiteral("horizontalLayout_2"));
+        horizontalLayout_2->setObjectName(QString::fromUtf8("horizontalLayout_2"));
         horizontalSpacer = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
 
         horizontalLayout_2->addItem(horizontalSpacer);
 
         clientCheckBox = new QCheckBox(filterGroupBox);
-        clientCheckBox->setObjectName(QStringLiteral("clientCheckBox"));
+        clientCheckBox->setObjectName(QString::fromUtf8("clientCheckBox"));
         clientCheckBox->setChecked(true);
 
         horizontalLayout_2->addWidget(clientCheckBox);
 
         descriptionCheckBox = new QCheckBox(filterGroupBox);
-        descriptionCheckBox->setObjectName(QStringLiteral("descriptionCheckBox"));
+        descriptionCheckBox->setObjectName(QString::fromUtf8("descriptionCheckBox"));
 
         horizontalLayout_2->addWidget(descriptionCheckBox);
 
@@ -126,42 +125,42 @@ public:
         verticalLayout_4->addLayout(horizontalLayout_2);
 
         horizontalLayout_3 = new QHBoxLayout();
-        horizontalLayout_3->setObjectName(QStringLiteral("horizontalLayout_3"));
+        horizontalLayout_3->setObjectName(QString::fromUtf8("horizontalLayout_3"));
         groupBox = new QGroupBox(filterGroupBox);
-        groupBox->setObjectName(QStringLiteral("groupBox"));
+        groupBox->setObjectName(QString::fromUtf8("groupBox"));
         horizontalLayout_5 = new QHBoxLayout(groupBox);
-        horizontalLayout_5->setObjectName(QStringLiteral("horizontalLayout_5"));
+        horizontalLayout_5->setObjectName(QString::fromUtf8("horizontalLayout_5"));
         recibidoCheckBox = new QCheckBox(groupBox);
-        recibidoCheckBox->setObjectName(QStringLiteral("recibidoCheckBox"));
+        recibidoCheckBox->setObjectName(QString::fromUtf8("recibidoCheckBox"));
         recibidoCheckBox->setChecked(true);
 
         horizontalLayout_5->addWidget(recibidoCheckBox);
 
         fotocopiandoCheckBox = new QCheckBox(groupBox);
-        fotocopiandoCheckBox->setObjectName(QStringLiteral("fotocopiandoCheckBox"));
+        fotocopiandoCheckBox->setObjectName(QString::fromUtf8("fotocopiandoCheckBox"));
         fotocopiandoCheckBox->setChecked(true);
 
         horizontalLayout_5->addWidget(fotocopiandoCheckBox);
 
         anillandoCheckBox = new QCheckBox(groupBox);
-        anillandoCheckBox->setObjectName(QStringLiteral("anillandoCheckBox"));
+        anillandoCheckBox->setObjectName(QString::fromUtf8("anillandoCheckBox"));
         anillandoCheckBox->setChecked(true);
 
         horizontalLayout_5->addWidget(anillandoCheckBox);
 
         terminadoCheckBox = new QCheckBox(groupBox);
-        terminadoCheckBox->setObjectName(QStringLiteral("terminadoCheckBox"));
+        terminadoCheckBox->setObjectName(QString::fromUtf8("terminadoCheckBox"));
         terminadoCheckBox->setChecked(false);
 
         horizontalLayout_5->addWidget(terminadoCheckBox);
 
         entregadoCheckBox = new QCheckBox(groupBox);
-        entregadoCheckBox->setObjectName(QStringLiteral("entregadoCheckBox"));
+        entregadoCheckBox->setObjectName(QString::fromUtf8("entregadoCheckBox"));
 
         horizontalLayout_5->addWidget(entregadoCheckBox);
 
         recicladoCheckBox = new QCheckBox(groupBox);
-        recicladoCheckBox->setObjectName(QStringLiteral("recicladoCheckBox"));
+        recicladoCheckBox->setObjectName(QString::fromUtf8("recicladoCheckBox"));
 
         horizontalLayout_5->addWidget(recicladoCheckBox);
 
@@ -169,14 +168,14 @@ public:
         horizontalLayout_3->addWidget(groupBox);
 
         verticalLayout_2 = new QVBoxLayout();
-        verticalLayout_2->setObjectName(QStringLiteral("verticalLayout_2"));
+        verticalLayout_2->setObjectName(QString::fromUtf8("verticalLayout_2"));
         label_2 = new QLabel(filterGroupBox);
-        label_2->setObjectName(QStringLiteral("label_2"));
+        label_2->setObjectName(QString::fromUtf8("label_2"));
 
         verticalLayout_2->addWidget(label_2);
 
         desdeDateTimeEdit = new QDateTimeEdit(filterGroupBox);
-        desdeDateTimeEdit->setObjectName(QStringLiteral("desdeDateTimeEdit"));
+        desdeDateTimeEdit->setObjectName(QString::fromUtf8("desdeDateTimeEdit"));
         desdeDateTimeEdit->setCalendarPopup(true);
 
         verticalLayout_2->addWidget(desdeDateTimeEdit);
@@ -185,14 +184,14 @@ public:
         horizontalLayout_3->addLayout(verticalLayout_2);
 
         verticalLayout_3 = new QVBoxLayout();
-        verticalLayout_3->setObjectName(QStringLiteral("verticalLayout_3"));
+        verticalLayout_3->setObjectName(QString::fromUtf8("verticalLayout_3"));
         label_3 = new QLabel(filterGroupBox);
-        label_3->setObjectName(QStringLiteral("label_3"));
+        label_3->setObjectName(QString::fromUtf8("label_3"));
 
         verticalLayout_3->addWidget(label_3);
 
         hastaDateTimeEdit = new QDateTimeEdit(filterGroupBox);
-        hastaDateTimeEdit->setObjectName(QStringLiteral("hastaDateTimeEdit"));
+        hastaDateTimeEdit->setObjectName(QString::fromUtf8("hastaDateTimeEdit"));
         hastaDateTimeEdit->setCalendarPopup(true);
 
         verticalLayout_3->addWidget(hastaDateTimeEdit);
@@ -201,7 +200,7 @@ public:
         horizontalLayout_3->addLayout(verticalLayout_3);
 
         listaCheckBox = new QCheckBox(filterGroupBox);
-        listaCheckBox->setObjectName(QStringLiteral("listaCheckBox"));
+        listaCheckBox->setObjectName(QString::fromUtf8("listaCheckBox"));
 
         horizontalLayout_3->addWidget(listaCheckBox);
 
@@ -218,7 +217,7 @@ public:
         verticalLayout->addLayout(horizontalLayout_4);
 
         tableWidget = new QTableWidget(wWorkList);
-        tableWidget->setObjectName(QStringLiteral("tableWidget"));
+        tableWidget->setObjectName(QString::fromUtf8("tableWidget"));
         tableWidget->setEditTriggers(QAbstractItemView::NoEditTriggers);
         tableWidget->setAlternatingRowColors(true);
         tableWidget->setSelectionMode(QAbstractItemView::SingleSelection);
@@ -228,19 +227,19 @@ public:
         verticalLayout->addWidget(tableWidget);
 
         horizontalLayout_6 = new QHBoxLayout();
-        horizontalLayout_6->setObjectName(QStringLiteral("horizontalLayout_6"));
+        horizontalLayout_6->setObjectName(QString::fromUtf8("horizontalLayout_6"));
         horizontalLayout_6->setContentsMargins(-1, 0, -1, -1);
         horizontalSpacer_2 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
 
         horizontalLayout_6->addItem(horizontalSpacer_2);
 
         printButton = new QPushButton(wWorkList);
-        printButton->setObjectName(QStringLiteral("printButton"));
+        printButton->setObjectName(QString::fromUtf8("printButton"));
 
         horizontalLayout_6->addWidget(printButton);
 
         closeButton = new QPushButton(wWorkList);
-        closeButton->setObjectName(QStringLiteral("closeButton"));
+        closeButton->setObjectName(QString::fromUtf8("closeButton"));
 
         horizontalLayout_6->addWidget(closeButton);
 
@@ -256,24 +255,24 @@ public:
 
     void retranslateUi(QWidget *wWorkList)
     {
-        wWorkList->setWindowTitle(QApplication::translate("wWorkList", "Listado de Trabajos", 0));
-        filterGroupBox->setTitle(QApplication::translate("wWorkList", "Filtro", 0));
-        label->setText(QApplication::translate("wWorkList", "Buscar:", 0));
-        searchButton->setText(QApplication::translate("wWorkList", "Buscar", 0));
-        clientCheckBox->setText(QApplication::translate("wWorkList", "Cliente", 0));
-        descriptionCheckBox->setText(QApplication::translate("wWorkList", "Descripcion", 0));
-        groupBox->setTitle(QApplication::translate("wWorkList", "Estado", 0));
-        recibidoCheckBox->setText(QApplication::translate("wWorkList", "Recibido", 0));
-        fotocopiandoCheckBox->setText(QApplication::translate("wWorkList", "Fotocopiando", 0));
-        anillandoCheckBox->setText(QApplication::translate("wWorkList", "Anillando", 0));
-        terminadoCheckBox->setText(QApplication::translate("wWorkList", "Terminado", 0));
-        entregadoCheckBox->setText(QApplication::translate("wWorkList", "Entregado", 0));
-        recicladoCheckBox->setText(QApplication::translate("wWorkList", "Reciclado", 0));
-        label_2->setText(QApplication::translate("wWorkList", "Desde:", 0));
-        label_3->setText(QApplication::translate("wWorkList", "Hasta:", 0));
-        listaCheckBox->setText(QApplication::translate("wWorkList", "Lista", 0));
-        printButton->setText(QApplication::translate("wWorkList", "Imprimir", 0));
-        closeButton->setText(QApplication::translate("wWorkList", "Cerrar", 0));
+        wWorkList->setWindowTitle(QCoreApplication::translate("wWorkList", "Listado de Trabajos", nullptr));
+        filterGroupBox->setTitle(QCoreApplication::translate("wWorkList", "Filtro", nullptr));
+        label->setText(QCoreApplication::translate("wWorkList", "Buscar:", nullptr));
+        searchButton->setText(QCoreApplication::translate("wWorkList", "Buscar", nullptr));
+        clientCheckBox->setText(QCoreApplication::translate("wWorkList", "Cliente", nullptr));
+        descriptionCheckBox->setText(QCoreApplication::translate("wWorkList", "Descripcion", nullptr));
+        groupBox->setTitle(QCoreApplication::translate("wWorkList", "Estado", nullptr));
+        recibidoCheckBox->setText(QCoreApplication::translate("wWorkList", "Recibido", nullptr));
+        fotocopiandoCheckBox->setText(QCoreApplication::translate("wWorkList", "Fotocopiando", nullptr));
+        anillandoCheckBox->setText(QCoreApplication::translate("wWorkList", "Anillando", nullptr));
+        terminadoCheckBox->setText(QCoreApplication::translate("wWorkList", "Terminado", nullptr));
+        entregadoCheckBox->setText(QCoreApplication::translate("wWorkList", "Entregado", nullptr));
+        recicladoCheckBox->setText(QCoreApplication::translate("wWorkList", "Reciclado", nullptr));
+        label_2->setText(QCoreApplication::translate("wWorkList", "Desde:", nullptr));
+        label_3->setText(QCoreApplication::translate("wWorkList", "Hasta:", nullptr));
+        listaCheckBox->setText(QCoreApplication::translate("wWorkList", "Lista", nullptr));
+        printButton->setText(QCoreApplication::translate("wWorkList", "Imprimir", nullptr));
+        closeButton->setText(QCoreApplication::translate("wWorkList", "Cerrar", nullptr));
     } // retranslateUi
 
 };

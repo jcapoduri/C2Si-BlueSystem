@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'wseachjob.ui'
 **
-** Created by: Qt User Interface Compiler version 5.4.0
+** Created by: Qt User Interface Compiler version 5.13.1
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -10,11 +10,8 @@
 #define UI_WSEACHJOB_H
 
 #include <QtCore/QVariant>
-#include <QtWidgets/QAction>
 #include <QtWidgets/QApplication>
-#include <QtWidgets/QButtonGroup>
 #include <QtWidgets/QHBoxLayout>
-#include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QLineEdit>
 #include <QtWidgets/QScrollArea>
@@ -38,19 +35,19 @@ public:
     void setupUi(QWidget *wSeachJob)
     {
         if (wSeachJob->objectName().isEmpty())
-            wSeachJob->setObjectName(QStringLiteral("wSeachJob"));
+            wSeachJob->setObjectName(QString::fromUtf8("wSeachJob"));
         wSeachJob->resize(720, 350);
         verticalLayout = new QVBoxLayout(wSeachJob);
-        verticalLayout->setObjectName(QStringLiteral("verticalLayout"));
+        verticalLayout->setObjectName(QString::fromUtf8("verticalLayout"));
         horizontalLayout = new QHBoxLayout();
-        horizontalLayout->setObjectName(QStringLiteral("horizontalLayout"));
+        horizontalLayout->setObjectName(QString::fromUtf8("horizontalLayout"));
         label = new QLabel(wSeachJob);
-        label->setObjectName(QStringLiteral("label"));
+        label->setObjectName(QString::fromUtf8("label"));
 
         horizontalLayout->addWidget(label);
 
         searchLineEdit = new QLineEdit(wSeachJob);
-        searchLineEdit->setObjectName(QStringLiteral("searchLineEdit"));
+        searchLineEdit->setObjectName(QString::fromUtf8("searchLineEdit"));
 
         horizontalLayout->addWidget(searchLineEdit);
 
@@ -58,19 +55,19 @@ public:
         verticalLayout->addLayout(horizontalLayout);
 
         label_2 = new QLabel(wSeachJob);
-        label_2->setObjectName(QStringLiteral("label_2"));
+        label_2->setObjectName(QString::fromUtf8("label_2"));
         label_2->setWordWrap(true);
 
         verticalLayout->addWidget(label_2);
 
         scrollArea = new QScrollArea(wSeachJob);
-        scrollArea->setObjectName(QStringLiteral("scrollArea"));
+        scrollArea->setObjectName(QString::fromUtf8("scrollArea"));
         scrollArea->setWidgetResizable(true);
         scrollAreaWidgetContents = new QWidget();
-        scrollAreaWidgetContents->setObjectName(QStringLiteral("scrollAreaWidgetContents"));
+        scrollAreaWidgetContents->setObjectName(QString::fromUtf8("scrollAreaWidgetContents"));
         scrollAreaWidgetContents->setGeometry(QRect(0, 0, 700, 283));
         verticalLayout_2 = new QVBoxLayout(scrollAreaWidgetContents);
-        verticalLayout_2->setObjectName(QStringLiteral("verticalLayout_2"));
+        verticalLayout_2->setObjectName(QString::fromUtf8("verticalLayout_2"));
         scrollArea->setWidget(scrollAreaWidgetContents);
 
         verticalLayout->addWidget(scrollArea);
@@ -83,9 +80,9 @@ public:
 
     void retranslateUi(QWidget *wSeachJob)
     {
-        wSeachJob->setWindowTitle(QApplication::translate("wSeachJob", "Buscar trabajos", 0));
-        label->setText(QApplication::translate("wSeachJob", "Buscar: ", 0));
-        label_2->setText(QApplication::translate("wSeachJob", "(NOTA: la busqueda se puede realizar de diferentes maneras)", 0));
+        wSeachJob->setWindowTitle(QCoreApplication::translate("wSeachJob", "Buscar trabajos", nullptr));
+        label->setText(QCoreApplication::translate("wSeachJob", "Buscar: ", nullptr));
+        label_2->setText(QCoreApplication::translate("wSeachJob", "(NOTA: la busqueda se puede realizar de diferentes maneras)", nullptr));
     } // retranslateUi
 
 };

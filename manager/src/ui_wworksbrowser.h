@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'wworksbrowser.ui'
 **
-** Created by: Qt User Interface Compiler version 5.4.0
+** Created by: Qt User Interface Compiler version 5.13.1
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -10,9 +10,7 @@
 #define UI_WWORKSBROWSER_H
 
 #include <QtCore/QVariant>
-#include <QtWidgets/QAction>
 #include <QtWidgets/QApplication>
-#include <QtWidgets/QButtonGroup>
 #include <QtWidgets/QCheckBox>
 #include <QtWidgets/QComboBox>
 #include <QtWidgets/QDateTimeEdit>
@@ -62,23 +60,23 @@ public:
     void setupUi(QWidget *wWorksBrowser)
     {
         if (wWorksBrowser->objectName().isEmpty())
-            wWorksBrowser->setObjectName(QStringLiteral("wWorksBrowser"));
+            wWorksBrowser->setObjectName(QString::fromUtf8("wWorksBrowser"));
         wWorksBrowser->resize(679, 409);
         verticalLayout_3 = new QVBoxLayout(wWorksBrowser);
-        verticalLayout_3->setObjectName(QStringLiteral("verticalLayout_3"));
+        verticalLayout_3->setObjectName(QString::fromUtf8("verticalLayout_3"));
         horizontalLayout_2 = new QHBoxLayout();
-        horizontalLayout_2->setObjectName(QStringLiteral("horizontalLayout_2"));
+        horizontalLayout_2->setObjectName(QString::fromUtf8("horizontalLayout_2"));
         horizontalSpacer_2 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
 
         horizontalLayout_2->addItem(horizontalSpacer_2);
 
         label = new QLabel(wWorksBrowser);
-        label->setObjectName(QStringLiteral("label"));
+        label->setObjectName(QString::fromUtf8("label"));
 
         horizontalLayout_2->addWidget(label);
 
         businessComboBox = new QComboBox(wWorksBrowser);
-        businessComboBox->setObjectName(QStringLiteral("businessComboBox"));
+        businessComboBox->setObjectName(QString::fromUtf8("businessComboBox"));
 
         horizontalLayout_2->addWidget(businessComboBox);
 
@@ -86,18 +84,18 @@ public:
         verticalLayout_3->addLayout(horizontalLayout_2);
 
         groupBox = new QGroupBox(wWorksBrowser);
-        groupBox->setObjectName(QStringLiteral("groupBox"));
+        groupBox->setObjectName(QString::fromUtf8("groupBox"));
         horizontalLayout_3 = new QHBoxLayout(groupBox);
-        horizontalLayout_3->setObjectName(QStringLiteral("horizontalLayout_3"));
+        horizontalLayout_3->setObjectName(QString::fromUtf8("horizontalLayout_3"));
         gridLayout = new QGridLayout();
-        gridLayout->setObjectName(QStringLiteral("gridLayout"));
+        gridLayout->setObjectName(QString::fromUtf8("gridLayout"));
         label_2 = new QLabel(groupBox);
-        label_2->setObjectName(QStringLiteral("label_2"));
+        label_2->setObjectName(QString::fromUtf8("label_2"));
 
         gridLayout->addWidget(label_2, 0, 0, 1, 1);
 
         searchLineEdit = new QLineEdit(groupBox);
-        searchLineEdit->setObjectName(QStringLiteral("searchLineEdit"));
+        searchLineEdit->setObjectName(QString::fromUtf8("searchLineEdit"));
         QSizePolicy sizePolicy(QSizePolicy::MinimumExpanding, QSizePolicy::Fixed);
         sizePolicy.setHorizontalStretch(0);
         sizePolicy.setVerticalStretch(0);
@@ -114,21 +112,21 @@ public:
         horizontalLayout_3->addLayout(gridLayout);
 
         gridLayout_2 = new QGridLayout();
-        gridLayout_2->setObjectName(QStringLiteral("gridLayout_2"));
+        gridLayout_2->setObjectName(QString::fromUtf8("gridLayout_2"));
         doneCheckBox = new QCheckBox(groupBox);
-        doneCheckBox->setObjectName(QStringLiteral("doneCheckBox"));
+        doneCheckBox->setObjectName(QString::fromUtf8("doneCheckBox"));
 
         gridLayout_2->addWidget(doneCheckBox, 0, 0, 1, 1);
 
         deletedCheckBox = new QCheckBox(groupBox);
-        deletedCheckBox->setObjectName(QStringLiteral("deletedCheckBox"));
+        deletedCheckBox->setObjectName(QString::fromUtf8("deletedCheckBox"));
 
         gridLayout_2->addWidget(deletedCheckBox, 0, 1, 1, 1);
 
         verticalLayout = new QVBoxLayout();
-        verticalLayout->setObjectName(QStringLiteral("verticalLayout"));
+        verticalLayout->setObjectName(QString::fromUtf8("verticalLayout"));
         label_3 = new QLabel(groupBox);
-        label_3->setObjectName(QStringLiteral("label_3"));
+        label_3->setObjectName(QString::fromUtf8("label_3"));
         QSizePolicy sizePolicy1(QSizePolicy::Preferred, QSizePolicy::Maximum);
         sizePolicy1.setHorizontalStretch(0);
         sizePolicy1.setVerticalStretch(0);
@@ -138,7 +136,7 @@ public:
         verticalLayout->addWidget(label_3);
 
         hastaDateEdit = new QDateTimeEdit(groupBox);
-        hastaDateEdit->setObjectName(QStringLiteral("hastaDateEdit"));
+        hastaDateEdit->setObjectName(QString::fromUtf8("hastaDateEdit"));
         hastaDateEdit->setCalendarPopup(true);
 
         verticalLayout->addWidget(hastaDateEdit);
@@ -147,16 +145,16 @@ public:
         gridLayout_2->addLayout(verticalLayout, 1, 1, 1, 1);
 
         verticalLayout_2 = new QVBoxLayout();
-        verticalLayout_2->setObjectName(QStringLiteral("verticalLayout_2"));
+        verticalLayout_2->setObjectName(QString::fromUtf8("verticalLayout_2"));
         label_4 = new QLabel(groupBox);
-        label_4->setObjectName(QStringLiteral("label_4"));
+        label_4->setObjectName(QString::fromUtf8("label_4"));
         sizePolicy1.setHeightForWidth(label_4->sizePolicy().hasHeightForWidth());
         label_4->setSizePolicy(sizePolicy1);
 
         verticalLayout_2->addWidget(label_4);
 
         desdeTimeEdit = new QDateTimeEdit(groupBox);
-        desdeTimeEdit->setObjectName(QStringLiteral("desdeTimeEdit"));
+        desdeTimeEdit->setObjectName(QString::fromUtf8("desdeTimeEdit"));
         desdeTimeEdit->setCalendarPopup(true);
 
         verticalLayout_2->addWidget(desdeTimeEdit);
@@ -171,23 +169,23 @@ public:
         verticalLayout_3->addWidget(groupBox);
 
         tableView = new QTableView(wWorksBrowser);
-        tableView->setObjectName(QStringLiteral("tableView"));
+        tableView->setObjectName(QString::fromUtf8("tableView"));
 
         verticalLayout_3->addWidget(tableView);
 
         horizontalLayout = new QHBoxLayout();
-        horizontalLayout->setObjectName(QStringLiteral("horizontalLayout"));
+        horizontalLayout->setObjectName(QString::fromUtf8("horizontalLayout"));
         horizontalSpacer = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
 
         horizontalLayout->addItem(horizontalSpacer);
 
         printButton = new QPushButton(wWorksBrowser);
-        printButton->setObjectName(QStringLiteral("printButton"));
+        printButton->setObjectName(QString::fromUtf8("printButton"));
 
         horizontalLayout->addWidget(printButton);
 
         closeButton = new QPushButton(wWorksBrowser);
-        closeButton->setObjectName(QStringLiteral("closeButton"));
+        closeButton->setObjectName(QString::fromUtf8("closeButton"));
 
         horizontalLayout->addWidget(closeButton);
 
@@ -202,16 +200,16 @@ public:
 
     void retranslateUi(QWidget *wWorksBrowser)
     {
-        wWorksBrowser->setWindowTitle(QApplication::translate("wWorksBrowser", "Form", 0));
-        label->setText(QApplication::translate("wWorksBrowser", "Local:", 0));
-        groupBox->setTitle(QApplication::translate("wWorksBrowser", "Filtro:", 0));
-        label_2->setText(QApplication::translate("wWorksBrowser", "Buscar: ", 0));
-        doneCheckBox->setText(QApplication::translate("wWorksBrowser", "Terminados", 0));
-        deletedCheckBox->setText(QApplication::translate("wWorksBrowser", "Borrados", 0));
-        label_3->setText(QApplication::translate("wWorksBrowser", "Hasta:", 0));
-        label_4->setText(QApplication::translate("wWorksBrowser", "Desde:", 0));
-        printButton->setText(QApplication::translate("wWorksBrowser", "Imprimir", 0));
-        closeButton->setText(QApplication::translate("wWorksBrowser", "Cerrar", 0));
+        wWorksBrowser->setWindowTitle(QCoreApplication::translate("wWorksBrowser", "Form", nullptr));
+        label->setText(QCoreApplication::translate("wWorksBrowser", "Local:", nullptr));
+        groupBox->setTitle(QCoreApplication::translate("wWorksBrowser", "Filtro:", nullptr));
+        label_2->setText(QCoreApplication::translate("wWorksBrowser", "Buscar: ", nullptr));
+        doneCheckBox->setText(QCoreApplication::translate("wWorksBrowser", "Terminados", nullptr));
+        deletedCheckBox->setText(QCoreApplication::translate("wWorksBrowser", "Borrados", nullptr));
+        label_3->setText(QCoreApplication::translate("wWorksBrowser", "Hasta:", nullptr));
+        label_4->setText(QCoreApplication::translate("wWorksBrowser", "Desde:", nullptr));
+        printButton->setText(QCoreApplication::translate("wWorksBrowser", "Imprimir", nullptr));
+        closeButton->setText(QCoreApplication::translate("wWorksBrowser", "Cerrar", nullptr));
     } // retranslateUi
 
 };

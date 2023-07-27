@@ -25,8 +25,10 @@ wworkorder::wworkorder(wJob *wjob, workorder *work, QWidget *parent) :
         ui->completeNoButton->setChecked(!t_workorder->doComplete());
         ui->anilladoGroupBox->setChecked(t_workorder->conAnillado());
         ui->estadoComboBox->setCurrentIndex(ui->estadoComboBox->findData(t_workorder->estado()));
+        ui->abrochadoCheckBox->setChecked(t_workorder->conAbrochado());
         if(t_workorder->anilladoHowTo() == workorder::Superior) ui->superiorRadioButton->setChecked(true);
         if(t_workorder->anilladoHowTo() == workorder::Lateral) ui->leftRadioButton->setChecked(true);
+        if(t_workorder->anilladoHowTo() == workorder::LateralDerecho) ui->rightRadioButton->setChecked(true);
         if(t_workorder->anilladoHowTo() == workorder::Inferior) ui->bottomButton->setChecked(true);
         //cantidades
         ui->simpleFazSpinBox->setValue(t_workorder->simpleFaz());
@@ -50,7 +52,7 @@ wworkorder::wworkorder(wJob *wjob, workorder *work, QWidget *parent) :
         ui->nroJuegosSpinBox->setValue(t_workorder->copies());
         ui->nombreLineEdit->setText(t_workorder->costumerName());
         ui->observationTextEdit->setPlainText(t_workorder->observations());
-        setHowTo(t_workorder->howto());
+        setHowTo(t_workorder->howtoFlags());
         ui->ignoreCheckBox->setChecked(t_workorder->ignore());
         ui->outOfOrderSpinBox->setValue(t_workorder->outOfOrder());
     };
@@ -92,6 +94,7 @@ void wworkorder::save()
     if(ui->superiorRadioButton->isChecked()) t_workorder->setAnilladoHowTo(workorder::Superior);
     if(ui->leftRadioButton->isChecked()) t_workorder->setAnilladoHowTo(workorder::Lateral);
     if(ui->bottomButton->isChecked()) t_workorder->setAnilladoHowTo(workorder::Inferior);
+    if(ui->rightRadioButton->isChecked()) t_workorder->setAnilladoHowTo(workorder::LateralDerecho);
 
 
     //pasar todo el ui al work
@@ -100,10 +103,12 @@ void wworkorder::save()
     t_workorder->setCopies(ui->nroJuegosSpinBox->value());
     t_workorder->setEstado((workorder::State)(ui->estadoComboBox->itemData(ui->estadoComboBox->currentIndex(), Qt::UserRole).toInt()));
     t_workorder->setSenna(ui->seADoubleSpinBox->value());
-    t_workorder->setHowTo(retrieveHowTo());
+    t_workorder->setHowTo(retrieveBestHowToState());
+    t_workorder->setHowToFlags(retrieveHowTo());
     t_workorder->setConAnillado(ui->anilladoGroupBox->isChecked());
     t_workorder->setTotal(ui->tOTALDoubleSpinBox->value());
     t_workorder->setAnillado(ui->costoAnilladoDoubleSpinBox->value());
+    t_workorder->setConAbrochado(ui->abrochadoCheckBox->isChecked());
 
     //cantidades
     t_workorder->setSimpleFaz(ui->simpleFazSpinBox->value());
@@ -207,42 +212,53 @@ void wworkorder::refreshPages()
 }
 
 
-workorder::HowTo wworkorder::retrieveHowTo()
+int wworkorder::retrieveHowTo()
 {
     //TwoinOneDF, TwoinOneSF, toDF, toSF, HHDF, HHSF, likeThat}
-    if(ui->d2En1DFRadioButton->isChecked()) return workorder::TwoinOneDF;
-    if(ui->d2En1SFRadioButton->isChecked()) return workorder::TwoinOneSF;
-    if(ui->hHDFRadioButton->isChecked()) return workorder::HHDF;
-    if(ui->hHSFRadioButton->isChecked()) return workorder::HHSF;
-    if(ui->pasarDFRadioButton->isChecked()) return workorder::toDF;
-    if(ui->pasarSFRadioButton->isChecked()) return workorder::toSF;
-    if(ui->comoEstaRadioButton->isChecked()) return workorder::likeThat;
+    int flags = 0;
+    if(ui->d2En1DFCheckBox->isChecked()) flags = flags | workorder::TwoinOneDF;
+    if(ui->d2En1SFCheckBox->isChecked()) flags = flags | workorder::TwoinOneSF;
+    if(ui->hHDFCheckBox->isChecked()) flags = flags | workorder::HHDF;
+    if(ui->hHSFCheckBox->isChecked()) flags = flags | workorder::HHSF;
+    if(ui->pasarDFCheckBox->isChecked()) flags = flags | workorder::toDF;
+    if(ui->pasarSFCheckBox->isChecked()) flags = flags | workorder::toSF;
+    if(ui->comoEstaCheckBox->isChecked()) flags = flags | workorder::likeThat;
+    return flags;
 }
 
-void wworkorder::setHowTo(workorder::HowTo value)
+workorder::HowTo wworkorder::retrieveBestHowToState()
 {
-    switch(value){
-        case workorder::TwoinOneDF:
-            ui->d2En1DFRadioButton->setChecked(true);
-            break;
-        case workorder::TwoinOneSF:
-            ui->d2En1SFRadioButton->setChecked(true);
-            break;
-        case workorder::HHDF:
-            ui->hHDFRadioButton->setChecked(true);
-            break;
-        case workorder::HHSF:
-            ui->hHSFRadioButton->setChecked(true);
-            break;
-        case workorder::toDF:
-            ui->pasarDFRadioButton->setChecked(true);
-            break;
-        case workorder::toSF:
-            ui->pasarSFRadioButton->setChecked(true);
-            break;
-        case workorder::likeThat:
-            ui->comoEstaRadioButton->setChecked(true);
-            break;
-    };
+    if(ui->d2En1DFCheckBox->isChecked()) return workorder::_TwoinOneDF;
+    if(ui->d2En1SFCheckBox->isChecked()) return workorder::_TwoinOneSF;
+    if(ui->hHDFCheckBox->isChecked()) return workorder::_HHDF;
+    if(ui->hHSFCheckBox->isChecked()) return workorder::_HHSF;
+    if(ui->pasarDFCheckBox->isChecked()) return workorder::_toDF;
+    if(ui->pasarSFCheckBox->isChecked()) return workorder::_toSF;
+    if(ui->comoEstaCheckBox->isChecked()) return workorder::_likeThat;
+    return workorder::_likeThat;
+}
+
+void wworkorder::setHowTo(int value)
+{
+    //TwoinOneDF, TwoinOneSF, toDF, toSF, HHDF, HHSF, likeThat}
+    int flags = value;
+    if (flags == 0) {
+        workorder::HowTo oldFlag = t_workorder->howto();
+        ui->d2En1DFCheckBox->setChecked(oldFlag == workorder::_TwoinOneSF);
+        ui->d2En1SFCheckBox->setChecked(oldFlag == workorder::_HHDF);
+        ui->hHDFCheckBox->setChecked(oldFlag == workorder::_TwoinOneDF);
+        ui->hHSFCheckBox->setChecked(oldFlag == workorder::_HHSF);
+        ui->pasarDFCheckBox->setChecked(oldFlag == workorder::_toDF);
+        ui->pasarSFCheckBox->setChecked(oldFlag == workorder::_toSF);
+        ui->comoEstaCheckBox->setChecked(oldFlag == workorder::_likeThat);
+    } else {
+        ui->d2En1DFCheckBox->setChecked(flags & workorder::TwoinOneSF);
+        ui->d2En1SFCheckBox->setChecked(flags & workorder::HHDF);
+        ui->hHDFCheckBox->setChecked(flags & workorder::TwoinOneDF);
+        ui->hHSFCheckBox->setChecked(flags & workorder::HHSF);
+        ui->pasarDFCheckBox->setChecked(flags & workorder::toDF);
+        ui->pasarSFCheckBox->setChecked(flags & workorder::toSF);
+        ui->comoEstaCheckBox->setChecked(flags & workorder::likeThat);
+    }
 }
 

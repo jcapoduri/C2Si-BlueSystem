@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'wuser.ui'
 **
-** Created by: Qt User Interface Compiler version 5.4.0
+** Created by: Qt User Interface Compiler version 5.13.1
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -10,14 +10,11 @@
 #define UI_WUSER_H
 
 #include <QtCore/QVariant>
-#include <QtWidgets/QAction>
 #include <QtWidgets/QApplication>
-#include <QtWidgets/QButtonGroup>
 #include <QtWidgets/QCheckBox>
 #include <QtWidgets/QDateEdit>
 #include <QtWidgets/QDialogButtonBox>
 #include <QtWidgets/QFormLayout>
-#include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QLineEdit>
 #include <QtWidgets/QVBoxLayout>
@@ -55,114 +52,114 @@ public:
     void setupUi(QWidget *wUser)
     {
         if (wUser->objectName().isEmpty())
-            wUser->setObjectName(QStringLiteral("wUser"));
+            wUser->setObjectName(QString::fromUtf8("wUser"));
         wUser->resize(511, 345);
         verticalLayout = new QVBoxLayout(wUser);
-        verticalLayout->setObjectName(QStringLiteral("verticalLayout"));
+        verticalLayout->setObjectName(QString::fromUtf8("verticalLayout"));
         formLayout = new QFormLayout();
-        formLayout->setObjectName(QStringLiteral("formLayout"));
+        formLayout->setObjectName(QString::fromUtf8("formLayout"));
         formLayout->setFieldGrowthPolicy(QFormLayout::AllNonFixedFieldsGrow);
         usuarioLabel = new QLabel(wUser);
-        usuarioLabel->setObjectName(QStringLiteral("usuarioLabel"));
+        usuarioLabel->setObjectName(QString::fromUtf8("usuarioLabel"));
 
         formLayout->setWidget(0, QFormLayout::LabelRole, usuarioLabel);
 
         usuarioLineEdit = new QLineEdit(wUser);
-        usuarioLineEdit->setObjectName(QStringLiteral("usuarioLineEdit"));
+        usuarioLineEdit->setObjectName(QString::fromUtf8("usuarioLineEdit"));
 
         formLayout->setWidget(0, QFormLayout::FieldRole, usuarioLineEdit);
 
         contraseALabel = new QLabel(wUser);
-        contraseALabel->setObjectName(QStringLiteral("contraseALabel"));
+        contraseALabel->setObjectName(QString::fromUtf8("contraseALabel"));
 
         formLayout->setWidget(1, QFormLayout::LabelRole, contraseALabel);
 
         contraseALineEdit = new QLineEdit(wUser);
-        contraseALineEdit->setObjectName(QStringLiteral("contraseALineEdit"));
+        contraseALineEdit->setObjectName(QString::fromUtf8("contraseALineEdit"));
         contraseALineEdit->setEchoMode(QLineEdit::Password);
 
         formLayout->setWidget(1, QFormLayout::FieldRole, contraseALineEdit);
 
         contraseACortaLabel = new QLabel(wUser);
-        contraseACortaLabel->setObjectName(QStringLiteral("contraseACortaLabel"));
+        contraseACortaLabel->setObjectName(QString::fromUtf8("contraseACortaLabel"));
 
         formLayout->setWidget(2, QFormLayout::LabelRole, contraseACortaLabel);
 
         contraseACortaLineEdit = new QLineEdit(wUser);
-        contraseACortaLineEdit->setObjectName(QStringLiteral("contraseACortaLineEdit"));
+        contraseACortaLineEdit->setObjectName(QString::fromUtf8("contraseACortaLineEdit"));
         contraseACortaLineEdit->setEchoMode(QLineEdit::PasswordEchoOnEdit);
 
         formLayout->setWidget(2, QFormLayout::FieldRole, contraseACortaLineEdit);
 
         nombreLabel = new QLabel(wUser);
-        nombreLabel->setObjectName(QStringLiteral("nombreLabel"));
+        nombreLabel->setObjectName(QString::fromUtf8("nombreLabel"));
 
         formLayout->setWidget(3, QFormLayout::LabelRole, nombreLabel);
 
         nombreLineEdit = new QLineEdit(wUser);
-        nombreLineEdit->setObjectName(QStringLiteral("nombreLineEdit"));
+        nombreLineEdit->setObjectName(QString::fromUtf8("nombreLineEdit"));
 
         formLayout->setWidget(3, QFormLayout::FieldRole, nombreLineEdit);
 
         apellidoLabel = new QLabel(wUser);
-        apellidoLabel->setObjectName(QStringLiteral("apellidoLabel"));
+        apellidoLabel->setObjectName(QString::fromUtf8("apellidoLabel"));
 
         formLayout->setWidget(4, QFormLayout::LabelRole, apellidoLabel);
 
         apellidoLineEdit = new QLineEdit(wUser);
-        apellidoLineEdit->setObjectName(QStringLiteral("apellidoLineEdit"));
+        apellidoLineEdit->setObjectName(QString::fromUtf8("apellidoLineEdit"));
 
         formLayout->setWidget(4, QFormLayout::FieldRole, apellidoLineEdit);
 
         emailLabel = new QLabel(wUser);
-        emailLabel->setObjectName(QStringLiteral("emailLabel"));
+        emailLabel->setObjectName(QString::fromUtf8("emailLabel"));
 
         formLayout->setWidget(5, QFormLayout::LabelRole, emailLabel);
 
         emailLineEdit = new QLineEdit(wUser);
-        emailLineEdit->setObjectName(QStringLiteral("emailLineEdit"));
+        emailLineEdit->setObjectName(QString::fromUtf8("emailLineEdit"));
 
         formLayout->setWidget(5, QFormLayout::FieldRole, emailLineEdit);
 
         telefonoLabel = new QLabel(wUser);
-        telefonoLabel->setObjectName(QStringLiteral("telefonoLabel"));
+        telefonoLabel->setObjectName(QString::fromUtf8("telefonoLabel"));
 
         formLayout->setWidget(6, QFormLayout::LabelRole, telefonoLabel);
 
         telefonoLineEdit = new QLineEdit(wUser);
-        telefonoLineEdit->setObjectName(QStringLiteral("telefonoLineEdit"));
+        telefonoLineEdit->setObjectName(QString::fromUtf8("telefonoLineEdit"));
 
         formLayout->setWidget(6, QFormLayout::FieldRole, telefonoLineEdit);
 
         fechaNacimienoLabel = new QLabel(wUser);
-        fechaNacimienoLabel->setObjectName(QStringLiteral("fechaNacimienoLabel"));
+        fechaNacimienoLabel->setObjectName(QString::fromUtf8("fechaNacimienoLabel"));
 
         formLayout->setWidget(7, QFormLayout::LabelRole, fechaNacimienoLabel);
 
         fechaNacimienoDateEdit = new QDateEdit(wUser);
-        fechaNacimienoDateEdit->setObjectName(QStringLiteral("fechaNacimienoDateEdit"));
+        fechaNacimienoDateEdit->setObjectName(QString::fromUtf8("fechaNacimienoDateEdit"));
         fechaNacimienoDateEdit->setDateTime(QDateTime(QDate(1980, 1, 1), QTime(0, 0, 0)));
 
         formLayout->setWidget(7, QFormLayout::FieldRole, fechaNacimienoDateEdit);
 
         activoLabel = new QLabel(wUser);
-        activoLabel->setObjectName(QStringLiteral("activoLabel"));
+        activoLabel->setObjectName(QString::fromUtf8("activoLabel"));
 
         formLayout->setWidget(8, QFormLayout::LabelRole, activoLabel);
 
         activoCheckBox = new QCheckBox(wUser);
-        activoCheckBox->setObjectName(QStringLiteral("activoCheckBox"));
+        activoCheckBox->setObjectName(QString::fromUtf8("activoCheckBox"));
         activoCheckBox->setChecked(true);
 
         formLayout->setWidget(8, QFormLayout::FieldRole, activoCheckBox);
 
         adminLabel = new QLabel(wUser);
-        adminLabel->setObjectName(QStringLiteral("adminLabel"));
+        adminLabel->setObjectName(QString::fromUtf8("adminLabel"));
 
         formLayout->setWidget(9, QFormLayout::LabelRole, adminLabel);
 
         adminCheckBox = new QCheckBox(wUser);
-        adminCheckBox->setObjectName(QStringLiteral("adminCheckBox"));
+        adminCheckBox->setObjectName(QString::fromUtf8("adminCheckBox"));
 
         formLayout->setWidget(9, QFormLayout::FieldRole, adminCheckBox);
 
@@ -170,7 +167,7 @@ public:
         verticalLayout->addLayout(formLayout);
 
         buttonBox = new QDialogButtonBox(wUser);
-        buttonBox->setObjectName(QStringLiteral("buttonBox"));
+        buttonBox->setObjectName(QString::fromUtf8("buttonBox"));
         buttonBox->setStandardButtons(QDialogButtonBox::Cancel|QDialogButtonBox::Save);
 
         verticalLayout->addWidget(buttonBox);
@@ -183,17 +180,17 @@ public:
 
     void retranslateUi(QWidget *wUser)
     {
-        wUser->setWindowTitle(QApplication::translate("wUser", "Form", 0));
-        usuarioLabel->setText(QApplication::translate("wUser", "Usuario:", 0));
-        contraseALabel->setText(QApplication::translate("wUser", "Contrase\303\261a: ", 0));
-        contraseACortaLabel->setText(QApplication::translate("wUser", "Contrase\303\261a Corta:", 0));
-        nombreLabel->setText(QApplication::translate("wUser", "Nombre:", 0));
-        apellidoLabel->setText(QApplication::translate("wUser", "Apellido", 0));
-        emailLabel->setText(QApplication::translate("wUser", "Email:", 0));
-        telefonoLabel->setText(QApplication::translate("wUser", "Telefono:", 0));
-        fechaNacimienoLabel->setText(QApplication::translate("wUser", "Fecha Nacimieno:", 0));
-        activoLabel->setText(QApplication::translate("wUser", "Activo", 0));
-        adminLabel->setText(QApplication::translate("wUser", "Admin", 0));
+        wUser->setWindowTitle(QCoreApplication::translate("wUser", "Form", nullptr));
+        usuarioLabel->setText(QCoreApplication::translate("wUser", "Usuario:", nullptr));
+        contraseALabel->setText(QCoreApplication::translate("wUser", "Contrase\303\261a: ", nullptr));
+        contraseACortaLabel->setText(QCoreApplication::translate("wUser", "Contrase\303\261a Corta:", nullptr));
+        nombreLabel->setText(QCoreApplication::translate("wUser", "Nombre:", nullptr));
+        apellidoLabel->setText(QCoreApplication::translate("wUser", "Apellido", nullptr));
+        emailLabel->setText(QCoreApplication::translate("wUser", "Email:", nullptr));
+        telefonoLabel->setText(QCoreApplication::translate("wUser", "Telefono:", nullptr));
+        fechaNacimienoLabel->setText(QCoreApplication::translate("wUser", "Fecha Nacimieno:", nullptr));
+        activoLabel->setText(QCoreApplication::translate("wUser", "Activo", nullptr));
+        adminLabel->setText(QCoreApplication::translate("wUser", "Admin", nullptr));
     } // retranslateUi
 
 };

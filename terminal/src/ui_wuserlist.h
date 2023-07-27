@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'wuserlist.ui'
 **
-** Created by: Qt User Interface Compiler version 5.4.0
+** Created by: Qt User Interface Compiler version 5.13.1
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -10,13 +10,10 @@
 #define UI_WUSERLIST_H
 
 #include <QtCore/QVariant>
-#include <QtWidgets/QAction>
 #include <QtWidgets/QApplication>
-#include <QtWidgets/QButtonGroup>
 #include <QtWidgets/QDialog>
 #include <QtWidgets/QDialogButtonBox>
 #include <QtWidgets/QHBoxLayout>
-#include <QtWidgets/QHeaderView>
 #include <QtWidgets/QListWidget>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QSpacerItem>
@@ -38,21 +35,21 @@ public:
     void setupUi(QDialog *wUserList)
     {
         if (wUserList->objectName().isEmpty())
-            wUserList->setObjectName(QStringLiteral("wUserList"));
+            wUserList->setObjectName(QString::fromUtf8("wUserList"));
         wUserList->resize(400, 300);
         verticalLayout_2 = new QVBoxLayout(wUserList);
-        verticalLayout_2->setObjectName(QStringLiteral("verticalLayout_2"));
+        verticalLayout_2->setObjectName(QString::fromUtf8("verticalLayout_2"));
         horizontalLayout = new QHBoxLayout();
-        horizontalLayout->setObjectName(QStringLiteral("horizontalLayout"));
+        horizontalLayout->setObjectName(QString::fromUtf8("horizontalLayout"));
         listWidget = new QListWidget(wUserList);
-        listWidget->setObjectName(QStringLiteral("listWidget"));
+        listWidget->setObjectName(QString::fromUtf8("listWidget"));
 
         horizontalLayout->addWidget(listWidget);
 
         verticalLayout = new QVBoxLayout();
-        verticalLayout->setObjectName(QStringLiteral("verticalLayout"));
+        verticalLayout->setObjectName(QString::fromUtf8("verticalLayout"));
         pushButton = new QPushButton(wUserList);
-        pushButton->setObjectName(QStringLiteral("pushButton"));
+        pushButton->setObjectName(QString::fromUtf8("pushButton"));
 
         verticalLayout->addWidget(pushButton);
 
@@ -67,7 +64,7 @@ public:
         verticalLayout_2->addLayout(horizontalLayout);
 
         buttonBox = new QDialogButtonBox(wUserList);
-        buttonBox->setObjectName(QStringLiteral("buttonBox"));
+        buttonBox->setObjectName(QString::fromUtf8("buttonBox"));
         buttonBox->setOrientation(Qt::Horizontal);
         buttonBox->setStandardButtons(QDialogButtonBox::Close);
 
@@ -83,8 +80,8 @@ public:
 
     void retranslateUi(QDialog *wUserList)
     {
-        wUserList->setWindowTitle(QApplication::translate("wUserList", "Usuarios Online", 0));
-        pushButton->setText(QApplication::translate("wUserList", "Cerrar Sesion", 0));
+        wUserList->setWindowTitle(QCoreApplication::translate("wUserList", "Usuarios Online", nullptr));
+        pushButton->setText(QCoreApplication::translate("wUserList", "Cerrar Sesion", nullptr));
     } // retranslateUi
 
 };

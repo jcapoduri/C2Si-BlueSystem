@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'mainwindow.ui'
 **
-** Created by: Qt User Interface Compiler version 5.4.0
+** Created by: Qt User Interface Compiler version 5.13.1
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -12,8 +12,6 @@
 #include <QtCore/QVariant>
 #include <QtWidgets/QAction>
 #include <QtWidgets/QApplication>
-#include <QtWidgets/QButtonGroup>
-#include <QtWidgets/QHeaderView>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMdiArea>
 #include <QtWidgets/QMenu>
@@ -58,42 +56,42 @@ public:
     void setupUi(QMainWindow *MainWindow)
     {
         if (MainWindow->objectName().isEmpty())
-            MainWindow->setObjectName(QStringLiteral("MainWindow"));
+            MainWindow->setObjectName(QString::fromUtf8("MainWindow"));
         MainWindow->resize(800, 600);
         actionVer_Usuarios = new QAction(MainWindow);
-        actionVer_Usuarios->setObjectName(QStringLiteral("actionVer_Usuarios"));
+        actionVer_Usuarios->setObjectName(QString::fromUtf8("actionVer_Usuarios"));
         actionAgregar_Usuarios = new QAction(MainWindow);
-        actionAgregar_Usuarios->setObjectName(QStringLiteral("actionAgregar_Usuarios"));
+        actionAgregar_Usuarios->setObjectName(QString::fromUtf8("actionAgregar_Usuarios"));
         actionVer_Locales = new QAction(MainWindow);
-        actionVer_Locales->setObjectName(QStringLiteral("actionVer_Locales"));
+        actionVer_Locales->setObjectName(QString::fromUtf8("actionVer_Locales"));
         actionAgregar_Locales = new QAction(MainWindow);
-        actionAgregar_Locales->setObjectName(QStringLiteral("actionAgregar_Locales"));
+        actionAgregar_Locales->setObjectName(QString::fromUtf8("actionAgregar_Locales"));
         actionOpciones = new QAction(MainWindow);
-        actionOpciones->setObjectName(QStringLiteral("actionOpciones"));
+        actionOpciones->setObjectName(QString::fromUtf8("actionOpciones"));
         actionSalir = new QAction(MainWindow);
-        actionSalir->setObjectName(QStringLiteral("actionSalir"));
+        actionSalir->setObjectName(QString::fromUtf8("actionSalir"));
         actionVer_Libros = new QAction(MainWindow);
-        actionVer_Libros->setObjectName(QStringLiteral("actionVer_Libros"));
+        actionVer_Libros->setObjectName(QString::fromUtf8("actionVer_Libros"));
         actionVer_Trabajos = new QAction(MainWindow);
-        actionVer_Trabajos->setObjectName(QStringLiteral("actionVer_Trabajos"));
+        actionVer_Trabajos->setObjectName(QString::fromUtf8("actionVer_Trabajos"));
         actionListar_Trabajos_Pendientes = new QAction(MainWindow);
-        actionListar_Trabajos_Pendientes->setObjectName(QStringLiteral("actionListar_Trabajos_Pendientes"));
+        actionListar_Trabajos_Pendientes->setObjectName(QString::fromUtf8("actionListar_Trabajos_Pendientes"));
         actionDe_Empleado = new QAction(MainWindow);
-        actionDe_Empleado->setObjectName(QStringLiteral("actionDe_Empleado"));
+        actionDe_Empleado->setObjectName(QString::fromUtf8("actionDe_Empleado"));
         actionCrear_back_up_en_la_nube = new QAction(MainWindow);
-        actionCrear_back_up_en_la_nube->setObjectName(QStringLiteral("actionCrear_back_up_en_la_nube"));
+        actionCrear_back_up_en_la_nube->setObjectName(QString::fromUtf8("actionCrear_back_up_en_la_nube"));
         actionManegar_backup_locales = new QAction(MainWindow);
-        actionManegar_backup_locales->setObjectName(QStringLiteral("actionManegar_backup_locales"));
+        actionManegar_backup_locales->setObjectName(QString::fromUtf8("actionManegar_backup_locales"));
         actionDe_Fuera_de_Serie = new QAction(MainWindow);
-        actionDe_Fuera_de_Serie->setObjectName(QStringLiteral("actionDe_Fuera_de_Serie"));
+        actionDe_Fuera_de_Serie->setObjectName(QString::fromUtf8("actionDe_Fuera_de_Serie"));
         centralWidget = new QWidget(MainWindow);
-        centralWidget->setObjectName(QStringLiteral("centralWidget"));
+        centralWidget->setObjectName(QString::fromUtf8("centralWidget"));
         verticalLayout = new QVBoxLayout(centralWidget);
         verticalLayout->setSpacing(6);
         verticalLayout->setContentsMargins(11, 11, 11, 11);
-        verticalLayout->setObjectName(QStringLiteral("verticalLayout"));
+        verticalLayout->setObjectName(QString::fromUtf8("verticalLayout"));
         mdiArea = new QMdiArea(centralWidget);
-        mdiArea->setObjectName(QStringLiteral("mdiArea"));
+        mdiArea->setObjectName(QString::fromUtf8("mdiArea"));
         mdiArea->setViewMode(QMdiArea::TabbedView);
         mdiArea->setTabShape(QTabWidget::Rounded);
 
@@ -101,28 +99,28 @@ public:
 
         MainWindow->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(MainWindow);
-        menuBar->setObjectName(QStringLiteral("menuBar"));
+        menuBar->setObjectName(QString::fromUtf8("menuBar"));
         menuBar->setGeometry(QRect(0, 0, 800, 21));
         menuArchivo = new QMenu(menuBar);
-        menuArchivo->setObjectName(QStringLiteral("menuArchivo"));
+        menuArchivo->setObjectName(QString::fromUtf8("menuArchivo"));
         menuLocales = new QMenu(menuBar);
-        menuLocales->setObjectName(QStringLiteral("menuLocales"));
+        menuLocales->setObjectName(QString::fromUtf8("menuLocales"));
         menuUsuarios = new QMenu(menuBar);
-        menuUsuarios->setObjectName(QStringLiteral("menuUsuarios"));
+        menuUsuarios->setObjectName(QString::fromUtf8("menuUsuarios"));
         menuLibros = new QMenu(menuBar);
-        menuLibros->setObjectName(QStringLiteral("menuLibros"));
+        menuLibros->setObjectName(QString::fromUtf8("menuLibros"));
         menuRegistros = new QMenu(menuBar);
-        menuRegistros->setObjectName(QStringLiteral("menuRegistros"));
+        menuRegistros->setObjectName(QString::fromUtf8("menuRegistros"));
         menuHerramientas = new QMenu(menuBar);
-        menuHerramientas->setObjectName(QStringLiteral("menuHerramientas"));
+        menuHerramientas->setObjectName(QString::fromUtf8("menuHerramientas"));
         menuTrabajos = new QMenu(menuBar);
-        menuTrabajos->setObjectName(QStringLiteral("menuTrabajos"));
+        menuTrabajos->setObjectName(QString::fromUtf8("menuTrabajos"));
         MainWindow->setMenuBar(menuBar);
         mainToolBar = new QToolBar(MainWindow);
-        mainToolBar->setObjectName(QStringLiteral("mainToolBar"));
+        mainToolBar->setObjectName(QString::fromUtf8("mainToolBar"));
         MainWindow->addToolBar(Qt::TopToolBarArea, mainToolBar);
         statusBar = new QStatusBar(MainWindow);
-        statusBar->setObjectName(QStringLiteral("statusBar"));
+        statusBar->setObjectName(QString::fromUtf8("statusBar"));
         MainWindow->setStatusBar(statusBar);
 
         menuBar->addAction(menuArchivo->menuAction());
@@ -153,27 +151,27 @@ public:
 
     void retranslateUi(QMainWindow *MainWindow)
     {
-        MainWindow->setWindowTitle(QApplication::translate("MainWindow", "MainWindow", 0));
-        actionVer_Usuarios->setText(QApplication::translate("MainWindow", "Ver Usuarios", 0));
-        actionAgregar_Usuarios->setText(QApplication::translate("MainWindow", "Agregar Usuarios", 0));
-        actionVer_Locales->setText(QApplication::translate("MainWindow", "Ver Locales", 0));
-        actionAgregar_Locales->setText(QApplication::translate("MainWindow", "Agregar Locales", 0));
-        actionOpciones->setText(QApplication::translate("MainWindow", "Opciones", 0));
-        actionSalir->setText(QApplication::translate("MainWindow", "Salir", 0));
-        actionVer_Libros->setText(QApplication::translate("MainWindow", "Ver Libros", 0));
-        actionVer_Trabajos->setText(QApplication::translate("MainWindow", "Ver Trabajos", 0));
-        actionListar_Trabajos_Pendientes->setText(QApplication::translate("MainWindow", "Listar Trabajos Pendientes", 0));
-        actionDe_Empleado->setText(QApplication::translate("MainWindow", "de Empleado", 0));
-        actionCrear_back_up_en_la_nube->setText(QApplication::translate("MainWindow", "Crear back-up en la nube", 0));
-        actionManegar_backup_locales->setText(QApplication::translate("MainWindow", "Manegar backup locales", 0));
-        actionDe_Fuera_de_Serie->setText(QApplication::translate("MainWindow", "de Fuera de Serie", 0));
-        menuArchivo->setTitle(QApplication::translate("MainWindow", "Archivo", 0));
-        menuLocales->setTitle(QApplication::translate("MainWindow", "Locales", 0));
-        menuUsuarios->setTitle(QApplication::translate("MainWindow", "Usuarios", 0));
-        menuLibros->setTitle(QApplication::translate("MainWindow", "Libros", 0));
-        menuRegistros->setTitle(QApplication::translate("MainWindow", "Registros", 0));
-        menuHerramientas->setTitle(QApplication::translate("MainWindow", "Herramientas", 0));
-        menuTrabajos->setTitle(QApplication::translate("MainWindow", "Trabajos", 0));
+        MainWindow->setWindowTitle(QCoreApplication::translate("MainWindow", "MainWindow", nullptr));
+        actionVer_Usuarios->setText(QCoreApplication::translate("MainWindow", "Ver Usuarios", nullptr));
+        actionAgregar_Usuarios->setText(QCoreApplication::translate("MainWindow", "Agregar Usuarios", nullptr));
+        actionVer_Locales->setText(QCoreApplication::translate("MainWindow", "Ver Locales", nullptr));
+        actionAgregar_Locales->setText(QCoreApplication::translate("MainWindow", "Agregar Locales", nullptr));
+        actionOpciones->setText(QCoreApplication::translate("MainWindow", "Opciones", nullptr));
+        actionSalir->setText(QCoreApplication::translate("MainWindow", "Salir", nullptr));
+        actionVer_Libros->setText(QCoreApplication::translate("MainWindow", "Ver Libros", nullptr));
+        actionVer_Trabajos->setText(QCoreApplication::translate("MainWindow", "Ver Trabajos", nullptr));
+        actionListar_Trabajos_Pendientes->setText(QCoreApplication::translate("MainWindow", "Listar Trabajos Pendientes", nullptr));
+        actionDe_Empleado->setText(QCoreApplication::translate("MainWindow", "de Empleado", nullptr));
+        actionCrear_back_up_en_la_nube->setText(QCoreApplication::translate("MainWindow", "Crear back-up en la nube", nullptr));
+        actionManegar_backup_locales->setText(QCoreApplication::translate("MainWindow", "Manegar backup locales", nullptr));
+        actionDe_Fuera_de_Serie->setText(QCoreApplication::translate("MainWindow", "de Fuera de Serie", nullptr));
+        menuArchivo->setTitle(QCoreApplication::translate("MainWindow", "Archivo", nullptr));
+        menuLocales->setTitle(QCoreApplication::translate("MainWindow", "Locales", nullptr));
+        menuUsuarios->setTitle(QCoreApplication::translate("MainWindow", "Usuarios", nullptr));
+        menuLibros->setTitle(QCoreApplication::translate("MainWindow", "Libros", nullptr));
+        menuRegistros->setTitle(QCoreApplication::translate("MainWindow", "Registros", nullptr));
+        menuHerramientas->setTitle(QCoreApplication::translate("MainWindow", "Herramientas", nullptr));
+        menuTrabajos->setTitle(QCoreApplication::translate("MainWindow", "Trabajos", nullptr));
     } // retranslateUi
 
 };

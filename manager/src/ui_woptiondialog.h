@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'woptiondialog.ui'
 **
-** Created by: Qt User Interface Compiler version 5.4.0
+** Created by: Qt User Interface Compiler version 5.13.1
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -10,14 +10,11 @@
 #define UI_WOPTIONDIALOG_H
 
 #include <QtCore/QVariant>
-#include <QtWidgets/QAction>
 #include <QtWidgets/QApplication>
-#include <QtWidgets/QButtonGroup>
 #include <QtWidgets/QComboBox>
 #include <QtWidgets/QDialog>
 #include <QtWidgets/QDialogButtonBox>
 #include <QtWidgets/QFormLayout>
-#include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QVBoxLayout>
 
@@ -35,21 +32,21 @@ public:
     void setupUi(QDialog *wOptionDialog)
     {
         if (wOptionDialog->objectName().isEmpty())
-            wOptionDialog->setObjectName(QStringLiteral("wOptionDialog"));
+            wOptionDialog->setObjectName(QString::fromUtf8("wOptionDialog"));
         wOptionDialog->setWindowModality(Qt::ApplicationModal);
         wOptionDialog->resize(465, 138);
         wOptionDialog->setModal(true);
         verticalLayout = new QVBoxLayout(wOptionDialog);
-        verticalLayout->setObjectName(QStringLiteral("verticalLayout"));
+        verticalLayout->setObjectName(QString::fromUtf8("verticalLayout"));
         formLayout = new QFormLayout();
-        formLayout->setObjectName(QStringLiteral("formLayout"));
+        formLayout->setObjectName(QString::fromUtf8("formLayout"));
         localLabel = new QLabel(wOptionDialog);
-        localLabel->setObjectName(QStringLiteral("localLabel"));
+        localLabel->setObjectName(QString::fromUtf8("localLabel"));
 
         formLayout->setWidget(0, QFormLayout::LabelRole, localLabel);
 
         localComboBox = new QComboBox(wOptionDialog);
-        localComboBox->setObjectName(QStringLiteral("localComboBox"));
+        localComboBox->setObjectName(QString::fromUtf8("localComboBox"));
 
         formLayout->setWidget(0, QFormLayout::FieldRole, localComboBox);
 
@@ -57,7 +54,7 @@ public:
         verticalLayout->addLayout(formLayout);
 
         buttonBox = new QDialogButtonBox(wOptionDialog);
-        buttonBox->setObjectName(QStringLiteral("buttonBox"));
+        buttonBox->setObjectName(QString::fromUtf8("buttonBox"));
         buttonBox->setStandardButtons(QDialogButtonBox::Close|QDialogButtonBox::Save);
 
         verticalLayout->addWidget(buttonBox);
@@ -70,8 +67,8 @@ public:
 
     void retranslateUi(QDialog *wOptionDialog)
     {
-        wOptionDialog->setWindowTitle(QApplication::translate("wOptionDialog", "Opciones", 0));
-        localLabel->setText(QApplication::translate("wOptionDialog", "Local: ", 0));
+        wOptionDialog->setWindowTitle(QCoreApplication::translate("wOptionDialog", "Opciones", nullptr));
+        localLabel->setText(QCoreApplication::translate("wOptionDialog", "Local: ", nullptr));
     } // retranslateUi
 
 };

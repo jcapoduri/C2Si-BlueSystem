@@ -32,8 +32,9 @@ public slots:
 
 private:
     void    refreshPages();
-    workorder::HowTo retrieveHowTo();
-    void    setHowTo(workorder::HowTo value);
+    int     retrieveHowTo();
+    workorder::HowTo retrieveBestHowToState();
+    void    setHowTo(int value);
 
     Ui::wworkorder *ui;
     workorder*      t_workorder;

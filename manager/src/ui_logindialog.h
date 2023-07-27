@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'logindialog.ui'
 **
-** Created by: Qt User Interface Compiler version 5.4.0
+** Created by: Qt User Interface Compiler version 5.13.1
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -10,13 +10,10 @@
 #define UI_LOGINDIALOG_H
 
 #include <QtCore/QVariant>
-#include <QtWidgets/QAction>
 #include <QtWidgets/QApplication>
-#include <QtWidgets/QButtonGroup>
 #include <QtWidgets/QDialog>
 #include <QtWidgets/QDialogButtonBox>
 #include <QtWidgets/QFormLayout>
-#include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QLineEdit>
 #include <QtWidgets/QVBoxLayout>
@@ -37,29 +34,29 @@ public:
     void setupUi(QDialog *loginDialog)
     {
         if (loginDialog->objectName().isEmpty())
-            loginDialog->setObjectName(QStringLiteral("loginDialog"));
+            loginDialog->setObjectName(QString::fromUtf8("loginDialog"));
         loginDialog->resize(369, 121);
         verticalLayout = new QVBoxLayout(loginDialog);
-        verticalLayout->setObjectName(QStringLiteral("verticalLayout"));
+        verticalLayout->setObjectName(QString::fromUtf8("verticalLayout"));
         formLayout = new QFormLayout();
-        formLayout->setObjectName(QStringLiteral("formLayout"));
+        formLayout->setObjectName(QString::fromUtf8("formLayout"));
         usuarioLabel = new QLabel(loginDialog);
-        usuarioLabel->setObjectName(QStringLiteral("usuarioLabel"));
+        usuarioLabel->setObjectName(QString::fromUtf8("usuarioLabel"));
 
         formLayout->setWidget(0, QFormLayout::LabelRole, usuarioLabel);
 
         usuarioLineEdit = new QLineEdit(loginDialog);
-        usuarioLineEdit->setObjectName(QStringLiteral("usuarioLineEdit"));
+        usuarioLineEdit->setObjectName(QString::fromUtf8("usuarioLineEdit"));
 
         formLayout->setWidget(0, QFormLayout::FieldRole, usuarioLineEdit);
 
         passwordLabel = new QLabel(loginDialog);
-        passwordLabel->setObjectName(QStringLiteral("passwordLabel"));
+        passwordLabel->setObjectName(QString::fromUtf8("passwordLabel"));
 
         formLayout->setWidget(1, QFormLayout::LabelRole, passwordLabel);
 
         passwordLineEdit = new QLineEdit(loginDialog);
-        passwordLineEdit->setObjectName(QStringLiteral("passwordLineEdit"));
+        passwordLineEdit->setObjectName(QString::fromUtf8("passwordLineEdit"));
         passwordLineEdit->setEchoMode(QLineEdit::Password);
 
         formLayout->setWidget(1, QFormLayout::FieldRole, passwordLineEdit);
@@ -68,7 +65,7 @@ public:
         verticalLayout->addLayout(formLayout);
 
         buttonBox = new QDialogButtonBox(loginDialog);
-        buttonBox->setObjectName(QStringLiteral("buttonBox"));
+        buttonBox->setObjectName(QString::fromUtf8("buttonBox"));
         buttonBox->setOrientation(Qt::Horizontal);
         buttonBox->setStandardButtons(QDialogButtonBox::Cancel|QDialogButtonBox::Ok);
 
@@ -84,10 +81,10 @@ public:
 
     void retranslateUi(QDialog *loginDialog)
     {
-        loginDialog->setWindowTitle(QApplication::translate("loginDialog", "Login", 0));
-        usuarioLabel->setText(QApplication::translate("loginDialog", "Usuario:", 0));
+        loginDialog->setWindowTitle(QCoreApplication::translate("loginDialog", "Login", nullptr));
+        usuarioLabel->setText(QCoreApplication::translate("loginDialog", "Usuario:", nullptr));
         usuarioLineEdit->setText(QString());
-        passwordLabel->setText(QApplication::translate("loginDialog", "Password:", 0));
+        passwordLabel->setText(QCoreApplication::translate("loginDialog", "Password:", nullptr));
         passwordLineEdit->setText(QString());
     } // retranslateUi
 

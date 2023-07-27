@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'wworkorder_pages.ui'
 **
-** Created by: Qt User Interface Compiler version 5.4.0
+** Created by: Qt User Interface Compiler version 5.13.1
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -10,13 +10,10 @@
 #define UI_WWORKORDER_PAGES_H
 
 #include <QtCore/QVariant>
-#include <QtWidgets/QAction>
 #include <QtWidgets/QApplication>
-#include <QtWidgets/QButtonGroup>
 #include <QtWidgets/QDialog>
 #include <QtWidgets/QDialogButtonBox>
 #include <QtWidgets/QFormLayout>
-#include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QSpacerItem>
 #include <QtWidgets/QSpinBox>
@@ -40,24 +37,24 @@ public:
     void setupUi(QDialog *wworkorder_pages)
     {
         if (wworkorder_pages->objectName().isEmpty())
-            wworkorder_pages->setObjectName(QStringLiteral("wworkorder_pages"));
+            wworkorder_pages->setObjectName(QString::fromUtf8("wworkorder_pages"));
         wworkorder_pages->setWindowModality(Qt::WindowModal);
         wworkorder_pages->resize(381, 122);
         wworkorder_pages->setModal(true);
         verticalLayout = new QVBoxLayout(wworkorder_pages);
-        verticalLayout->setObjectName(QStringLiteral("verticalLayout"));
+        verticalLayout->setObjectName(QString::fromUtf8("verticalLayout"));
         formLayout = new QFormLayout();
-        formLayout->setObjectName(QStringLiteral("formLayout"));
+        formLayout->setObjectName(QString::fromUtf8("formLayout"));
         formLayout->setFieldGrowthPolicy(QFormLayout::FieldsStayAtSizeHint);
         formLayout->setLabelAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
         formLayout->setFormAlignment(Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop);
         desdeLabel = new QLabel(wworkorder_pages);
-        desdeLabel->setObjectName(QStringLiteral("desdeLabel"));
+        desdeLabel->setObjectName(QString::fromUtf8("desdeLabel"));
 
         formLayout->setWidget(0, QFormLayout::LabelRole, desdeLabel);
 
         desdeSpinBox = new QSpinBox(wworkorder_pages);
-        desdeSpinBox->setObjectName(QStringLiteral("desdeSpinBox"));
+        desdeSpinBox->setObjectName(QString::fromUtf8("desdeSpinBox"));
         QSizePolicy sizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
         sizePolicy.setHorizontalStretch(0);
         sizePolicy.setVerticalStretch(0);
@@ -70,12 +67,12 @@ public:
         formLayout->setWidget(0, QFormLayout::FieldRole, desdeSpinBox);
 
         hastaLabel = new QLabel(wworkorder_pages);
-        hastaLabel->setObjectName(QStringLiteral("hastaLabel"));
+        hastaLabel->setObjectName(QString::fromUtf8("hastaLabel"));
 
         formLayout->setWidget(1, QFormLayout::LabelRole, hastaLabel);
 
         hastaSpinBox = new QSpinBox(wworkorder_pages);
-        hastaSpinBox->setObjectName(QStringLiteral("hastaSpinBox"));
+        hastaSpinBox->setObjectName(QString::fromUtf8("hastaSpinBox"));
         sizePolicy.setHeightForWidth(hastaSpinBox->sizePolicy().hasHeightForWidth());
         hastaSpinBox->setSizePolicy(sizePolicy);
         hastaSpinBox->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
@@ -90,7 +87,7 @@ public:
         verticalLayout->addLayout(formLayout);
 
         label = new QLabel(wworkorder_pages);
-        label->setObjectName(QStringLiteral("label"));
+        label->setObjectName(QString::fromUtf8("label"));
 
         verticalLayout->addWidget(label);
 
@@ -99,7 +96,7 @@ public:
         verticalLayout->addItem(verticalSpacer);
 
         buttonBox = new QDialogButtonBox(wworkorder_pages);
-        buttonBox->setObjectName(QStringLiteral("buttonBox"));
+        buttonBox->setObjectName(QString::fromUtf8("buttonBox"));
         buttonBox->setOrientation(Qt::Horizontal);
         buttonBox->setStandardButtons(QDialogButtonBox::Cancel|QDialogButtonBox::Ok);
 
@@ -115,10 +112,10 @@ public:
 
     void retranslateUi(QDialog *wworkorder_pages)
     {
-        wworkorder_pages->setWindowTitle(QApplication::translate("wworkorder_pages", "Desde/Hasta", 0));
-        desdeLabel->setText(QApplication::translate("wworkorder_pages", "Desde:", 0));
-        hastaLabel->setText(QApplication::translate("wworkorder_pages", "Hasta:", 0));
-        label->setText(QApplication::translate("wworkorder_pages", "Dejando Hasta en -1, indica que se haga hasta el final", 0));
+        wworkorder_pages->setWindowTitle(QCoreApplication::translate("wworkorder_pages", "Desde/Hasta", nullptr));
+        desdeLabel->setText(QCoreApplication::translate("wworkorder_pages", "Desde:", nullptr));
+        hastaLabel->setText(QCoreApplication::translate("wworkorder_pages", "Hasta:", nullptr));
+        label->setText(QCoreApplication::translate("wworkorder_pages", "Dejando Hasta en -1, indica que se haga hasta el final", nullptr));
     } // retranslateUi
 
 };

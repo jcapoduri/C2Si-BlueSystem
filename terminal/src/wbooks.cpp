@@ -17,8 +17,10 @@ wBooks::wBooks(business *bs, books *bk, QWidget *parent) :
     if(t_book == 0){
         setWindowTitle("Agregar Libro");
         t_book = new books();
+        toAdd = true;
     }else{
         setWindowTitle("Modificar Libro");
+        toAdd = false;
         ui->numeroSpinBox->setValue(t_book->number());
         ui->nombreLineEdit->setText(t_book->name());
         ui->simpleFazSpinBox->setValue(t_book->simpleFaz());
@@ -51,7 +53,7 @@ void wBooks::saved()
     t_book->setSimpleFaz(ui->simpleFazSpinBox->value());
     t_book->setDoubleFaz(ui->doubleFazSpinBox->value());
     t_book->setAnillado(a);
-    //t_book->commit(0);
+    t_book->commit(0);
     emit updated(t_book);
     close();
 }

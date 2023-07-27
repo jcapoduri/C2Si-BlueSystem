@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'wbookswidget.ui'
 **
-** Created by: Qt User Interface Compiler version 5.4.0
+** Created by: Qt User Interface Compiler version 5.13.1
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -10,11 +10,8 @@
 #define UI_WBOOKSWIDGET_H
 
 #include <QtCore/QVariant>
-#include <QtWidgets/QAction>
 #include <QtWidgets/QApplication>
-#include <QtWidgets/QButtonGroup>
 #include <QtWidgets/QComboBox>
-#include <QtWidgets/QHeaderView>
 #include <QtWidgets/QSpacerItem>
 #include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
@@ -32,7 +29,7 @@ public:
     void setupUi(QWidget *wBooksWidget)
     {
         if (wBooksWidget->objectName().isEmpty())
-            wBooksWidget->setObjectName(QStringLiteral("wBooksWidget"));
+            wBooksWidget->setObjectName(QString::fromUtf8("wBooksWidget"));
         wBooksWidget->resize(473, 178);
         QSizePolicy sizePolicy(QSizePolicy::Preferred, QSizePolicy::Maximum);
         sizePolicy.setHorizontalStretch(0);
@@ -40,11 +37,11 @@ public:
         sizePolicy.setHeightForWidth(wBooksWidget->sizePolicy().hasHeightForWidth());
         wBooksWidget->setSizePolicy(sizePolicy);
         verticalLayout = new QVBoxLayout(wBooksWidget);
-        verticalLayout->setObjectName(QStringLiteral("verticalLayout"));
+        verticalLayout->setObjectName(QString::fromUtf8("verticalLayout"));
         comboLayout = new QVBoxLayout();
-        comboLayout->setObjectName(QStringLiteral("comboLayout"));
+        comboLayout->setObjectName(QString::fromUtf8("comboLayout"));
         primaryComboBox = new QComboBox(wBooksWidget);
-        primaryComboBox->setObjectName(QStringLiteral("primaryComboBox"));
+        primaryComboBox->setObjectName(QString::fromUtf8("primaryComboBox"));
 
         comboLayout->addWidget(primaryComboBox);
 
@@ -63,7 +60,7 @@ public:
 
     void retranslateUi(QWidget *wBooksWidget)
     {
-        wBooksWidget->setWindowTitle(QApplication::translate("wBooksWidget", "Form", 0));
+        wBooksWidget->setWindowTitle(QCoreApplication::translate("wBooksWidget", "Form", nullptr));
     } // retranslateUi
 
 };

@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'wbackupdialog.ui'
 **
-** Created by: Qt User Interface Compiler version 5.4.0
+** Created by: Qt User Interface Compiler version 5.13.1
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -10,13 +10,10 @@
 #define UI_WBACKUPDIALOG_H
 
 #include <QtCore/QVariant>
-#include <QtWidgets/QAction>
 #include <QtWidgets/QApplication>
-#include <QtWidgets/QButtonGroup>
 #include <QtWidgets/QDialog>
 #include <QtWidgets/QDialogButtonBox>
 #include <QtWidgets/QHBoxLayout>
-#include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QPlainTextEdit>
 #include <QtWidgets/QProgressBar>
@@ -37,27 +34,27 @@ public:
     void setupUi(QDialog *wBackupDialog)
     {
         if (wBackupDialog->objectName().isEmpty())
-            wBackupDialog->setObjectName(QStringLiteral("wBackupDialog"));
+            wBackupDialog->setObjectName(QString::fromUtf8("wBackupDialog"));
         wBackupDialog->setWindowModality(Qt::ApplicationModal);
         wBackupDialog->resize(605, 193);
         wBackupDialog->setAcceptDrops(false);
         wBackupDialog->setModal(true);
         verticalLayout = new QVBoxLayout(wBackupDialog);
-        verticalLayout->setObjectName(QStringLiteral("verticalLayout"));
+        verticalLayout->setObjectName(QString::fromUtf8("verticalLayout"));
         plainTextEdit = new QPlainTextEdit(wBackupDialog);
-        plainTextEdit->setObjectName(QStringLiteral("plainTextEdit"));
+        plainTextEdit->setObjectName(QString::fromUtf8("plainTextEdit"));
 
         verticalLayout->addWidget(plainTextEdit);
 
         horizontalLayout = new QHBoxLayout();
-        horizontalLayout->setObjectName(QStringLiteral("horizontalLayout"));
+        horizontalLayout->setObjectName(QString::fromUtf8("horizontalLayout"));
         label = new QLabel(wBackupDialog);
-        label->setObjectName(QStringLiteral("label"));
+        label->setObjectName(QString::fromUtf8("label"));
 
         horizontalLayout->addWidget(label);
 
         progressBar = new QProgressBar(wBackupDialog);
-        progressBar->setObjectName(QStringLiteral("progressBar"));
+        progressBar->setObjectName(QString::fromUtf8("progressBar"));
         progressBar->setMaximum(0);
         progressBar->setValue(0);
 
@@ -67,7 +64,7 @@ public:
         verticalLayout->addLayout(horizontalLayout);
 
         buttonBox = new QDialogButtonBox(wBackupDialog);
-        buttonBox->setObjectName(QStringLiteral("buttonBox"));
+        buttonBox->setObjectName(QString::fromUtf8("buttonBox"));
         buttonBox->setStandardButtons(QDialogButtonBox::Close|QDialogButtonBox::Save);
 
         verticalLayout->addWidget(buttonBox);
@@ -80,8 +77,8 @@ public:
 
     void retranslateUi(QDialog *wBackupDialog)
     {
-        wBackupDialog->setWindowTitle(QApplication::translate("wBackupDialog", "Backup", 0));
-        label->setText(QApplication::translate("wBackupDialog", "Progreso:", 0));
+        wBackupDialog->setWindowTitle(QCoreApplication::translate("wBackupDialog", "Backup", nullptr));
+        label->setText(QCoreApplication::translate("wBackupDialog", "Progreso:", nullptr));
     } // retranslateUi
 
 };

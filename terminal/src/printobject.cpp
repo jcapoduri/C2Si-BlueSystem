@@ -512,7 +512,6 @@ QWidget *printObject::getInternalWorkOrders(workorder *w)
 
     item->barcodeLabel->setText(toCode128(QString("%1-%2-%3").arg(w->bussiness()->internalID()).arg(t_job->internalID())).arg(w->internalID()));
     item->readableBarcodeLabel->setText(QString("Codigo: %1-%2-%3").arg(w->bussiness()->internalID()).arg(t_job->internalID()).arg(w->internalID()));
-    //item->readableBarcodeLabel->setText(toCode128(QString("%1-%2").arg(w->bussiness()->internalID()).arg(t_job->internalID())));
     item->worknameLabel->setText(w->descripcion());
     item->recibidoLabel->setText(user::getUserName(w->userOwner()->internalID()));
 
@@ -522,36 +521,40 @@ QWidget *printObject::getInternalWorkOrders(workorder *w)
     item->horaValueLabel->setText(w->deadLine().time().toString());
 
     item->completeLabel->setText(w->doComplete() ? "SI" : "NO");
-    //item->howToLabel->setText(w->howto());
+    // fix this?!
     switch(w->howto()){
-        case workorder::TwoinOneDF:
+        case workorder::_TwoinOneDF:
             item->howToLabel->setText("2 en 1 DF");
             break;
-        case workorder::TwoinOneSF:
+        case workorder::_TwoinOneSF:
             item->howToLabel->setText("2 en 1 SF");
             break;
-        case workorder::HHDF:
+        case workorder::_HHDF:
             item->howToLabel->setText("H por H DF");
             break;
-        case workorder::HHSF:
+        case workorder::_HHSF:
             item->howToLabel->setText("H por H SF");
             break;
-        case workorder::toDF:
+        case workorder::_toDF:
             item->howToLabel->setText("pasar a DF");
             break;
-        case workorder::toSF:
+        case workorder::_toSF:
             item->howToLabel->setText("pasar a SF");
             break;
-        case workorder::likeThat:
+        case workorder::_likeThat:
             item->howToLabel->setText("Como esta");
             break;
     };
-
-    item->anilladoLabel->setText(w->conAnillado() ? "SI" : "NO");
+    if (w->conAnillado()) {
+      item->anilladoLabel->setText(w->conAbrochado() ? "Abrochado" : "SI");
+    } else {
+      item->anilladoLabel->setText("NO");
+    };
     if(w->conAnillado()){
         if(w->anilladoHowTo() == workorder::Superior) item->anillarWhereLabel->setText("Superior");
-        if(w->anilladoHowTo() == workorder::Lateral) item->anillarWhereLabel->setText("Lateral");
+        if(w->anilladoHowTo() == workorder::Lateral) item->anillarWhereLabel->setText("Lateral Izq");
         if(w->anilladoHowTo() == workorder::Inferior) item->anillarWhereLabel->setText("Inferior");
+        if(w->anilladoHowTo() == workorder::LateralDerecho) item->anillarWhereLabel->setText("Lateral Derecho");
     };
     item->fotocopiaValueLabel->setText(QString::number(w->totalFotocopias()));
     item->anilladoValueLabel->setText(QString::number(w->anillado()));

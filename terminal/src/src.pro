@@ -19,7 +19,7 @@ INCLUDEPATH += ../../bin
 
 LIBS += -L ../../bin -lnd
 
-CONFIG += ordered thread
+CONFIG += ordered thread c++11
 
 SOURCES += main.cpp\
         mainwidget.cpp\

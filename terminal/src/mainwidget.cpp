@@ -10,23 +10,25 @@
 #include <QSpacerItem>
 #include <QMenu>
 #include <QTimer>
+#include <QFile>
 
 #include "wworklist.h"
 #include "wlistlista.h"
 #include "wlistclient.h"
 #include "workorderlist.h"
 #include "wworkbooklist.h"
+#include "logger.h"
 
 mainWidget* mainWidget::t_instance = 0;
 
 mainWidget::mainWidget(QWidget *parent) :
     QWidget(parent, Qt::Tool | Qt::FramelessWindowHint | Qt::WindowStaysOnTopHint),
-    t_spacer(new QSpacerItem(40, 20, QSizePolicy::Minimum, QSizePolicy::Expanding)),
     ui(new Ui::mainWidget),
-    t_timer(new QTimer),    
+    t_spacer(new QSpacerItem(40, 20, QSizePolicy::Minimum, QSizePolicy::Expanding)),
+    t_icon(new QSystemTrayIcon(QIcon(":/icons/graphics/casitaazul.png"))),
+    t_timer(new QTimer),
     t_timer_sync(new QTimer),
-    t_sync_thread(new syncThread(this)),
-    t_icon(new QSystemTrayIcon(QIcon(":/icons/graphics/casitaazul.png")))
+    t_sync_thread(new syncThread(this))
 {
     // seteo la Ui
     ui->setupUi(this);
@@ -35,6 +37,14 @@ mainWidget::mainWidget(QWidget *parent) :
     int businessValue = configManager::getValue("thisBusiness").toInt();
     t_business = new business(businessValue);
     t_work_lister = new workorderList(t_business);
+
+    //seteo de logger
+    QString logfilename  = configManager::getValue("log", "file").toString();
+    int     logverbosity = configManager::getValue("log", "verbosity").toInt();
+    int     loglevel     = configManager::getValue("log", "level").toInt();
+    QFile*  logfile      = new QFile(logfilename);
+    logfile->open(QIODevice::Append);
+    nd::logger::setup(logfile, logverbosity, loglevel);
 
     //cargo los usuarios
     refreshUsers();
@@ -65,7 +75,7 @@ mainWidget::mainWidget(QWidget *parent) :
     connect(ui->worksPushButton, SIGNAL(clicked()), this, SLOT(listWorks()));
     connect(ui->listaButton, SIGNAL(clicked()), this, SLOT(listBookWorks()));
     connect(ui->othersButton, SIGNAL(clicked()), this, SLOT(listOthers()));
-    connect(t_timer_sync, SIGNAL(timeout()), this, SLOT(sync()));
+    //connect(t_timer_sync, SIGNAL(timeout()), this, SLOT(sync()));
 }
 
 mainWidget::~mainWidget()
@@ -98,19 +108,16 @@ business *mainWidget::currentBusiness()
 void mainWidget::connectToDB()
 {
     //seteo de las db
-    //nd::connection::instance()->setMainDb(nd::connection::addMySQL("main", "64.22.123.27", "fotocasi_user", "lokithor", "fotocasi_bluesystem"));
-    //nd::connection::instance()->setMainDb(nd::connection::addMySQL("main", "c2si.com.ar", "shaka_ShakaBahia", "abcd1234", "shaka_bluesystem"));
-    //nd::connection::instance()->setMainDb(nd::connection::addMySQL("main", "localhost", "root", "", "bluesystem"));
     QString dbname = configManager::getValue("database", "dbname").toString();
     QString dbhost = configManager::getValue("database", "dbhost").toString();
     QString dbuser = configManager::getValue("database", "dbuser").toString();
     QString dbpass = configManager::getValue("database", "dbpass").toString();
 
     nd::connection::instance()->setMainDb(nd::connection::addMySQL("main", dbhost, dbuser, dbpass, dbname));
-    qDebug() << nd::connection::maindb().lastError().text();
-    //nd::connection::instance()->setFallbackDb(nd::connection::addMySQL("fallback", "localhost", "root", "", "bluesystem"));
-   // nd::connection::instance()->sync();
-
+    QSqlError lastError = nd::connection::maindb().lastError();
+    qDebug() << lastError.text();
+    if (lastError.type() != QSqlError::NoError)
+        nd::logger::instance()->error(lastError.text());
 
     t_business->update();
     t_work_lister = new workorderList(t_business, this);
@@ -121,13 +128,6 @@ void mainWidget::connectToDB()
 
     setWindowTitle(QString("BlueSystem(%1)::Terminal    ver: %2").arg(t_business->name()).arg(VERSION));
 
-    /*workorderList lst(t_business);
-    lst.addState(workorder::Waiting);
-    lst.query();
-    while(lst.next()){
-        qDebug() << lst.item().internalID();
-    };*/
-    //t_timer->singleShot(5000, this, SLOT(checkWorks()));
     t_timer->start();
     t_timer_sync->start();
     checkRemoteLogin();
@@ -433,6 +433,8 @@ void mainWidget::setWidth(int w)
     //resizeHandle->setFixedHeight( rc.bottom - rc.top );
 }
 
+#endif //WIN32
+
 void mainWidget::sync()
 {
     //qDebug() << "temp";
@@ -443,4 +445,3 @@ void mainWidget::sync()
     //t_icon->showMessage("","Sincronizacion Completa...", QSystemTrayIcon::Warning, 5000);
     //nd::connection::instance()->sync();
 }
-#endif //WIN32

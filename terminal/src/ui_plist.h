@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'plist.ui'
 **
-** Created by: Qt User Interface Compiler version 5.4.0
+** Created by: Qt User Interface Compiler version 5.13.1
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -10,12 +10,9 @@
 #define UI_PLIST_H
 
 #include <QtCore/QVariant>
-#include <QtWidgets/QAction>
 #include <QtWidgets/QApplication>
-#include <QtWidgets/QButtonGroup>
 #include <QtWidgets/QFrame>
 #include <QtWidgets/QHBoxLayout>
-#include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QScrollArea>
 #include <QtWidgets/QVBoxLayout>
@@ -40,22 +37,22 @@ public:
     void setupUi(QWidget *plist)
     {
         if (plist->objectName().isEmpty())
-            plist->setObjectName(QStringLiteral("plist"));
+            plist->setObjectName(QString::fromUtf8("plist"));
         plist->resize(569, 470);
-        plist->setStyleSheet(QLatin1String("/*QWidget#plist, QWidget#scrollArea{\n"
+        plist->setStyleSheet(QString::fromUtf8("/*QWidget#plist, QWidget#scrollArea{\n"
 "	background-color: rgb(255, 255, 255);\n"
 "}*/\n"
 "QWidget{\n"
 "	background-color: rgb(255, 255, 255);\n"
 "}"));
         verticalLayout = new QVBoxLayout(plist);
-        verticalLayout->setObjectName(QStringLiteral("verticalLayout"));
+        verticalLayout->setObjectName(QString::fromUtf8("verticalLayout"));
         horizontalLayout = new QHBoxLayout();
-        horizontalLayout->setObjectName(QStringLiteral("horizontalLayout"));
+        horizontalLayout->setObjectName(QString::fromUtf8("horizontalLayout"));
         titleLabel = new QLabel(plist);
-        titleLabel->setObjectName(QStringLiteral("titleLabel"));
+        titleLabel->setObjectName(QString::fromUtf8("titleLabel"));
         QFont font;
-        font.setFamily(QStringLiteral("Verdana"));
+        font.setFamily(QString::fromUtf8("Verdana"));
         font.setPointSize(18);
         titleLabel->setFont(font);
         titleLabel->setAlignment(Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter);
@@ -63,7 +60,7 @@ public:
         horizontalLayout->addWidget(titleLabel);
 
         dateLabel = new QLabel(plist);
-        dateLabel->setObjectName(QStringLiteral("dateLabel"));
+        dateLabel->setObjectName(QString::fromUtf8("dateLabel"));
         dateLabel->setFont(font);
         dateLabel->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
 
@@ -73,33 +70,33 @@ public:
         verticalLayout->addLayout(horizontalLayout);
 
         line = new QFrame(plist);
-        line->setObjectName(QStringLiteral("line"));
+        line->setObjectName(QString::fromUtf8("line"));
         line->setFrameShape(QFrame::HLine);
         line->setFrameShadow(QFrame::Sunken);
 
         verticalLayout->addWidget(line);
 
         scrollArea = new QScrollArea(plist);
-        scrollArea->setObjectName(QStringLiteral("scrollArea"));
+        scrollArea->setObjectName(QString::fromUtf8("scrollArea"));
         scrollArea->setWidgetResizable(true);
         scrollAreaWidgetContents = new QWidget();
-        scrollAreaWidgetContents->setObjectName(QStringLiteral("scrollAreaWidgetContents"));
+        scrollAreaWidgetContents->setObjectName(QString::fromUtf8("scrollAreaWidgetContents"));
         scrollAreaWidgetContents->setGeometry(QRect(0, 0, 549, 360));
         verticalLayout_2 = new QVBoxLayout(scrollAreaWidgetContents);
-        verticalLayout_2->setObjectName(QStringLiteral("verticalLayout_2"));
+        verticalLayout_2->setObjectName(QString::fromUtf8("verticalLayout_2"));
         scrollArea->setWidget(scrollAreaWidgetContents);
 
         verticalLayout->addWidget(scrollArea);
 
         line_2 = new QFrame(plist);
-        line_2->setObjectName(QStringLiteral("line_2"));
+        line_2->setObjectName(QString::fromUtf8("line_2"));
         line_2->setFrameShape(QFrame::HLine);
         line_2->setFrameShadow(QFrame::Sunken);
 
         verticalLayout->addWidget(line_2);
 
         pageLabel = new QLabel(plist);
-        pageLabel->setObjectName(QStringLiteral("pageLabel"));
+        pageLabel->setObjectName(QString::fromUtf8("pageLabel"));
         pageLabel->setFont(font);
 
         verticalLayout->addWidget(pageLabel);
@@ -112,10 +109,10 @@ public:
 
     void retranslateUi(QWidget *plist)
     {
-        plist->setWindowTitle(QApplication::translate("plist", "Form", 0));
-        titleLabel->setText(QApplication::translate("plist", "<Titulo>", 0));
-        dateLabel->setText(QApplication::translate("plist", "<fecha>", 0));
-        pageLabel->setText(QApplication::translate("plist", "Pagina: ", 0));
+        plist->setWindowTitle(QCoreApplication::translate("plist", "Form", nullptr));
+        titleLabel->setText(QCoreApplication::translate("plist", "<Titulo>", nullptr));
+        dateLabel->setText(QCoreApplication::translate("plist", "<fecha>", nullptr));
+        pageLabel->setText(QCoreApplication::translate("plist", "Pagina: ", nullptr));
     } // retranslateUi
 
 };
