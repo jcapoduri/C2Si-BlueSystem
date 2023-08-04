@@ -244,17 +244,17 @@ void wworkorder::setHowTo(int value)
     int flags = value;
     if (flags == 0) {
         workorder::HowTo oldFlag = t_workorder->howto();
-        ui->d2En1DFCheckBox->setChecked(oldFlag == workorder::_TwoinOneSF);
-        ui->d2En1SFCheckBox->setChecked(oldFlag == workorder::_HHDF);
-        ui->hHDFCheckBox->setChecked(oldFlag == workorder::_TwoinOneDF);
+        ui->d2En1DFCheckBox->setChecked(oldFlag == workorder::_TwoinOneDF);
+        ui->d2En1SFCheckBox->setChecked(oldFlag == workorder::_TwoinOneSF);
+        ui->hHDFCheckBox->setChecked(oldFlag == workorder::_HHDF);
         ui->hHSFCheckBox->setChecked(oldFlag == workorder::_HHSF);
         ui->pasarDFCheckBox->setChecked(oldFlag == workorder::_toDF);
         ui->pasarSFCheckBox->setChecked(oldFlag == workorder::_toSF);
         ui->comoEstaCheckBox->setChecked(oldFlag == workorder::_likeThat);
     } else {
-        ui->d2En1DFCheckBox->setChecked(flags & workorder::TwoinOneSF);
-        ui->d2En1SFCheckBox->setChecked(flags & workorder::HHDF);
-        ui->hHDFCheckBox->setChecked(flags & workorder::TwoinOneDF);
+        ui->d2En1DFCheckBox->setChecked(flags & workorder::TwoinOneDF);
+        ui->d2En1SFCheckBox->setChecked(flags & workorder::TwoinOneSF);
+        ui->hHDFCheckBox->setChecked(flags & workorder::HHDF);
         ui->hHSFCheckBox->setChecked(flags & workorder::HHSF);
         ui->pasarDFCheckBox->setChecked(flags & workorder::toDF);
         ui->pasarSFCheckBox->setChecked(flags & workorder::toSF);
