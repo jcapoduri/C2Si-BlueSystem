@@ -75,7 +75,7 @@ mainWidget::mainWidget(QWidget *parent) :
     connect(ui->worksPushButton, SIGNAL(clicked()), this, SLOT(listWorks()));
     connect(ui->listaButton, SIGNAL(clicked()), this, SLOT(listBookWorks()));
     connect(ui->othersButton, SIGNAL(clicked()), this, SLOT(listOthers()));
-    //connect(t_timer_sync, SIGNAL(timeout()), this, SLOT(sync()));
+    connect(t_timer_sync, SIGNAL(timeout()), this, SLOT(sync()));
 }
 
 mainWidget::~mainWidget()
