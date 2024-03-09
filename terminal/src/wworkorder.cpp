@@ -80,8 +80,8 @@ wworkorder::wworkorder(wJob *wjob, workorder *work, QWidget *parent) :
     connect(ui->imprDFDoubleSpinBox, SIGNAL(editingFinished()), this, SLOT(updateCost()));
     connect(ui->colorSFDoubleSpinBox, SIGNAL(editingFinished()), this, SLOT(updateCost()));
     connect(ui->colorDFDoubleSpinBox, SIGNAL(editingFinished()), this, SLOT(updateCost()));
-    /*connect(ui->imprDFDoubleSpinBox, SIGNAL(editingFinished()), this, SLOT(updateCost()));
-    connect(ui->imprSFDoubleSpinBox, SIGNAL(editingFinished()), this, SLOT(updateCost()));*/
+    connect(ui->imprDFDoubleSpinBox, SIGNAL(editingFinished()), this, SLOT(updateCost()));
+    connect(ui->imprSFDoubleSpinBox, SIGNAL(editingFinished()), this, SLOT(updateCost()));
 }
 
 wworkorder::~wworkorder()
@@ -108,12 +108,12 @@ void wworkorder::save()
     t_workorder->setConAnillado(ui->anilladoGroupBox->isChecked() && ui->anilladoRadioButton->isChecked());
     t_workorder->setTotal(ui->tOTALDoubleSpinBox->value());
     t_workorder->setAnillado(ui->costoAnilladoDoubleSpinBox->value());
-    t_workorder->setConAbrochado(ui->anilladoGroupBox->isChecked() && ui->abrochadoCheckBox->isChecked());
+    t_workorder->setConAbrochado(ui->anilladoGroupBox->isChecked() && ui->abrochadoRadioButton->isChecked());
 
     //cantidades
     t_workorder->setSimpleFaz(ui->simpleFazSpinBox->value());
     t_workorder->setDobleFaz(ui->doubleFazSpinBox->value());
-    t_workorder->setISimpleFaz(ui->imprColorSFSpinBox->value());
+    t_workorder->setISimpleFaz(ui->imprSimpleFazSpinBox->value());
     t_workorder->setIDobleFaz(ui->imprDoubleFazSpinBox->value());
     t_workorder->setCSimpleFaz(ui->imprColorSFSpinBox->value());
     t_workorder->setCDobleFaz(ui->imprColorDFSpinBox->value());
