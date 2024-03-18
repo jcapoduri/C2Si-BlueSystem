@@ -87,13 +87,18 @@ public:
     QHBoxLayout *horizontalLayout_3;
     QGroupBox *anilladoGroupBox;
     QVBoxLayout *verticalLayout_6;
+    QGroupBox *groupBox_6;
+    QVBoxLayout *verticalLayout_9;
+    QCheckBox *anilladoCheckBox;
+    QCheckBox *abrochadoCheckBox;
+    QGroupBox *groupBox_7;
+    QVBoxLayout *verticalLayout_10;
     QGridLayout *gridLayout;
     QRadioButton *bottomButton;
     QRadioButton *superiorRadioButton;
     QRadioButton *leftRadioButton;
     QFrame *frame;
     QRadioButton *rightRadioButton;
-    QCheckBox *abrochadoCheckBox;
     QGroupBox *groupBox_5;
     QVBoxLayout *verticalLayout_7;
     QFormLayout *formLayout_4;
@@ -138,7 +143,7 @@ public:
     {
         if (wworkorder->objectName().isEmpty())
             wworkorder->setObjectName(QString::fromUtf8("wworkorder"));
-        wworkorder->resize(849, 549);
+        wworkorder->resize(1110, 588);
         horizontalLayout_5 = new QHBoxLayout(wworkorder);
         horizontalLayout_5->setObjectName(QString::fromUtf8("horizontalLayout_5"));
         verticalLayout_4 = new QVBoxLayout();
@@ -421,19 +426,41 @@ public:
         anilladoGroupBox->setChecked(false);
         verticalLayout_6 = new QVBoxLayout(anilladoGroupBox);
         verticalLayout_6->setObjectName(QString::fromUtf8("verticalLayout_6"));
+        groupBox_6 = new QGroupBox(anilladoGroupBox);
+        groupBox_6->setObjectName(QString::fromUtf8("groupBox_6"));
+        verticalLayout_9 = new QVBoxLayout(groupBox_6);
+        verticalLayout_9->setObjectName(QString::fromUtf8("verticalLayout_9"));
+        anilladoCheckBox = new QCheckBox(groupBox_6);
+        anilladoCheckBox->setObjectName(QString::fromUtf8("anilladoCheckBox"));
+        anilladoCheckBox->setChecked(true);
+
+        verticalLayout_9->addWidget(anilladoCheckBox);
+
+        abrochadoCheckBox = new QCheckBox(groupBox_6);
+        abrochadoCheckBox->setObjectName(QString::fromUtf8("abrochadoCheckBox"));
+
+        verticalLayout_9->addWidget(abrochadoCheckBox);
+
+
+        verticalLayout_6->addWidget(groupBox_6);
+
+        groupBox_7 = new QGroupBox(anilladoGroupBox);
+        groupBox_7->setObjectName(QString::fromUtf8("groupBox_7"));
+        verticalLayout_10 = new QVBoxLayout(groupBox_7);
+        verticalLayout_10->setObjectName(QString::fromUtf8("verticalLayout_10"));
         gridLayout = new QGridLayout();
         gridLayout->setObjectName(QString::fromUtf8("gridLayout"));
-        bottomButton = new QRadioButton(anilladoGroupBox);
+        bottomButton = new QRadioButton(groupBox_7);
         bottomButton->setObjectName(QString::fromUtf8("bottomButton"));
 
         gridLayout->addWidget(bottomButton, 2, 1, 1, 1);
 
-        superiorRadioButton = new QRadioButton(anilladoGroupBox);
+        superiorRadioButton = new QRadioButton(groupBox_7);
         superiorRadioButton->setObjectName(QString::fromUtf8("superiorRadioButton"));
 
         gridLayout->addWidget(superiorRadioButton, 0, 1, 1, 1);
 
-        leftRadioButton = new QRadioButton(anilladoGroupBox);
+        leftRadioButton = new QRadioButton(groupBox_7);
         leftRadioButton->setObjectName(QString::fromUtf8("leftRadioButton"));
         QSizePolicy sizePolicy5(QSizePolicy::Maximum, QSizePolicy::Fixed);
         sizePolicy5.setHorizontalStretch(0);
@@ -444,32 +471,31 @@ public:
 
         gridLayout->addWidget(leftRadioButton, 1, 2, 1, 1);
 
-        frame = new QFrame(anilladoGroupBox);
+        frame = new QFrame(groupBox_7);
         frame->setObjectName(QString::fromUtf8("frame"));
         QSizePolicy sizePolicy6(QSizePolicy::Preferred, QSizePolicy::MinimumExpanding);
         sizePolicy6.setHorizontalStretch(0);
         sizePolicy6.setVerticalStretch(0);
         sizePolicy6.setHeightForWidth(frame->sizePolicy().hasHeightForWidth());
         frame->setSizePolicy(sizePolicy6);
-        frame->setMinimumSize(QSize(60, 100));
+        frame->setMinimumSize(QSize(35, 85));
+        frame->setBaseSize(QSize(35, 85));
         frame->setFrameShape(QFrame::Box);
         frame->setFrameShadow(QFrame::Plain);
         frame->setLineWidth(2);
 
         gridLayout->addWidget(frame, 1, 1, 1, 1);
 
-        rightRadioButton = new QRadioButton(anilladoGroupBox);
+        rightRadioButton = new QRadioButton(groupBox_7);
         rightRadioButton->setObjectName(QString::fromUtf8("rightRadioButton"));
 
         gridLayout->addWidget(rightRadioButton, 1, 0, 1, 1);
 
 
-        verticalLayout_6->addLayout(gridLayout);
+        verticalLayout_10->addLayout(gridLayout);
 
-        abrochadoCheckBox = new QCheckBox(anilladoGroupBox);
-        abrochadoCheckBox->setObjectName(QString::fromUtf8("abrochadoCheckBox"));
 
-        verticalLayout_6->addWidget(abrochadoCheckBox);
+        verticalLayout_6->addWidget(groupBox_7);
 
 
         horizontalLayout_3->addWidget(anilladoGroupBox);
@@ -480,6 +506,7 @@ public:
         verticalLayout_7->setObjectName(QString::fromUtf8("verticalLayout_7"));
         formLayout_4 = new QFormLayout();
         formLayout_4->setObjectName(QString::fromUtf8("formLayout_4"));
+        formLayout_4->setFieldGrowthPolicy(QFormLayout::AllNonFixedFieldsGrow);
         simpleFazLabel = new QLabel(groupBox_5);
         simpleFazLabel->setObjectName(QString::fromUtf8("simpleFazLabel"));
 
@@ -588,7 +615,7 @@ public:
         costoSFDoubleSpinBox->setSizePolicy(sizePolicy1);
         costoSFDoubleSpinBox->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
         costoSFDoubleSpinBox->setDecimals(3);
-        costoSFDoubleSpinBox->setMaximum(9999.989999999999782);
+        costoSFDoubleSpinBox->setMaximum(9999999.990000000223517);
 
         formLayout_3->setWidget(0, QFormLayout::FieldRole, costoSFDoubleSpinBox);
 
@@ -603,7 +630,7 @@ public:
         costoDFDoubleSpinBox->setSizePolicy(sizePolicy1);
         costoDFDoubleSpinBox->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
         costoDFDoubleSpinBox->setDecimals(3);
-        costoDFDoubleSpinBox->setMaximum(9999.989999999999782);
+        costoDFDoubleSpinBox->setMaximum(9999999.990000000223517);
 
         formLayout_3->setWidget(1, QFormLayout::FieldRole, costoDFDoubleSpinBox);
 
@@ -618,7 +645,7 @@ public:
         costoAnilladoDoubleSpinBox->setSizePolicy(sizePolicy1);
         costoAnilladoDoubleSpinBox->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
         costoAnilladoDoubleSpinBox->setDecimals(3);
-        costoAnilladoDoubleSpinBox->setMaximum(9999.989999999999782);
+        costoAnilladoDoubleSpinBox->setMaximum(9999999.990000000223517);
 
         formLayout_3->setWidget(6, QFormLayout::FieldRole, costoAnilladoDoubleSpinBox);
 
@@ -633,7 +660,7 @@ public:
         seADoubleSpinBox->setSizePolicy(sizePolicy1);
         seADoubleSpinBox->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
         seADoubleSpinBox->setDecimals(3);
-        seADoubleSpinBox->setMaximum(9999.989999999999782);
+        seADoubleSpinBox->setMaximum(9999999.990000000223517);
 
         formLayout_3->setWidget(7, QFormLayout::FieldRole, seADoubleSpinBox);
 
@@ -648,7 +675,7 @@ public:
         tOTALDoubleSpinBox->setSizePolicy(sizePolicy1);
         tOTALDoubleSpinBox->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
         tOTALDoubleSpinBox->setDecimals(3);
-        tOTALDoubleSpinBox->setMaximum(9999.989999999999782);
+        tOTALDoubleSpinBox->setMaximum(9999999.990000000223517);
 
         formLayout_3->setWidget(8, QFormLayout::FieldRole, tOTALDoubleSpinBox);
 
@@ -663,7 +690,7 @@ public:
         imprSFDoubleSpinBox->setSizePolicy(sizePolicy1);
         imprSFDoubleSpinBox->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
         imprSFDoubleSpinBox->setDecimals(3);
-        imprSFDoubleSpinBox->setMaximum(9999.989999999999782);
+        imprSFDoubleSpinBox->setMaximum(9999999.990000000223517);
 
         formLayout_3->setWidget(2, QFormLayout::FieldRole, imprSFDoubleSpinBox);
 
@@ -678,7 +705,7 @@ public:
         imprDFDoubleSpinBox->setSizePolicy(sizePolicy1);
         imprDFDoubleSpinBox->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
         imprDFDoubleSpinBox->setDecimals(3);
-        imprDFDoubleSpinBox->setMaximum(9999.989999999999782);
+        imprDFDoubleSpinBox->setMaximum(9999999.990000000223517);
 
         formLayout_3->setWidget(3, QFormLayout::FieldRole, imprDFDoubleSpinBox);
 
@@ -693,7 +720,7 @@ public:
         colorSFDoubleSpinBox->setSizePolicy(sizePolicy1);
         colorSFDoubleSpinBox->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
         colorSFDoubleSpinBox->setDecimals(3);
-        colorSFDoubleSpinBox->setMaximum(9999.989999999999782);
+        colorSFDoubleSpinBox->setMaximum(9999999.990000000223517);
 
         formLayout_3->setWidget(4, QFormLayout::FieldRole, colorSFDoubleSpinBox);
 
@@ -708,7 +735,7 @@ public:
         colorDFDoubleSpinBox->setSizePolicy(sizePolicy1);
         colorDFDoubleSpinBox->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
         colorDFDoubleSpinBox->setDecimals(3);
-        colorDFDoubleSpinBox->setMaximum(9999.989999999999782);
+        colorDFDoubleSpinBox->setMaximum(9999999.990000000223517);
 
         formLayout_3->setWidget(5, QFormLayout::FieldRole, colorDFDoubleSpinBox);
 
@@ -766,12 +793,15 @@ public:
         nombreLabel->setText(QCoreApplication::translate("wworkorder", "Nombre:", nullptr));
         nroJuegosLabel->setText(QCoreApplication::translate("wworkorder", "Nro Juegos", nullptr));
         deleteButton->setText(QCoreApplication::translate("wworkorder", "Eliminar Trabajo", nullptr));
-        anilladoGroupBox->setTitle(QCoreApplication::translate("wworkorder", "Anillado", nullptr));
+        anilladoGroupBox->setTitle(QCoreApplication::translate("wworkorder", "Unir fotocopias", nullptr));
+        groupBox_6->setTitle(QCoreApplication::translate("wworkorder", "Tipo", nullptr));
+        anilladoCheckBox->setText(QCoreApplication::translate("wworkorder", "Anillado", nullptr));
+        abrochadoCheckBox->setText(QCoreApplication::translate("wworkorder", "Abrochado", nullptr));
+        groupBox_7->setTitle(QCoreApplication::translate("wworkorder", "Posicion", nullptr));
         bottomButton->setText(QCoreApplication::translate("wworkorder", "de Abajo", nullptr));
         superiorRadioButton->setText(QCoreApplication::translate("wworkorder", "Superior", nullptr));
         leftRadioButton->setText(QCoreApplication::translate("wworkorder", "Lateral", nullptr));
         rightRadioButton->setText(QCoreApplication::translate("wworkorder", "Lateral derecho", nullptr));
-        abrochadoCheckBox->setText(QCoreApplication::translate("wworkorder", "Abrochado", nullptr));
         groupBox_5->setTitle(QCoreApplication::translate("wworkorder", "Cantidades", nullptr));
         simpleFazLabel->setText(QCoreApplication::translate("wworkorder", "simple faz:", nullptr));
         doubleFazLabel->setText(QCoreApplication::translate("wworkorder", "double faz:", nullptr));

@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>855</width>
-    <height>549</height>
+    <width>1110</width>
+    <height>588</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -395,7 +395,7 @@
             </property>
             <layout class="QVBoxLayout" name="verticalLayout_9">
              <item>
-              <widget class="QRadioButton" name="anilladoRadioButton">
+              <widget class="QCheckBox" name="anilladoCheckBox">
                <property name="text">
                 <string>Anillado</string>
                </property>
@@ -405,7 +405,7 @@
               </widget>
              </item>
              <item>
-              <widget class="QRadioButton" name="abrochadoRadioButton">
+              <widget class="QCheckBox" name="abrochadoCheckBox">
                <property name="text">
                 <string>Abrochado</string>
                </property>
@@ -462,8 +462,14 @@
                  </property>
                  <property name="minimumSize">
                   <size>
-                   <width>60</width>
-                   <height>100</height>
+                   <width>35</width>
+                   <height>85</height>
+                  </size>
+                 </property>
+                 <property name="baseSize">
+                  <size>
+                   <width>35</width>
+                   <height>85</height>
                   </size>
                  </property>
                  <property name="frameShape">
@@ -915,7 +921,6 @@
   </layout>
  </widget>
  <resources>
-  <include location="resources.qrc"/>
   <include location="resources.qrc"/>
  </resources>
  <connections>

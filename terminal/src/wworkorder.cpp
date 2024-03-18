@@ -25,7 +25,8 @@ wworkorder::wworkorder(wJob *wjob, workorder *work, QWidget *parent) :
         ui->completeNoButton->setChecked(!t_workorder->doComplete());
         ui->anilladoGroupBox->setChecked(t_workorder->conAnillado() || t_workorder->conAbrochado());
         ui->estadoComboBox->setCurrentIndex(ui->estadoComboBox->findData(t_workorder->estado()));
-        ui->abrochadoRadioButton->setChecked(t_workorder->conAbrochado());
+        ui->abrochadoCheckBox->setChecked(t_workorder->conAbrochado());
+        ui->anilladoCheckBox->setChecked(t_workorder->conAnillado());
         if(t_workorder->anilladoHowTo() == workorder::Superior) ui->superiorRadioButton->setChecked(true);
         if(t_workorder->anilladoHowTo() == workorder::Lateral) ui->leftRadioButton->setChecked(true);
         if(t_workorder->anilladoHowTo() == workorder::LateralDerecho) ui->rightRadioButton->setChecked(true);
@@ -105,10 +106,10 @@ void wworkorder::save()
     t_workorder->setSenna(ui->seADoubleSpinBox->value());
     t_workorder->setHowTo(retrieveBestHowToState());
     t_workorder->setHowToFlags(retrieveHowTo());
-    t_workorder->setConAnillado(ui->anilladoGroupBox->isChecked() && ui->anilladoRadioButton->isChecked());
+    t_workorder->setConAnillado(ui->anilladoGroupBox->isChecked() && ui->anilladoCheckBox->isChecked());
     t_workorder->setTotal(ui->tOTALDoubleSpinBox->value());
     t_workorder->setAnillado(ui->costoAnilladoDoubleSpinBox->value());
-    t_workorder->setConAbrochado(ui->anilladoGroupBox->isChecked() && ui->abrochadoRadioButton->isChecked());
+    t_workorder->setConAbrochado(ui->anilladoGroupBox->isChecked() && ui->abrochadoCheckBox->isChecked());
 
     //cantidades
     t_workorder->setSimpleFaz(ui->simpleFazSpinBox->value());
