@@ -54,3 +54,7 @@ compile_commands.json
 *_qmlcache.qrc
 
 .qtc_clangd
+
+bin
+deployment
+production
